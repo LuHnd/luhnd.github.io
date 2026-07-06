@@ -623,7 +623,9 @@
       );
       btn.on("hover:enter", () => ensureAuth(() => openCardMenu(movie, () => refreshButton(btn, movie))));
       const container = render.find(".full-start-new__buttons, .full-start__buttons").first();
-      if (container.length) container.append(btn);
+      const firstButton = container.find(".full-start__button").first();
+      if (firstButton.length) firstButton.after(btn);
+      else if (container.length) container.append(btn);
       refreshButton(btn, movie);
     });
   }
