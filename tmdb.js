@@ -22,6 +22,7 @@
 
   // src/config.ts
   var TMDB_API_KEY = "b7d4b39abbb7bee7fcbf52f0549d518b";
+  var TMDB_V4_TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiN2Q0YjM5YWJiYjdiZWU3ZmNiZjUyZjA1NDlkNTE4YiIsIm5iZiI6MTc4MzI5MzQyMC4yODcwMDAyLCJzdWIiOiI2YTRhZTVlYzAzMTQwOTM1NjNjZjBkNjciLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.SepQ5JZPZHIOHGzVTGXSkuJtm4AxGQE31lhg1bkaadg";
 
   // src/tmdb.ts
   var API = "https://api.themoviedb.org/3";
@@ -223,6 +224,50 @@
     });
   }
 
+  // src/tmdb-v4.ts
+  var API4 = "https://api.themoviedb.org/4";
+  var configured = () => /^[A-Za-z0-9_-]{20,}\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+$/.test(TMDB_V4_TOKEN);
+  var accessToken = () => Lampa.Storage.get("tmdbacc_v4_token", "");
+  var accountId2 = () => Lampa.Storage.get("tmdbacc_v4_account", "");
+  var logged2 = () => !!(accessToken() && accountId2());
+  function call(bearer, method, path, query = {}, body) {
+    const q = __spreadProps(__spreadValues({}, query), { language: Lampa.Storage.get("language", "ru") });
+    const url = API4 + path + "?" + Object.keys(q).map((k) => k + "=" + encodeURIComponent(q[k])).join("&");
+    return fetch(url, {
+      method,
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+        Authorization: "Bearer " + bearer
+      },
+      body: body ? JSON.stringify(body) : void 0
+    }).then((r) => r.json());
+  }
+  function createRequestToken2() {
+    return call(TMDB_V4_TOKEN, "POST", "/auth/request_token", {}, {}).then(
+      (t) => t.request_token || null
+    );
+  }
+  function approveUrl(token) {
+    return "https://www.themoviedb.org/auth/access?request_token=" + token;
+  }
+  function createAccessToken(token) {
+    return call(TMDB_V4_TOKEN, "POST", "/auth/access_token", {}, { request_token: token }).then((r) => {
+      if (!r.access_token || !r.account_id) return null;
+      return { accessToken: r.access_token, accountId: r.account_id };
+    });
+  }
+  function finishLogin2(accessTokenValue, accountIdValue) {
+    Lampa.Storage.set("tmdbacc_v4_token", accessTokenValue);
+    Lampa.Storage.set("tmdbacc_v4_account", accountIdValue);
+  }
+  function logout2() {
+    Lampa.Storage.set("tmdbacc_v4_token", "");
+    Lampa.Storage.set("tmdbacc_v4_account", "");
+  }
+  function request2(method, path, query) {
+    return call(accessToken(), method, path, query);
+  }
+
   // src/auth.ts
   var POLL_MS = 4e3;
   function ensureAuth(then) {
@@ -245,11 +290,11 @@
   function qrFlow(then) {
     createRequestToken().then((token) => {
       if (!token) return Lampa.Noty.show("\u041D\u0435 \u0443\u0434\u0430\u043B\u043E\u0441\u044C \u043F\u043E\u043B\u0443\u0447\u0438\u0442\u044C \u0442\u043E\u043A\u0435\u043D TMDB");
-      const approveUrl = "https://www.themoviedb.org/authenticate/" + token;
-      const qrUrl = "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=" + encodeURIComponent(approveUrl);
+      const approveUrl2 = "https://www.themoviedb.org/authenticate/" + token;
+      const qrUrl = "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=" + encodeURIComponent(approveUrl2);
       let stopped = false;
       const html = $(
-        '<div style="text-align:center;padding:1em 0"><img src="' + qrUrl + '" style="width:16em;height:16em;background:#fff;padding:0.7em;border-radius:0.7em"/><div style="margin-top:1.2em;font-size:1.15em">\u041E\u0442\u0441\u043A\u0430\u043D\u0438\u0440\u0443\u0439\u0442\u0435 QR-\u043A\u043E\u0434 \u0442\u0435\u043B\u0435\u0444\u043E\u043D\u043E\u043C,<br>\u0432\u043E\u0439\u0434\u0438\u0442\u0435 \u0432 TMDB \u0438 \u043D\u0430\u0436\u043C\u0438\u0442\u0435 \xABApprove\xBB</div><div style="margin-top:0.8em;opacity:0.6;font-size:0.85em;word-break:break-all">' + approveUrl + "</div></div>"
+        '<div style="text-align:center;padding:1em 0"><img src="' + qrUrl + '" style="width:16em;height:16em;background:#fff;padding:0.7em;border-radius:0.7em"/><div style="margin-top:1.2em;font-size:1.15em">\u041E\u0442\u0441\u043A\u0430\u043D\u0438\u0440\u0443\u0439\u0442\u0435 QR-\u043A\u043E\u0434 \u0442\u0435\u043B\u0435\u0444\u043E\u043D\u043E\u043C,<br>\u0432\u043E\u0439\u0434\u0438\u0442\u0435 \u0432 TMDB \u0438 \u043D\u0430\u0436\u043C\u0438\u0442\u0435 \xABApprove\xBB</div><div style="margin-top:0.8em;opacity:0.6;font-size:0.85em;word-break:break-all">' + approveUrl2 + "</div></div>"
       );
       Lampa.Modal.open({
         title: "\u0412\u0445\u043E\u0434 \u0432 TMDB",
@@ -271,7 +316,7 @@
             Lampa.Controller.toggle("content");
             finishLogin(sessionId, () => {
               syncAll(true);
-              then();
+              ensureV4(then);
             });
           } else {
             setTimeout(poll, POLL_MS);
@@ -280,6 +325,44 @@
       };
       setTimeout(poll, POLL_MS);
     });
+  }
+  function ensureV4(next) {
+    if (!configured() || logged2()) return next();
+    createRequestToken2().then((token) => {
+      if (!token) return next();
+      const url = approveUrl(token);
+      const qrUrl = "https://api.qrserver.com/v1/create-qr-code/?size=360x360&data=" + encodeURIComponent(url);
+      let stopped = false;
+      const finish = () => {
+        stopped = true;
+        Lampa.Modal.close();
+        Lampa.Controller.toggle("content");
+        next();
+      };
+      const html = $(
+        '<div style="text-align:center;padding:1em 0"><img src="' + qrUrl + '" style="width:14em;height:14em;background:#fff;padding:0.6em;border-radius:0.7em"/><div style="margin-top:1.2em;font-size:1.1em">\u0415\u0449\u0451 \u0440\u0430\u0437 \u043F\u043E\u0434\u0442\u0432\u0435\u0440\u0434\u0438\u0442\u0435 \u043D\u0430 \u0442\u0435\u043B\u0435\u0444\u043E\u043D\u0435 \u2014<br>\u044D\u0442\u043E \u0432\u043A\u043B\u044E\u0447\u0438\u0442 \u043F\u0435\u0440\u0441\u043E\u043D\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0435\u043A\u043E\u043C\u0435\u043D\u0434\u0430\u0446\u0438\u0438 TMDB</div><div class="selector" style="display:inline-block;margin-top:1.2em;padding:0.6em 1.4em;border-radius:0.5em;background:rgba(255,255,255,0.12)">\u041F\u0440\u043E\u043F\u0443\u0441\u0442\u0438\u0442\u044C</div></div>'
+      );
+      html.find(".selector").on("hover:enter", finish);
+      Lampa.Modal.open({
+        title: "\u041F\u0435\u0440\u0441\u043E\u043D\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0435\u043A\u043E\u043C\u0435\u043D\u0434\u0430\u0446\u0438\u0438",
+        html,
+        size: "medium",
+        onBack: finish
+      });
+      const poll = () => {
+        if (stopped) return;
+        createAccessToken(token).then((result) => {
+          if (stopped) return;
+          if (result) {
+            finishLogin2(result.accessToken, result.accountId);
+            finish();
+          } else {
+            setTimeout(poll, POLL_MS);
+          }
+        }).catch(() => setTimeout(poll, POLL_MS * 2));
+      };
+      setTimeout(poll, POLL_MS);
+    }).catch(next);
   }
   function passwordFlow(then) {
     Lampa.Input.edit(
@@ -293,7 +376,7 @@
             if (!pass) return Lampa.Controller.toggle("content");
             loginWithPassword(user, pass, () => {
               syncAll(true);
-              then();
+              ensureV4(then);
             });
           }
         );
@@ -547,6 +630,7 @@
 
   // src/catalog.ts
   var SOURCE = "tmdbacc";
+  var V4_PREFIX = "v4:";
   var CATEGORIES = [
     { title: "\u0421\u043C\u043E\u0442\u0440\u0435\u0442\u044C \u043F\u043E\u0437\u0436\u0435 \u2014 \u0444\u0438\u043B\u044C\u043C\u044B", url: "/account/{account}/watchlist/movies" },
     { title: "\u0421\u043C\u043E\u0442\u0440\u0435\u0442\u044C \u043F\u043E\u0437\u0436\u0435 \u2014 \u0441\u0435\u0440\u0438\u0430\u043B\u044B", url: "/account/{account}/watchlist/tv" },
@@ -555,8 +639,30 @@
     { title: "\u041E\u0446\u0435\u043D\u0451\u043D\u043D\u044B\u0435 \u2014 \u0444\u0438\u043B\u044C\u043C\u044B", url: "/account/{account}/rated/movies" },
     { title: "\u041E\u0446\u0435\u043D\u0451\u043D\u043D\u044B\u0435 \u2014 \u0441\u0435\u0440\u0438\u0430\u043B\u044B", url: "/account/{account}/rated/tv" }
   ];
+  var V4_CATEGORIES = [
+    { title: "\u0420\u0435\u043A\u043E\u043C\u0435\u043D\u0434\u0430\u0446\u0438\u0438 \u2014 \u0444\u0438\u043B\u044C\u043C\u044B", url: V4_PREFIX + "/account/{account}/movie/recommendations" },
+    { title: "\u0420\u0435\u043A\u043E\u043C\u0435\u043D\u0434\u0430\u0446\u0438\u0438 \u2014 \u0441\u0435\u0440\u0438\u0430\u043B\u044B", url: V4_PREFIX + "/account/{account}/tv/recommendations" }
+  ];
+  function sourceListV4(url, page, oncomplite, onerror) {
+    const path = url.slice(V4_PREFIX.length).replace("{account}", accountId2());
+    request2("GET", path, { page }).then((json) => {
+      const results = json.results || [];
+      results.forEach((item) => {
+        item.source = "tmdb";
+      });
+      oncomplite({
+        results,
+        page: json.page || 1,
+        total_pages: json.total_pages || 1,
+        total_results: json.total_results || results.length
+      });
+    }).catch(onerror);
+  }
   function sourceList(params, oncomplite, onerror) {
     const page = params.page || 1;
+    if (params.url.indexOf(V4_PREFIX) === 0) {
+      return sourceListV4(params.url, page, oncomplite, onerror);
+    }
     const url = params.url.replace("{account}", String(accountId()));
     const isCustomList = url.indexOf("/list/") === 0;
     const query = isCustomList ? { page } : { page, sort_by: "created_at.desc" };
@@ -589,12 +695,13 @@
       );
     });
     const baseLines = Promise.all(CATEGORIES.map((c) => loadLine(c.title, c.url)));
+    const recommendLines = logged2() ? Promise.all(V4_CATEGORIES.map((c) => loadLine(c.title, c.url))) : Promise.resolve([]);
     const customLines = request("GET", `/account/${accountId()}/lists`, { page: 1 }).then((json) => {
       const lists = (json.results || []).slice(0, 10);
       return Promise.all(lists.map((l) => loadLine(l.name, "/list/" + l.id)));
     }).catch(() => []);
-    Promise.all([baseLines, customLines]).then(([base, custom]) => {
-      const lines = base.concat(custom).filter(Boolean);
+    Promise.all([recommendLines, baseLines, customLines]).then(([recommend, base, custom]) => {
+      const lines = recommend.concat(base, custom).filter(Boolean);
       if (lines.length) oncomplite(lines);
       else onerror(new Error("empty"));
     });
@@ -654,6 +761,7 @@
       field: { name: "\u0412\u044B\u0439\u0442\u0438 \u0438\u0437 \u0430\u043A\u043A\u0430\u0443\u043D\u0442\u0430" },
       onChange() {
         logout();
+        logout2();
         resetSync();
       }
     });
