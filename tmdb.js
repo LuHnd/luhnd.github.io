@@ -737,6 +737,13 @@
   }
 
   // src/settings.ts
+  var loginDescEl = null;
+  function loginDescription() {
+    return logged() ? "\u0412\u044B \u0432\u043E\u0448\u043B\u0438 \u043A\u0430\u043A " + username() : "\u041D\u0435 \u0430\u0432\u0442\u043E\u0440\u0438\u0437\u043E\u0432\u0430\u043D";
+  }
+  function refreshLoginDescription() {
+    if (loginDescEl) loginDescEl.text(loginDescription());
+  }
   function addSettings() {
     Lampa.SettingsApi.addComponent({
       component: "tmdbacc",
@@ -748,11 +755,13 @@
       param: { name: "tmdbacc_do_login", type: "button" },
       field: {
         name: "\u0412\u043E\u0439\u0442\u0438",
-        description: logged() ? "\u0412\u044B \u0432\u043E\u0448\u043B\u0438 \u043A\u0430\u043A " + username() : "\u041D\u0435 \u0430\u0432\u0442\u043E\u0440\u0438\u0437\u043E\u0432\u0430\u043D"
+        description: loginDescription()
+      },
+      onRender(item) {
+        loginDescEl = item.find(".settings-param__descr");
       },
       onChange() {
-        ensureAuth(() => {
-        });
+        ensureAuth(refreshLoginDescription);
       }
     });
     Lampa.SettingsApi.addParam({
@@ -763,6 +772,7 @@
         logout();
         logout2();
         resetSync();
+        refreshLoginDescription();
       }
     });
   }
