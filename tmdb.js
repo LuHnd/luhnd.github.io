@@ -630,6 +630,107 @@
     });
   }
 
+  // src/continue.ts
+  var URL = "http://127.0.0.1:8765/continue";
+  var PUSH_EVERY_MS = 90 * 1e3;
+  var MAX_ITEMS = 20;
+  var lampa = () => Lampa;
+  var FINISHED = 90;
+  var MAX_EPISODES = 40;
+  function isShow(card) {
+    return !!(card.number_of_seasons || card.first_air_date);
+  }
+  function lastEpisode(card) {
+    const seasons = Math.max(1, Math.min(30, card.number_of_seasons || 1));
+    for (let season = seasons; season >= 1; season--) {
+      let best = null;
+      for (let episode = 1; episode <= MAX_EPISODES; episode++) {
+        const view = lampa().Timeline.watchedEpisode(card, season, episode, true);
+        if (!view || !view.percent) continue;
+        if (!best || (view.updated || 0) >= (best.view.updated || 0)) {
+          best = { season, episode, view };
+        }
+      }
+      if (best) return best;
+    }
+    return null;
+  }
+  function describe(card) {
+    const title = card.title || card.name || "";
+    if (!card.id || !title) return null;
+    const base = { id: card.id, title, backdrop: card.backdrop_path || "", poster: card.poster_path || "" };
+    if (!isShow(card)) {
+      const view = lampa().Timeline.watched(card, true);
+      if (!view || !view.percent || view.percent >= FINISHED) return null;
+      return __spreadProps(__spreadValues({}, base), { media: "movie", percent: Math.round(view.percent), season: 0, episode: 0, next: false, updated: view.updated || 0 });
+    }
+    const last = lastEpisode(card);
+    if (!last) return null;
+    const done = last.view.percent >= FINISHED;
+    return __spreadProps(__spreadValues({}, base), {
+      media: "tv",
+      percent: done ? 0 : Math.round(last.view.percent),
+      season: last.season,
+      episode: done ? last.episode + 1 : last.episode,
+      next: done,
+      updated: last.view.updated || 0
+    });
+  }
+  function collect() {
+    const items = [];
+    const seen = {};
+    ["movie", "tv", "anime"].forEach((type) => {
+      let cards = [];
+      try {
+        cards = lampa().Favorite.continues(type) || [];
+      } catch (e) {
+        cards = [];
+      }
+      cards.forEach((card) => {
+        if (seen[card.id]) return;
+        seen[card.id] = true;
+        try {
+          const item = describe(card);
+          if (item) items.push(item);
+        } catch (e) {
+        }
+      });
+    });
+    items.sort((a, b) => b.updated - a.updated);
+    return items.slice(0, MAX_ITEMS);
+  }
+  var failures = 0;
+  function push() {
+    try {
+      const body = JSON.stringify({ v: 1, at: Date.now(), items: collect() });
+      fetch(URL, { method: "POST", mode: "no-cors", keepalive: true, body }).then(
+        () => {
+          failures = 0;
+        },
+        () => {
+          failures++;
+        }
+      );
+    } catch (e) {
+      failures++;
+    }
+  }
+  function initContinue() {
+    setTimeout(push, 8e3);
+    setInterval(() => {
+      if (!document.hidden && failures < 3) push();
+    }, PUSH_EVERY_MS);
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) push();
+    });
+    window.addEventListener("pagehide", push);
+    try {
+      const listener = lampa().Player && lampa().Player.listener;
+      if (listener) listener.follow("destroy", () => setTimeout(push, 1500));
+    } catch (e) {
+    }
+  }
+
   // src/catalog.ts
   var SOURCE = "tmdbacc";
   var V4_PREFIX = "v4:";
@@ -787,6 +888,7 @@
     addMenuItem();
     initCardButton();
     initBadges();
+    initContinue();
     syncAll();
   }
   if (!window.tmdbacc_ready) {
