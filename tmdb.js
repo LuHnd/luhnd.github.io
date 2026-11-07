@@ -573,6 +573,69 @@
     if (typeof play.translate === "string") return play.translate;
     return "";
   }
+  function normalizePercent(raw) {
+    const n = Number(raw);
+    if (!Number.isFinite(n) || n <= 0) return 0;
+    if (n > 0 && n <= 1) return Math.round(n * 100);
+    return Math.max(0, Math.min(100, Math.round(n)));
+  }
+  function bodyFromRoad(road, play) {
+    if (!road) return null;
+    const percent = normalizePercent(road.percent);
+    const positionSec = Math.max(0, Number(road.time) || 0);
+    const durationSec = Math.max(0, Number(road.duration) || 0);
+    const cardTag = String(road.card || "");
+    const tagged = /^(movie|tv)_(\d+)$/.exec(cardTag);
+    let mediaType2 = "";
+    let tmdbId = 0;
+    let season = 0;
+    let episode = 0;
+    let voice = "";
+    let original = "";
+    let title = "";
+    let posterPath = "";
+    if (tagged) {
+      mediaType2 = tagged[1];
+      tmdbId = Number(tagged[2]) || 0;
+    }
+    const card = play ? cardOf(play) : null;
+    if (card && card.id) {
+      if (!mediaType2) mediaType2 = card.name || card.first_air_date ? "tv" : "movie";
+      if (!tmdbId) tmdbId = Number(card.id) || 0;
+      original = String(card.original_name || card.original_title || "");
+      title = String(card.title || card.name || play && play.title || "");
+      posterPath = String(card.poster_path || "");
+    }
+    if (play) {
+      season = Number(play.season || play.season_number || 0) || 0;
+      episode = Number(play.episode || play.episode_number || 0) || 0;
+      voice = voiceOf(play);
+    }
+    if (mediaType2 === "tv" && !episode && original) {
+      const last = readLast()[lampaHash(original)];
+      if (last && last.episode) {
+        season = Number(last.season) || season;
+        episode = Number(last.episode) || 0;
+        if (!voice && last.voice_name) voice = String(last.voice_name);
+      }
+    }
+    if (!mediaType2 || !tmdbId) return null;
+    if (!percent && !positionSec && !episode) return null;
+    return {
+      mediaType: mediaType2,
+      tmdbId,
+      season,
+      episode,
+      positionSec,
+      durationSec,
+      percent: percent || (positionSec && durationSec ? Math.min(99, Math.round(positionSec / durationSec * 100)) : 0),
+      originalTitle: original,
+      title,
+      posterPath,
+      voice,
+      finished: mediaType2 === "movie" && (percent || 0) >= 90
+    };
+  }
   function bodyFromPlay(play) {
     const card = cardOf(play);
     if (!card) return null;
@@ -589,16 +652,18 @@
         if (!voice && last.voice_name) voice = String(last.voice_name);
       }
     }
-    const percent = Math.round(Number(play.timeline && play.timeline.percent) || 0);
-    if (!percent && !episode) return null;
+    const percent = normalizePercent(play.timeline && play.timeline.percent);
+    const positionSec = Number(play.timeline && play.timeline.time) || 0;
+    const durationSec = Number(play.timeline && play.timeline.duration) || 0;
+    if (!percent && !positionSec && !episode) return null;
     return {
       mediaType: mediaType2,
       tmdbId: Number(card.id),
       season,
       episode,
-      positionSec: Number(play.timeline && play.timeline.time) || 0,
-      durationSec: Number(play.timeline && play.timeline.duration) || 0,
-      percent,
+      positionSec,
+      durationSec,
+      percent: percent || (positionSec && durationSec ? Math.min(99, Math.round(positionSec / durationSec * 100)) : 0),
       originalTitle: original,
       title: String(card.title || card.name || play.title || ""),
       posterPath: String(card.poster_path || ""),
@@ -606,12 +671,13 @@
       finished: mediaType2 === "movie" && percent >= 90
     };
   }
-  function push(play) {
-    if (!watchroomReady()) return;
-    const body = bodyFromPlay(play);
-    if (!body) return;
+  function pushBody(body) {
+    if (!watchroomReady() || !body) return;
     enqueueBody(body);
     flushQueue();
+  }
+  function push(play) {
+    pushBody(bodyFromPlay(play));
   }
   function currentPlay() {
     try {
@@ -626,33 +692,46 @@
       clearTimeout(timer);
       timer = null;
     }
-    const item = pending || currentPlay();
+    const item = pending;
     pending = null;
-    if (item && item.timeline) push(item);
-    else flushQueue();
+    if (item) {
+      if ("mediaType" in item) pushBody(item);
+      else push(item);
+    } else {
+      const play = currentPlay();
+      if (play && play.timeline) push(play);
+      else flushQueue();
+    }
   }
   var timer = null;
   var pending = null;
-  function schedulePush(play) {
-    pending = play;
+  function schedulePush(playOrBody) {
+    pending = playOrBody;
     if (timer) return;
     timer = setTimeout(() => {
       timer = null;
       const item = pending;
       pending = null;
-      if (item) push(item);
-    }, 1200);
+      if (!item) return;
+      if ("mediaType" in item && "tmdbId" in item) pushBody(item);
+      else push(item);
+    }, 800);
   }
   function initWatchroom() {
     pullProgress();
     try {
       const L = Lampa;
       if (L.Timeline && L.Timeline.listener) {
-        L.Timeline.listener.follow("update", () => {
+        L.Timeline.listener.follow("update", (e) => {
           if (applying) return;
+          const road = e && e.data && e.data.road;
           const play = currentPlay();
-          if (!play || !play.timeline) return;
-          schedulePush(play);
+          const fromRoad = bodyFromRoad(road, play);
+          if (fromRoad) {
+            schedulePush(fromRoad);
+            return;
+          }
+          if (play && play.timeline) schedulePush(play);
         });
       }
       if (L.Player && L.Player.listener) {
