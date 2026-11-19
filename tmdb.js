@@ -2683,11 +2683,11 @@
   var clamp = (x, a, b) => Math.max(a, Math.min(b, x));
   var esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
   var firstName = (m) => m ? String(m.name).split(/\s+/)[0] : "";
-  function api(path, body) {
+  function api(path, body, method) {
     const h = watchroomHeaders();
     const url = watchroomBase();
     if (!h || !url) return Promise.reject(new Error("Watchroom \u043D\u0435 \u043F\u0440\u0438\u0432\u044F\u0437\u0430\u043D"));
-    return fetch(url + path, { method: body ? "POST" : "GET", headers: h, body: body ? JSON.stringify(body) : void 0 }).then(
+    return fetch(url + path, { method: method || (body ? "POST" : "GET"), headers: h, body: body ? JSON.stringify(body) : void 0 }).then(
       (r) => r.ok ? r.json() : Promise.reject(new Error("HTTP " + r.status))
     );
   }
@@ -2711,9 +2711,9 @@
     37: "\u0432\u0435\u0441\u0442\u0435\u0440\u043D\u043E\u0432"
   };
   var BROAD = { 28: 0.7, 12: 0.7, 18: 0.75 };
-  function loadTaste() {
-    const saved = Lampa.Storage.get(TASTE_KEY, {}) || {};
-    const k = Math.pow(0.85, Math.max(0, (Date.now() - (saved.at || Date.now())) / 864e5));
+  function fadeTaste(saved) {
+    const src = saved || {};
+    const k = Math.pow(0.85, Math.max(0, (Date.now() - (src.at || Date.now())) / 864e5));
     const fade = (m) => {
       const out = {};
       Object.keys(m || {}).forEach((a) => {
@@ -2722,13 +2722,14 @@
       });
       return out;
     };
-    return { g: fade(saved.g), l: fade(saved.l), s: fade(saved.s) };
+    return { g: fade(src.g), l: fade(src.l), s: fade(src.s), at: Number(src.at) || 0 };
   }
   function TogetherComponent() {
     injectStyles();
     const self = this;
     const html = $('<div class="tmdbacc-deck"></div>');
-    let taste = loadTaste();
+    const tastes = {};
+    const localTastes = Lampa.Storage.get(TASTE_KEY, {}) || {};
     let members = [];
     let mode = String(Lampa.Storage.get(MODE_KEY, "pair") || "pair");
     let rec = null;
@@ -2755,22 +2756,61 @@
       return members.map((m) => m.id).filter((id) => !voteOf(it, id));
     };
     const blocked = (it) => pair() ? members.some((m) => voteOf(it, m.id) < 0) : voteOf(it, soloId()) !== 0;
-    function save2() {
-      Lampa.Storage.set(TASTE_KEY, { g: taste.g, l: taste.l, s: taste.s, at: Date.now() });
+    const tasteOf = (id) => tastes[id] = tastes[id] || fadeTaste(localTastes[id]);
+    const active = () => pair() ? members.map((m) => m.id) : [soloId()];
+    function combined() {
+      const out = { g: {}, l: {}, s: {}, at: 0 };
+      active().forEach((id) => {
+        const t = tasteOf(id);
+        ["g", "l", "s"].forEach(
+          (part) => Object.keys(t[part]).forEach((k) => out[part][k] = (out[part][k] || 0) + t[part][k])
+        );
+      });
+      return out;
+    }
+    let taste = { g: {}, l: {}, s: {}, at: 0 };
+    const refreshTaste = () => taste = combined();
+    const pushTimers = {};
+    function save2(id) {
+      const all = {};
+      Object.keys(tastes).forEach((k) => all[k] = tastes[Number(k)]);
+      Lampa.Storage.set(TASTE_KEY, all);
+      clearTimeout(pushTimers[id]);
+      pushTimers[id] = setTimeout(() => {
+        api("/api/taste", { memberId: id, taste: tastes[id] }, "PUT").catch(() => {
+        });
+      }, 1500);
+    }
+    function syncTastes() {
+      const ids = members.map((m) => m.id);
+      if (!ids.length) return Promise.resolve();
+      return api("/api/taste?members=" + ids.join(",")).then((d) => {
+        ids.forEach((id) => {
+          const remote = d && d.tastes && d.tastes[id];
+          if (remote && Number(remote.at) > tasteOf(id).at) tastes[id] = fadeTaste(remote);
+        });
+        refreshTaste();
+      }).catch(() => {
+        refreshTaste();
+      });
     }
     const bump = (m, k, d) => {
       m[k] = clamp((m[k] || 0) + d, -4, 4);
     };
-    function learn(it, vote2, sign = 1) {
+    function learn(it, vote2, who, sign = 1) {
       const d = vote2 > 0 ? 1 : vote2 < 0 ? -0.6 : 0;
-      if (!d) return;
+      if (!d || !who) return;
+      const t = tasteOf(who);
       const gs = it.genres || [];
-      gs.forEach((g) => bump(taste.g, String(g), sign * d / Math.sqrt(gs.length)));
-      if (it.lang) bump(taste.l, it.lang, sign * d * 0.5);
-      (it.seeds || []).forEach((s) => bump(taste.s, s, sign * d * 0.8));
-      if (vote2 > 0) bump(taste.s, keyOf(it), sign * 1.5);
-      save2();
+      gs.forEach((g) => bump(t.g, String(g), sign * d / Math.sqrt(gs.length)));
+      if (it.lang) bump(t.l, it.lang, sign * d * 0.5);
+      (it.seeds || []).forEach((s) => bump(t.s, s, sign * d * 0.8));
+      if (vote2 > 0) bump(t.s, keyOf(it), sign * 1.5);
+      t.at = Date.now();
+      save2(who);
+      refreshTaste();
     }
+    const liveMatch = (it) => Math.round(clamp(74 + 0.6 * ((it.match || 82) - 80) + 14 * Math.tanh(scoreOf(it, 0) / 1.2), 50, 99));
     function scoreOf(it, base) {
       const gs = it.genres || [];
       const tg = gs.length ? gs.reduce((a, g) => a + (taste.g[g] || 0), 0) / Math.sqrt(gs.length) : 0;
@@ -2788,7 +2828,7 @@
       });
       if (st.length >= 4 && recent.some((r) => stem(r) === st)) p += 1.2;
       const last2 = recent.slice(-2);
-      if ((it.likes || []).length && last2.some((r) => (r.likes || []).length)) p += 1.3;
+      if ((it.likes || []).length && last2.some((r) => (r.likes || []).length)) p += 2;
       if (it._at != null && last2.length === 2 && last2.every((r) => r._at != null)) p += 1.4;
       return p;
     }
@@ -2859,26 +2899,26 @@
       if (down.length) parts.push("\u043C\u0435\u043D\u044C\u0448\u0435 " + down.join(" \u0438 "));
       return parts.join(" \xB7 ");
     }
+    const setVote = (k, who, v) => {
+      if (!votes.has(k)) votes.set(k, /* @__PURE__ */ new Map());
+      votes.get(k).set(who, v);
+    };
     function loadSwipes() {
       const ids = members.length ? members.map((m) => m.id) : [0];
       return Promise.all(ids.map((id) => api("/api/swipes" + (id ? "?memberId=" + id : "")).catch(() => null))).then((list) => {
+        if (list.every((d) => !d)) return;
+        votes.clear();
+        partial.length = 0;
         list.forEach((d, i) => {
           if (!d) return;
           const mid = ids[i];
-          (d.mine || []).forEach((v) => {
-            const k = v.mediaType + ":" + v.id;
-            if (!votes.has(k)) votes.set(k, /* @__PURE__ */ new Map());
-            votes.get(k).set(mid, Number(v.vote));
-          });
+          (d.mine || []).forEach((v) => setVote(v.mediaType + ":" + v.id, mid, Number(v.vote)));
           (d.othersLike || []).forEach((it) => {
             if (!partial.some((x) => keyOf(x) === keyOf(it))) partial.push(it);
-            (it.likes || []).forEach((who) => {
-              const k = keyOf(it);
-              if (!votes.has(k)) votes.set(k, /* @__PURE__ */ new Map());
-              votes.get(k).set(who, 1);
-            });
+            (it.likes || []).forEach((who) => setVote(keyOf(it), who, 1));
           });
         });
+        history.forEach((h) => setVote(keyOf(h.it), h.member, h.vote));
       });
     }
     function loadRec(shuffle) {
@@ -2898,6 +2938,38 @@
       }).catch(() => {
       });
     }
+    let paused = false;
+    let pollTimer = null;
+    const matched = /* @__PURE__ */ new Set();
+    function allLiked() {
+      const out = [];
+      if (members.length < 2) return out;
+      votes.forEach((mv, k) => {
+        if (members.every((m) => mv.get(m.id) === 1)) out.push(k);
+      });
+      return out;
+    }
+    function signature() {
+      if (match) return "match:" + keyOf(match);
+      const it = deck()[0];
+      if (!it) return "empty";
+      return keyOf(it) + "|" + voters(it).join(",") + "|" + members.filter((m) => voteOf(it, m.id) > 0).map((m) => m.id).join(",");
+    }
+    function poll() {
+      if (!alive || paused || busy2 || match) return;
+      const before = signature();
+      const seenBefore = partial.concat(extra, history.map((h) => h.it));
+      loadSwipes().then(() => {
+        if (!alive || paused || busy2) return;
+        const fresh = allLiked().filter((k) => !matched.has(k));
+        fresh.forEach((k) => matched.add(k));
+        const known = seenBefore.concat(partial, rec ? (rec.top || []).concat(rec.discover || []) : []);
+        const hit = fresh.map((k) => known.find((it) => keyOf(it) === k)).filter(Boolean)[0];
+        if (hit && !match) match = hit;
+        if (signature() !== before) paint();
+      }).catch(() => {
+      });
+    }
     function vote(v) {
       if (busy2 || match) return;
       const it = deck()[0];
@@ -2910,7 +2982,7 @@
       votes.get(k).set(who, v);
       history.push({ it, member: who, vote: v });
       n++;
-      learn(it, v);
+      learn(it, v, who);
       if (v > 0) moreLike(it);
       const allYes = v > 0 && !voters(it).length;
       const last = v < 0 || !voters(it).length;
@@ -2925,7 +2997,8 @@
         year: it.year || "",
         genres: it.genres || []
       }).then((d) => {
-        if (d && d.match && !match) {
+        if (d && d.match && !match && !matched.has(keyOf(it))) {
+          matched.add(keyOf(it));
           match = it;
           paint();
         }
@@ -2935,6 +3008,7 @@
         if (!alive) return;
         if (v < 0 || !voters(it).length) done.add(k);
         if (allYes && pair()) match = it;
+        if (allYes) matched.add(k);
         if (deck().length < 5 && !refilling) {
           refilling = true;
           loadRec(String(Date.now())).catch(() => {
@@ -2953,7 +3027,7 @@
       const mv = votes.get(k);
       if (mv) mv.delete(last.member);
       done.delete(k);
-      learn(last.it, last.vote, -1);
+      learn(last.it, last.vote, last.member, -1);
       n = Math.max(0, n - 1);
       if (last.vote > 0) extra = extra.filter((x) => (x.seeds || []).indexOf(k) < 0);
       top = k;
@@ -2998,9 +3072,12 @@
             Lampa.Storage.set(MODE_KEY, mode);
             top = "";
           }
+          refreshTaste();
           if (item.act === "reset") {
-            taste = { g: {}, l: {}, s: {} };
-            save2();
+            active().forEach((id) => {
+              tastes[id] = { g: {}, l: {}, s: {}, at: Date.now() };
+              save2(id);
+            });
             extra = [];
             top = "";
             Lampa.Noty.show("\u041D\u0430\u0447\u0430\u043B\u0438 \u043F\u043E\u0434\u0431\u043E\u0440 \u0437\u0430\u043D\u043E\u0432\u043E");
@@ -3035,7 +3112,7 @@
       const next = list[1];
       Lampa.Background.change(poster(it, "w300"));
       html.html(
-        '<div class="tmdbacc-deck__stage"><div class="tmdbacc-deck__poster selector">' + (poster(it, "w500") ? '<img src="' + poster(it, "w500") + '" alt="">' : "<span>" + esc(it.title.slice(0, 1)) + "</span>") + '<i class="tmdbacc-deck__stamp tmdbacc-deck__stamp--yes">\u0425\u041E\u0427\u0423</i><i class="tmdbacc-deck__stamp tmdbacc-deck__stamp--no">\u041D\u0415\u0422</i></div><div class="tmdbacc-deck__info">' + (pair() && who ? '<div class="tmdbacc-deck__who" style="--who:' + colorOf(who) + '">\u0413\u043E\u043B\u043E\u0441\u0443\u0435\u0442 ' + esc(((_a = member(who)) == null ? void 0 : _a.name) || "") + "</div>" : "") + (wanted.length ? '<div class="tmdbacc-deck__want">' + ICON_HEART + esc(wanted.join(" \u0438 ")) + " \u2014 \u0445\u043E\u0447\u0435\u0442</div>" : "") + '<div class="tmdbacc-deck__title">' + esc(it.title) + '</div><div class="tmdbacc-deck__meta">' + (it.match ? "<b>" + it.match + "%</b>" : "") + esc(meta) + "</div>" + (it.why ? '<div class="tmdbacc-deck__why">' + esc(it.why) + "</div>" : "") + (line ? '<div class="tmdbacc-deck__taste">\u041F\u043E\u0434\u0431\u0438\u0440\u0430\u044E: ' + esc(line) + "</div>" : "") + (next ? '<div class="tmdbacc-deck__next">\u0414\u0430\u043B\u044C\u0448\u0435: ' + esc(next.title) + "</div>" : "") + '</div></div><div class="tmdbacc-deck__keys"><span><kbd>\u2190</kbd>\u041D\u0435\u0442</span><span><kbd>\u2192</kbd>\u0425\u043E\u0447\u0443</span><span><kbd>OK</kbd>\u041F\u043E\u0434\u0440\u043E\u0431\u043D\u0435\u0435</span><span><kbd>\u2193</kbd>\u0423\u0436\u0435 \u0441\u043C\u043E\u0442\u0440\u0435\u043B\u0438</span><span><kbd>\u2191</kbd>\u041C\u0435\u043D\u044E</span></div>'
+        '<div class="tmdbacc-deck__stage"><div class="tmdbacc-deck__poster selector">' + (poster(it, "w500") ? '<img src="' + poster(it, "w500") + '" alt="">' : "<span>" + esc(it.title.slice(0, 1)) + "</span>") + '<i class="tmdbacc-deck__stamp tmdbacc-deck__stamp--yes">\u0425\u041E\u0427\u0423</i><i class="tmdbacc-deck__stamp tmdbacc-deck__stamp--no">\u041D\u0415\u0422</i></div><div class="tmdbacc-deck__info">' + (pair() && who ? '<div class="tmdbacc-deck__who" style="--who:' + colorOf(who) + '">\u0413\u043E\u043B\u043E\u0441\u0443\u0435\u0442 ' + esc(((_a = member(who)) == null ? void 0 : _a.name) || "") + "</div>" : "") + (wanted.length ? '<div class="tmdbacc-deck__want">' + ICON_HEART + esc(wanted.join(" \u0438 ")) + " \u2014 \u0445\u043E\u0447\u0435\u0442</div>" : "") + '<div class="tmdbacc-deck__title">' + esc(it.title) + '</div><div class="tmdbacc-deck__meta"><b>' + liveMatch(it) + "%</b>" + esc(meta) + "</div>" + (it.why ? '<div class="tmdbacc-deck__why">' + esc(it.why) + "</div>" : "") + (line ? '<div class="tmdbacc-deck__taste">\u041F\u043E\u0434\u0431\u0438\u0440\u0430\u044E: ' + esc(line) + "</div>" : "") + (next ? '<div class="tmdbacc-deck__next">\u0414\u0430\u043B\u044C\u0448\u0435: ' + esc(next.title) + "</div>" : "") + '</div></div><div class="tmdbacc-deck__keys"><span><kbd>\u2190</kbd>\u041D\u0435\u0442</span><span><kbd>\u2192</kbd>\u0425\u043E\u0447\u0443</span><span><kbd>OK</kbd>\u041F\u043E\u0434\u0440\u043E\u0431\u043D\u0435\u0435</span><span><kbd>\u2193</kbd>\u0423\u0436\u0435 \u0441\u043C\u043E\u0442\u0440\u0435\u043B\u0438</span><span><kbd>\u2191</kbd>\u041C\u0435\u043D\u044E</span></div>'
       );
       html.find(".tmdbacc-deck__poster").on("hover:enter", () => openFull(it));
       focus();
@@ -3058,10 +3135,14 @@
       self.activity.loader(true);
       pullMembers();
       members = membersCached();
-      loadSwipes().then(() => loadRec()).catch((err) => Lampa.Noty.show("Watchroom: \u043D\u0435 \u0443\u0434\u0430\u043B\u043E\u0441\u044C \u0437\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044C \u0438\u0434\u0435\u0438 (" + String(err) + ")")).then(() => {
+      loadSwipes().then(() => {
+        allLiked().forEach((k) => matched.add(k));
+        return syncTastes();
+      }).then(() => loadRec()).catch((err) => Lampa.Noty.show("Watchroom: \u043D\u0435 \u0443\u0434\u0430\u043B\u043E\u0441\u044C \u0437\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044C \u0438\u0434\u0435\u0438 (" + String(err) + ")")).then(() => {
         self.activity.loader(false);
         paint();
         self.activity.toggle();
+        pollTimer = setInterval(poll, 5e3);
       });
       return html;
     };
@@ -3092,8 +3173,13 @@
         }
       });
       Lampa.Controller.toggle("content");
+      if (paused) {
+        paused = false;
+        poll();
+      }
     };
     this.pause = function() {
+      paused = true;
     };
     this.stop = function() {
     };
@@ -3102,6 +3188,7 @@
     };
     this.destroy = function() {
       alive = false;
+      if (pollTimer) clearInterval(pollTimer);
       html.remove();
     };
   }
