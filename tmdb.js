@@ -173,7 +173,7 @@
     if (injected) return;
     injected = true;
     $("body").append(
-      "<style>.tmdbacc-vote{position:absolute;left:0.3em;bottom:0.3em;background:rgba(0,0,0,0.5);color:#f5c518;font-size:1.3em;font-weight:700;padding:0.2em 0.5em;border-radius:1em;z-index:1}.tmdbacc-vote--multi{font-size:1.05em;letter-spacing:0.02em;max-width:70%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.tmdbacc-menu__who{margin-bottom:0.35em!important;flex-direction:column;gap:0.25em}.tmdbacc-menu__who b{color:#f5c518}.tmdbacc-menu__who small{opacity:0.55;font-size:0.85em;font-weight:400}.tmdbacc-badge{position:absolute;top:0.5em;left:0.5em;display:flex;z-index:2}.tmdbacc-badge__chip{background:rgba(0,0,0,0.9);border-radius:0.4em;padding:0.3em 0.5em;font-size:1.05em;font-weight:700;color:#fff;display:flex;align-items:center;margin-right:0.35em;box-shadow:0 0.1em 0.5em rgba(0,0,0,0.6)}.tmdbacc-badge__chip svg{width:1.1em;height:1.1em;fill:currentColor}.tmdbacc-badge__chip--fav{color:#ff6b81}.tmdbacc-badge__chip--watch{color:#7bed9f}.tmdbacc-menu{padding:0.3em 0 0.6em}.tmdbacc-menu__tiles{display:flex}.tmdbacc-tile{flex:1;margin:0 0.35em;background:rgba(255,255,255,0.06);border-radius:0.9em;padding:1.3em 0.6em;text-align:center;border:0.15em solid transparent}.tmdbacc-tile svg{width:2.4em;height:2.4em;fill:none;stroke:currentColor;stroke-width:1.7}.tmdbacc-tile__name{margin-top:0.7em;font-weight:600;font-size:1.05em}.tmdbacc-tile__status{margin-top:0.25em;font-size:0.85em;opacity:0.65}.tmdbacc-tile--active svg{fill:currentColor}.tmdbacc-tile--watch.tmdbacc-tile--active{color:#7bed9f}.tmdbacc-tile--fav.tmdbacc-tile--active{color:#ff6b81}.tmdbacc-tile--rate.tmdbacc-tile--active{color:#f5c518}.tmdbacc-tile.focus{background:#fff;color:#000;border-color:#fff}.tmdbacc-menu__wide{display:flex;align-items:center;justify-content:center;margin:0.8em 0.35em 0;background:rgba(255,255,255,0.06);border-radius:0.9em;padding:0.9em}.tmdbacc-menu__wide svg{width:1.4em;height:1.4em;fill:none;stroke:currentColor;stroke-width:1.7;margin-right:0.6em}.tmdbacc-menu__wide.focus{background:#fff;color:#000}.tmdbacc-menu__progress{margin:0.9em 0.35em 0;padding:0.85em 1em;border-radius:0.9em;background:rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center;gap:1em}.tmdbacc-menu__progress span{opacity:0.65;font-size:0.95em}.tmdbacc-menu__progress b{color:#f5c518;font-size:1.15em;font-weight:700}.tmdbacc-menu__viewers{margin:0.55em 0.35em 0;display:flex;flex-wrap:wrap;gap:0.45em}.tmdbacc-menu__chip{background:rgba(0,0,0,0.45);border-radius:2em;padding:0.45em 0.8em;font-size:1.05em;color:#fff}.tmdbacc-menu__chip i{color:#f5c518;font-style:normal;font-weight:700;margin-left:0.15em}.view--tmdbacc.tmdbacc--rated path{fill:#f5c518;stroke:#f5c518}.view--tmdbacc.tmdbacc--rated span{color:#f5c518;font-weight:700}.view--tmdbacc.tmdbacc--rated.focus span{color:inherit}.full-start-new__buttons .view--tmdbacc.tmdbacc--rated:not(.focus) span{display:inline}.tmdbacc-rate{text-align:center;padding:1.2em 0 2em}.tmdbacc-rate__big{position:relative;display:inline-block;width:7em;height:7em;filter:drop-shadow(0 0.3em 1em rgba(87,153,239,0.45))}.tmdbacc-rate__big svg{width:100%;height:100%;fill:#5799ef}.tmdbacc-rate__big span{position:absolute;top:54%;left:50%;transform:translate(-50%,-50%);font-size:2.3em;font-weight:800;color:#fff}.tmdbacc-rate__label{color:#f5c518;font-weight:700;letter-spacing:0.3em;font-size:1.05em;margin:0.8em 0 0.3em}.tmdbacc-rate__title{font-size:1.9em;font-weight:600;margin-bottom:1em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.tmdbacc-rate__stars{display:flex;justify-content:center;padding:0.5em 0}.tmdbacc-rate__star{width:3.8em;height:3.8em;padding:0.35em;margin:0 0.15em;border-radius:0.4em;transition:transform 0.12s}.tmdbacc-rate__star svg{width:100%;height:100%;fill:none;stroke:#8a8a8a;stroke-width:1.4}.tmdbacc-rate__star.filled svg{fill:#f5c518;stroke:#f5c518}.tmdbacc-rate__star.focus{transform:scale(1.4)}.tmdbacc-rate__star.focus svg{stroke:#fff;filter:drop-shadow(0 0 0.4em rgba(245,197,24,0.8))}.tmdbacc-rate__star.filled.focus svg{stroke:#f5c518}.tmdbacc-rate__delete{display:inline-block;margin-top:2em;padding:0.8em 2em;border-radius:0.5em;background:rgba(255,255,255,0.12);font-size:1.1em}.tmdbacc-rate__delete.focus{background:#fff;color:#000}.tmdbacc-family{padding:1.1em 1.6em 2em;height:100%;display:flex;flex-direction:column;box-sizing:border-box}.tmdbacc-family__head{flex-shrink:0;margin-bottom:1.05em}.tmdbacc-family__sections{display:flex;flex-wrap:nowrap;gap:0.75em;margin-bottom:0.95em;overflow-x:auto;padding:0.15em 0.1em 0.35em;-webkit-overflow-scrolling:touch}.tmdbacc-family__tab{display:flex;align-items:center;justify-content:center;gap:0.7em;flex:0 0 auto;min-height:3.4em;min-width:7.5em;padding:1.05em 1.85em;border-radius:1em;font-size:1.55em;font-weight:700;letter-spacing:0.01em;color:rgba(255,255,255,0.86);background:rgba(255,255,255,0.09);border:0.16em solid transparent;box-sizing:border-box}.tmdbacc-family__tab.active{background:rgba(255,255,255,0.2);color:#fff;border-color:rgba(255,255,255,0.32)}.tmdbacc-family__tab.focus{background:#fff;color:#111;border-color:#fff;box-shadow:0 0.35em 1.5em rgba(0,0,0,0.45);transform:translateY(-0.05em)}.tmdbacc-family__tab-count{font-size:0.7em;font-weight:700;opacity:0.55;padding:0.2em 0.6em;border-radius:0.55em;background:rgba(0,0,0,0.3);min-width:1.6em;text-align:center}.tmdbacc-family__tab.focus .tmdbacc-family__tab-count{background:rgba(0,0,0,0.12);opacity:0.75;color:#111}.tmdbacc-family__who{display:flex;flex-wrap:nowrap;gap:0.65em;padding:0.25em 0.1em 0.2em;overflow-x:auto;-webkit-overflow-scrolling:touch}.tmdbacc-family__who.hide{display:none}.tmdbacc-family__who-btn{flex:0 0 auto;min-height:2.7em;min-width:5.5em;padding:0.8em 1.55em;border-radius:2em;font-size:1.3em;font-weight:650;color:rgba(255,255,255,0.82);background:rgba(255,255,255,0.08);border:0.16em solid transparent;box-sizing:border-box}.tmdbacc-family__who-btn.active{background:rgba(245,197,24,0.22);color:#f5c518;border-color:rgba(245,197,24,0.45)}.tmdbacc-family__who-btn.focus{background:#fff;color:#111;border-color:#fff;box-shadow:0 0.3em 1.15em rgba(0,0,0,0.4)}.tmdbacc-family__body{flex:1;min-height:0}.tmdbacc-family__grid{display:flex;flex-wrap:wrap;gap:1.2em 1em;padding:0.4em 0.2em 2em}.tmdbacc-family__grid .card{width:10.5em;margin:0}.tmdbacc-family__empty{opacity:0.6;padding:2em 0.5em;font-size:1.25em}.tmdbacc-family__by{position:absolute;left:0.35em;bottom:0.35em;z-index:2;background:rgba(0,0,0,0.72);color:#f5c518;font-size:0.85em;font-weight:700;padding:0.15em 0.45em;border-radius:0.35em;max-width:90%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}</style>"
+      "<style>.tmdbacc-vote{position:absolute;left:0.3em;bottom:0.3em;background:rgba(0,0,0,0.5);color:#f5c518;font-size:1.3em;font-weight:700;padding:0.2em 0.5em;border-radius:1em;z-index:1}.tmdbacc-vote--multi{font-size:1.05em;letter-spacing:0.02em;max-width:70%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.tmdbacc-menu__who{background:none!important;padding:0.6em!important;opacity:0.7;font-size:0.95em}.tmdbacc-menu__who.focus{opacity:1;background:#fff!important;color:#000}.tmdbacc-menu__who b{color:inherit}.tmdbacc-badge{position:absolute;top:0.5em;left:0.5em;display:flex;z-index:2}.tmdbacc-badge__chip{background:rgba(0,0,0,0.9);border-radius:0.4em;padding:0.3em 0.5em;font-size:1.05em;font-weight:700;color:#fff;display:flex;align-items:center;margin-right:0.35em;box-shadow:0 0.1em 0.5em rgba(0,0,0,0.6)}.tmdbacc-badge__chip svg{width:1.1em;height:1.1em;fill:currentColor}.tmdbacc-badge__chip--fav{color:#ff6b81}.tmdbacc-badge__chip--watch{color:#7bed9f}.tmdbacc-menu{padding:0.3em 0 0.6em}.tmdbacc-menu__tiles{display:flex}.tmdbacc-tile{flex:1;margin:0 0.35em;background:rgba(255,255,255,0.06);border-radius:0.9em;padding:1.3em 0.6em;text-align:center;border:0.15em solid transparent}.tmdbacc-tile svg{width:2.4em;height:2.4em;fill:none;stroke:currentColor;stroke-width:1.7}.tmdbacc-tile__name{margin-top:0.7em;font-weight:600;font-size:1.05em}.tmdbacc-tile__status{margin-top:0.25em;font-size:0.85em;opacity:0.65}.tmdbacc-tile--active svg{fill:currentColor}.tmdbacc-tile--watch.tmdbacc-tile--active{color:#7bed9f}.tmdbacc-tile--fav.tmdbacc-tile--active{color:#ff6b81}.tmdbacc-tile--rate.tmdbacc-tile--active{color:#f5c518}.tmdbacc-tile.focus{background:#fff;color:#000;border-color:#fff}.tmdbacc-menu__wide{display:flex;align-items:center;justify-content:center;margin:0.8em 0.35em 0;background:rgba(255,255,255,0.06);border-radius:0.9em;padding:0.9em}.tmdbacc-menu__wide svg{width:1.4em;height:1.4em;fill:none;stroke:currentColor;stroke-width:1.7;margin-right:0.6em}.tmdbacc-menu__wide.focus{background:#fff;color:#000}.tmdbacc-menu__progress{margin:0.9em 0.35em 0;padding:0.85em 1em;border-radius:0.9em;background:rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center;gap:1em}.tmdbacc-menu__progress span{opacity:0.65;font-size:0.95em}.tmdbacc-menu__progress b{color:#f5c518;font-size:1.15em;font-weight:700}.tmdbacc-menu__viewers{margin:0.55em 0.35em 0;display:flex;flex-wrap:wrap;gap:0.45em}.tmdbacc-menu__chip{background:rgba(0,0,0,0.45);border-radius:2em;padding:0.45em 0.8em;font-size:1.05em;color:#fff}.tmdbacc-menu__chip i{color:#f5c518;font-style:normal;font-weight:700;margin-left:0.15em}.view--tmdbacc.tmdbacc--rated path{fill:#f5c518;stroke:#f5c518}.view--tmdbacc.tmdbacc--rated span{color:#f5c518;font-weight:700}.view--tmdbacc.tmdbacc--rated.focus span{color:inherit}.full-start-new__buttons .view--tmdbacc.tmdbacc--rated:not(.focus) span{display:inline}.tmdbacc-rate{text-align:center;padding:1.2em 0 2em}.tmdbacc-rate__big{position:relative;display:inline-block;width:7em;height:7em;filter:drop-shadow(0 0.3em 1em rgba(87,153,239,0.45))}.tmdbacc-rate__big svg{width:100%;height:100%;fill:#5799ef}.tmdbacc-rate__big span{position:absolute;top:54%;left:50%;transform:translate(-50%,-50%);font-size:2.3em;font-weight:800;color:#fff}.tmdbacc-rate__label{color:#f5c518;font-weight:700;letter-spacing:0.3em;font-size:1.05em;margin:0.8em 0 0.3em}.tmdbacc-rate__title{font-size:1.9em;font-weight:600;margin-bottom:1em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.tmdbacc-rate__stars{display:flex;justify-content:center;padding:0.5em 0}.tmdbacc-rate__star{width:3.8em;height:3.8em;padding:0.35em;margin:0 0.15em;border-radius:0.4em;transition:transform 0.12s}.tmdbacc-rate__star svg{width:100%;height:100%;fill:none;stroke:#8a8a8a;stroke-width:1.4}.tmdbacc-rate__star.filled svg{fill:#f5c518;stroke:#f5c518}.tmdbacc-rate__star.focus{transform:scale(1.4)}.tmdbacc-rate__star.focus svg{stroke:#fff;filter:drop-shadow(0 0 0.4em rgba(245,197,24,0.8))}.tmdbacc-rate__star.filled.focus svg{stroke:#f5c518}.tmdbacc-rate__delete{display:inline-block;margin-top:2em;padding:0.8em 2em;border-radius:0.5em;background:rgba(255,255,255,0.12);font-size:1.1em}.tmdbacc-rate__delete.focus{background:#fff;color:#000}.tmdbacc-family{padding:1.1em 1.6em 2em;height:100%;display:flex;flex-direction:column;box-sizing:border-box}.tmdbacc-family__head{flex-shrink:0;margin-bottom:1.05em}.tmdbacc-family__sections{position:relative;display:flex;flex-wrap:nowrap;gap:0.75em;margin-bottom:0.95em;overflow-x:auto;padding:0.15em 0.1em 0.35em;-webkit-overflow-scrolling:touch}.tmdbacc-family__tab{display:flex;align-items:center;justify-content:center;gap:0.7em;flex:0 0 auto;min-height:2.8em;min-width:6em;padding:0.75em 1.3em;border-radius:1em;font-size:1.35em;font-weight:700;letter-spacing:0.01em;color:rgba(255,255,255,0.86);background:rgba(255,255,255,0.09);border:0.16em solid transparent;box-sizing:border-box}.tmdbacc-family__tab.active{background:rgba(255,255,255,0.2);color:#fff;border-color:rgba(255,255,255,0.32)}.tmdbacc-family__tab.focus{background:#fff;color:#111;border-color:#fff;box-shadow:0 0.35em 1.5em rgba(0,0,0,0.45);transform:translateY(-0.05em)}.tmdbacc-family__tab-count{font-size:0.7em;font-weight:700;opacity:0.55;padding:0.2em 0.6em;border-radius:0.55em;background:rgba(0,0,0,0.3);min-width:1.6em;text-align:center}.tmdbacc-family__tab.focus .tmdbacc-family__tab-count{background:rgba(0,0,0,0.12);opacity:0.75;color:#111}.tmdbacc-family__who{position:relative;display:flex;flex-wrap:nowrap;gap:0.65em;padding:0.25em 0.1em 0.2em;overflow-x:auto;-webkit-overflow-scrolling:touch}.tmdbacc-family__who.hide{display:none}.tmdbacc-family__sections::-webkit-scrollbar,.tmdbacc-family__who::-webkit-scrollbar{display:none}.tmdbacc-family__who-btn{flex:0 0 auto;min-height:2.7em;min-width:5.5em;padding:0.8em 1.55em;border-radius:2em;font-size:1.3em;font-weight:650;color:rgba(255,255,255,0.82);background:rgba(255,255,255,0.08);border:0.16em solid transparent;box-sizing:border-box}.tmdbacc-family__who-btn.active{background:rgba(245,197,24,0.22);color:#f5c518;border-color:rgba(245,197,24,0.45)}.tmdbacc-family__who-btn.focus{background:#fff;color:#111;border-color:#fff;box-shadow:0 0.3em 1.15em rgba(0,0,0,0.4)}.tmdbacc-family__body{flex:1;min-height:0}.tmdbacc-family__grid{display:flex;flex-wrap:wrap;gap:1.2em 1em;padding:0.4em 0.2em 2em}.tmdbacc-family__grid .card{width:10.5em;margin:0}.tmdbacc-family__empty{opacity:0.6;padding:2em 0.5em;font-size:1.25em}.tmdbacc-family__by{position:absolute;left:0.35em;bottom:0.35em;z-index:2;background:rgba(0,0,0,0.72);color:#f5c518;font-size:0.85em;font-weight:700;padding:0.15em 0.45em;border-radius:0.35em;max-width:90%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}</style>"
     );
   }
 
@@ -362,10 +362,93 @@
     });
   }
 
+  // src/member-rate.ts
+  var STAR = '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l2.9 6.6 7.1.7-5.4 4.7 1.6 7-6.2-3.7L5.8 21l1.6-7L2 9.3l7.1-.7L12 2z"/></svg>';
+  function openMemberRate(movie, member, current, onChanged) {
+    var _a;
+    injectStyles();
+    const type = mediaType(movie);
+    const title = String(movie.title || movie.name);
+    const C = Lampa.Controller;
+    const back = C.enabled && ((_a = C.enabled()) == null ? void 0 : _a.name) || "full_start";
+    const close = () => {
+      Lampa.Modal.close();
+      Lampa.Controller.toggle(back);
+    };
+    const submit = (val) => {
+      close();
+      putMemberScore({
+        memberId: member.id,
+        mediaType: type,
+        tmdbId: movie.id,
+        value: val,
+        title,
+        posterPath: String(movie.poster_path || "")
+      }).then(() => {
+        Lampa.Noty.show(member.name + ": \u2605 " + val);
+        pullScores();
+        if (onChanged) onChanged();
+      }).catch(() => Lampa.Noty.show("\u041D\u0435 \u0443\u0434\u0430\u043B\u043E\u0441\u044C \u0441\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C \u043E\u0446\u0435\u043D\u043A\u0443"));
+    };
+    const remove = () => {
+      close();
+      putMemberScore({
+        memberId: member.id,
+        mediaType: type,
+        tmdbId: movie.id,
+        value: 0,
+        title,
+        posterPath: String(movie.poster_path || "")
+      }).then(() => {
+        Lampa.Noty.show(member.name + ": \u043E\u0446\u0435\u043D\u043A\u0430 \u0441\u043D\u044F\u0442\u0430");
+        pullScores();
+        if (onChanged) onChanged();
+      }).catch(() => Lampa.Noty.show("\u041D\u0435 \u0443\u0434\u0430\u043B\u043E\u0441\u044C \u0441\u043D\u044F\u0442\u044C \u043E\u0446\u0435\u043D\u043A\u0443"));
+    };
+    const root = $(
+      '<div class="tmdbacc-rate"><div class="tmdbacc-rate__big">' + STAR + '<span class="tmdbacc-rate__value">' + (current || "?") + '</span></div><div class="tmdbacc-rate__label">' + member.name.toUpperCase() + '</div><div class="tmdbacc-rate__title">' + title + '</div><div class="tmdbacc-rate__stars"></div></div>'
+    );
+    const valueEl = root.find(".tmdbacc-rate__value");
+    const starsWrap = root.find(".tmdbacc-rate__stars");
+    const starEls = [];
+    const highlight = (n) => {
+      starEls.forEach((el, idx) => {
+        if (idx < n) el.addClass("filled");
+        else el.removeClass("filled");
+      });
+      valueEl.text(n ? String(n) : "?");
+    };
+    for (let i = 1; i <= 10; i++) {
+      const el = $('<div class="selector tmdbacc-rate__star">' + STAR + "</div>");
+      el.on("hover:focus", () => highlight(i));
+      el.on("hover:enter", () => submit(i));
+      starEls.push(el);
+      starsWrap.append(el);
+    }
+    highlight(current);
+    if (current) {
+      const del = $('<div class="selector tmdbacc-rate__delete">\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u043E\u0446\u0435\u043D\u043A\u0443</div>');
+      del.on("hover:focus", () => highlight(current));
+      del.on("hover:enter", remove);
+      root.append(del);
+    }
+    Lampa.Modal.open({
+      title: "",
+      html: root,
+      size: "medium",
+      onBack: close
+    });
+    const start = current > 0 ? current : 7;
+    setTimeout(() => {
+      Lampa.Controller.collectionFocus(starEls[start - 1][0], root);
+      highlight(start);
+    }, 100);
+  }
+
   // src/watchroom.ts
-  var MARK_KEY = "tmdbacc_watchroom_mark";
   var SCORES_KEY = "tmdbacc_watchroom_scores";
   var CURSOR_KEY = "tmdbacc_watchroom_cursors";
+  var LAST_MARK_KEY = "tmdbacc_watchroom_lastmark";
   var QUEUE_KEY = "tmdbacc_watchroom_progress_q";
   function lampaHash(input) {
     const str = (input || "") + "";
@@ -380,6 +463,11 @@
   function episodeHash(season, episode, original) {
     return lampaHash([season, season > 10 ? ":" : "", episode, original].join(""));
   }
+  function episodeHashes(season, episode, original) {
+    const a = episodeHash(season, episode, original);
+    const b = lampaHash([season, episode, original].join(""));
+    return a === b ? [a] : [a, b];
+  }
   function readLast() {
     const raw = Lampa.Storage.get("online_watched_last", {});
     if (!raw) return {};
@@ -393,13 +481,29 @@
     }
     return raw;
   }
-  var applying = false;
   var noted = false;
   var sending = false;
   function sayOnce(text) {
     if (noted) return;
     noted = true;
     Lampa.Noty.show(text);
+  }
+  function seedOnlineChoice(tmdbId, season, episode) {
+    if (!tmdbId || !season || !episode) return;
+    try {
+      const keys = Object.keys(window.localStorage).filter((k) => k.indexOf("online_choice_") === 0);
+      const lastBal = Lampa.Storage.get("online_last_balanser", {})[String(tmdbId)];
+      if (lastBal && keys.indexOf("online_choice_" + lastBal) < 0) keys.push("online_choice_" + lastBal);
+      keys.forEach((k) => {
+        const all = Lampa.Storage.get(k, {});
+        const cur = all[String(tmdbId)] || { season: 0, voice: 0, order: 0, voice_name: "", voice_id: 0, movie_view: "", source: 0 };
+        const views = cur.episodes_view || {};
+        views[String(season)] = episode;
+        all[String(tmdbId)] = __spreadProps(__spreadValues({}, cur), { season: season - 1, episodes_view: views });
+        Lampa.Storage.set(k, all);
+      });
+    } catch (e) {
+    }
   }
   function applyCursor(item) {
     if (!item.originalTitle) return;
@@ -423,8 +527,52 @@
       Lampa.Storage.set("online_watched_last", last);
     }
   }
-  function apply(item) {
-    applyCursor(item);
+  function timeline() {
+    return Lampa.Timeline || null;
+  }
+  var touched = {};
+  function raise(hash, percent, time, duration) {
+    const T = timeline();
+    if (!T || !percent || touched[hash]) return;
+    const local = T.view(hash);
+    if ((local.percent || 0) >= percent) return;
+    T.update({ hash, percent, time, duration, received: true });
+  }
+  function restore(items) {
+    items.forEach((item) => {
+      const original = item.originalTitle;
+      if (!original) return;
+      if (item.mediaType === "movie") {
+        raise(lampaHash(original), item.percent, item.positionSec, item.durationSec);
+        return;
+      }
+      const eps = (item.episodes || []).slice();
+      if (item.episode) eps.push(item);
+      eps.forEach(
+        (e) => episodeHashes(e.season, e.episode, original).forEach(
+          (h) => raise(h, e.percent, e.positionSec, e.durationSec)
+        )
+      );
+      if (item.episode) {
+        const marks = Lampa.Storage.get(LAST_MARK_KEY, {});
+        const mk = item.mediaType + "_" + item.tmdbId;
+        const at = Number(item.updatedAt) || 0;
+        if (!at || at > (Number(marks[mk]) || 0)) {
+          const last = readLast();
+          const key2 = lampaHash(original);
+          const cur = last[key2];
+          last[key2] = { season: item.season, episode: item.episode, voice_name: item.voice || cur && cur.voice_name || "" };
+          Lampa.Storage.set("online_watched_last", last);
+          seedOnlineChoice(item.tmdbId, item.season, item.episode);
+          marks[mk] = at || Date.now();
+          Lampa.Storage.set(LAST_MARK_KEY, marks);
+        }
+      }
+    });
+  }
+  function restoreCached() {
+    const map = Lampa.Storage.get(CURSOR_KEY, {});
+    restore(Object.keys(map).map((k) => map[k]));
   }
   function clock(sec) {
     sec = Math.round(Number(sec) || 0);
@@ -473,7 +621,9 @@
   }
   function enqueueBody(body) {
     const key2 = body.mediaType + "_" + body.tmdbId;
-    const next = readQueue().filter((x) => !(x.mediaType === body.mediaType && x.tmdbId === body.tmdbId));
+    const next = readQueue().filter(
+      (x) => !(x.mediaType === body.mediaType && x.tmdbId === body.tmdbId && x.season === body.season && x.episode === body.episode)
+    );
     next.push(body);
     writeQueue(next);
     const cursors = Lampa.Storage.get(CURSOR_KEY, {});
@@ -485,11 +635,9 @@
   function rememberOk(body, data) {
     if (!data || !data.updatedAt) return;
     const key2 = body.mediaType + "_" + body.tmdbId;
-    const marks = Lampa.Storage.get(MARK_KEY, {});
-    marks[key2] = data.updatedAt;
-    Lampa.Storage.set(MARK_KEY, marks);
     const cursors = Lampa.Storage.get(CURSOR_KEY, {});
     cursors[key2] = __spreadProps(__spreadValues({}, body), {
+      episodes: cursors[key2] && cursors[key2].episodes || [],
       finished: typeof data.finished === "boolean" ? data.finished : body.finished,
       updatedAt: data.updatedAt
     });
@@ -519,22 +667,11 @@
     if (!h || !url || !watchroomReady()) return;
     flushQueue();
     fetch(url + "/api/progress", { headers: h }).then((r) => r.ok ? r.json() : Promise.reject(r.status)).then((data) => {
-      const marks = Lampa.Storage.get(MARK_KEY, {});
+      const items = data.items || [];
       const cursors = {};
-      applying = true;
-      try {
-        (data.items || []).forEach((item) => {
-          const key2 = item.mediaType + "_" + item.tmdbId;
-          cursors[key2] = item;
-          if (!item.updatedAt || item.updatedAt <= (marks[key2] || 0)) return;
-          apply(item);
-          marks[key2] = item.updatedAt;
-        });
-        Lampa.Storage.set(MARK_KEY, marks);
-        Lampa.Storage.set(CURSOR_KEY, cursors);
-      } finally {
-        applying = false;
-      }
+      items.forEach((item) => cursors[item.mediaType + "_" + item.tmdbId] = item);
+      Lampa.Storage.set(CURSOR_KEY, cursors);
+      restore(items);
     }).catch(() => sayOnce("Watchroom: \u043D\u0435 \u0443\u0434\u0430\u043B\u043E\u0441\u044C \u0437\u0430\u0431\u0440\u0430\u0442\u044C \u043F\u0440\u043E\u0433\u0440\u0435\u0441\u0441"));
     pullScores();
     pullMembers();
@@ -542,8 +679,8 @@
   function pullScores() {
     const h = watchroomHeaders();
     const url = watchroomBase();
-    if (!h || !url || !watchroomReady()) return;
-    fetch(url + "/api/scores", { headers: h }).then((r) => r.ok ? r.json() : Promise.reject(r.status)).then((data) => {
+    if (!h || !url || !watchroomReady()) return Promise.resolve();
+    return fetch(url + "/api/scores", { headers: h }).then((r) => r.ok ? r.json() : Promise.reject(r.status)).then((data) => {
       const map = {};
       (data.items || []).forEach((item) => {
         map[item.mediaType + "_" + item.tmdbId] = item.scores || [];
@@ -573,111 +710,60 @@
     if (typeof play.translate === "string") return play.translate;
     return "";
   }
-  function normalizePercent(raw) {
-    const n = Number(raw);
-    if (!Number.isFinite(n) || n <= 0) return 0;
-    if (n > 0 && n <= 1) return Math.round(n * 100);
-    return Math.max(0, Math.min(100, Math.round(n)));
+  var lastCard = null;
+  var lastVoice = "";
+  var lastPlaylist = [];
+  var lastStart = -1;
+  var external = false;
+  function isTv(card) {
+    return !!(card.original_name || card.name || card.first_air_date);
   }
-  function bodyFromRoad(road, play) {
-    if (!road) return null;
-    const percent = normalizePercent(road.percent);
+  function matchHash(card, hash) {
+    const original = String(card.original_name || card.original_title || "");
+    if (!original) return null;
+    if (!isTv(card)) return lampaHash(original) === hash ? { season: 0, episode: 0 } : null;
+    const seasons = Math.max(Number(card.number_of_seasons) || 0, 30);
+    for (let s = 1; s <= seasons; s++) {
+      for (let e = 1; e <= 100; e++) {
+        if (episodeHashes(s, e, original).indexOf(hash) >= 0) return { season: s, episode: e };
+      }
+    }
+    return null;
+  }
+  function bodyFromUpdate(hash, road) {
+    const percent = Math.max(0, Math.min(100, Math.round(Number(road.percent) || 0)));
     const positionSec = Math.max(0, Number(road.time) || 0);
     const durationSec = Math.max(0, Number(road.duration) || 0);
-    const cardTag = String(road.card || "");
-    const tagged = /^(movie|tv)_(\d+)$/.exec(cardTag);
-    let mediaType2 = "";
-    let tmdbId = 0;
-    let season = 0;
-    let episode = 0;
-    let voice = "";
-    let original = "";
-    let title = "";
-    let posterPath = "";
-    if (tagged) {
-      mediaType2 = tagged[1];
-      tmdbId = Number(tagged[2]) || 0;
+    if (!percent && !positionSec) return null;
+    const play = currentPlay();
+    for (const card of [play ? cardOf(play) : null, lastCard]) {
+      if (!card || !card.id) continue;
+      const at = matchHash(card, hash);
+      if (!at) continue;
+      const tv = isTv(card);
+      const original = String(card.original_name || card.original_title || "");
+      const last = tv ? readLast()[lampaHash(original)] : void 0;
+      return {
+        mediaType: tv ? "tv" : "movie",
+        tmdbId: Number(card.id),
+        season: at.season,
+        episode: at.episode,
+        positionSec,
+        durationSec,
+        percent: percent || (durationSec ? Math.min(99, Math.round(positionSec / durationSec * 100)) : 0),
+        originalTitle: original,
+        title: String(card.title || card.name || ""),
+        posterPath: String(card.poster_path || ""),
+        voice: play && voiceOf(play) || lastVoice || last && last.voice_name || "",
+        finished: !tv && percent >= 90
+      };
     }
-    const card = play ? cardOf(play) : null;
-    if (card && card.id) {
-      if (!mediaType2) mediaType2 = card.name || card.first_air_date ? "tv" : "movie";
-      if (!tmdbId) tmdbId = Number(card.id) || 0;
-      original = String(card.original_name || card.original_title || "");
-      title = String(card.title || card.name || play && play.title || "");
-      posterPath = String(card.poster_path || "");
-    }
-    if (play) {
-      season = Number(play.season || play.season_number || 0) || 0;
-      episode = Number(play.episode || play.episode_number || 0) || 0;
-      voice = voiceOf(play);
-    }
-    if (mediaType2 === "tv" && !episode && original) {
-      const last = readLast()[lampaHash(original)];
-      if (last && last.episode) {
-        season = Number(last.season) || season;
-        episode = Number(last.episode) || 0;
-        if (!voice && last.voice_name) voice = String(last.voice_name);
-      }
-    }
-    if (!mediaType2 || !tmdbId) return null;
-    if (!percent && !positionSec && !episode) return null;
-    return {
-      mediaType: mediaType2,
-      tmdbId,
-      season,
-      episode,
-      positionSec,
-      durationSec,
-      percent: percent || (positionSec && durationSec ? Math.min(99, Math.round(positionSec / durationSec * 100)) : 0),
-      originalTitle: original,
-      title,
-      posterPath,
-      voice,
-      finished: mediaType2 === "movie" && (percent || 0) >= 90
-    };
-  }
-  function bodyFromPlay(play) {
-    const card = cardOf(play);
-    if (!card) return null;
-    const mediaType2 = card.name || card.first_air_date ? "tv" : "movie";
-    const original = String(card.original_name || card.original_title || "");
-    let season = Number(play.season || play.season_number || 0) || 0;
-    let episode = Number(play.episode || play.episode_number || 0) || 0;
-    let voice = voiceOf(play);
-    if (mediaType2 === "tv" && !episode && original) {
-      const last = readLast()[lampaHash(original)];
-      if (last && last.episode) {
-        season = Number(last.season) || season;
-        episode = Number(last.episode) || 0;
-        if (!voice && last.voice_name) voice = String(last.voice_name);
-      }
-    }
-    const percent = normalizePercent(play.timeline && play.timeline.percent);
-    const positionSec = Number(play.timeline && play.timeline.time) || 0;
-    const durationSec = Number(play.timeline && play.timeline.duration) || 0;
-    if (!percent && !positionSec && !episode) return null;
-    return {
-      mediaType: mediaType2,
-      tmdbId: Number(card.id),
-      season,
-      episode,
-      positionSec,
-      durationSec,
-      percent: percent || (positionSec && durationSec ? Math.min(99, Math.round(positionSec / durationSec * 100)) : 0),
-      originalTitle: original,
-      title: String(card.title || card.name || play.title || ""),
-      posterPath: String(card.poster_path || ""),
-      voice,
-      finished: mediaType2 === "movie" && percent >= 90
-    };
+    return null;
   }
   function pushBody(body) {
     if (!watchroomReady() || !body) return;
     enqueueBody(body);
     flushQueue();
-  }
-  function push(play) {
-    pushBody(bodyFromPlay(play));
   }
   function currentPlay() {
     try {
@@ -687,6 +773,8 @@
       return null;
     }
   }
+  var timer = null;
+  var pending = null;
   function flushNow() {
     if (timer) {
       clearTimeout(timer);
@@ -694,61 +782,106 @@
     }
     const item = pending;
     pending = null;
-    if (item) {
-      if ("mediaType" in item) pushBody(item);
-      else push(item);
-    } else {
-      const play = currentPlay();
-      if (play && play.timeline) push(play);
-      else flushQueue();
+    if (item) pushBody(item);
+    else flushQueue();
+  }
+  function schedulePush(body) {
+    pending = body;
+    if (!timer) timer = setTimeout(flushNow, 800);
+  }
+  function fillSkipped(hash) {
+    const at = lastPlaylist.indexOf(hash);
+    if (lastStart < 0 || at <= lastStart) return;
+    const T = timeline();
+    if (!T) return;
+    const from = lastStart;
+    lastStart = at;
+    for (let i = from; i < at; i++) {
+      const h = lastPlaylist[i];
+      if ((T.view(h).percent || 0) < 90) T.update({ hash: h, percent: 100 });
     }
   }
-  var timer = null;
-  var pending = null;
-  function schedulePush(playOrBody) {
-    pending = playOrBody;
-    if (timer) return;
-    timer = setTimeout(() => {
-      timer = null;
-      const item = pending;
-      pending = null;
-      if (!item) return;
-      if ("mediaType" in item && "tmdbId" in item) pushBody(item);
-      else push(item);
-    }, 800);
+  var ASKED_KEY = "tmdbacc_rate_asked";
+  var askTimer = null;
+  function askRating(card) {
+    const id = Number(card.id) || 0;
+    if (!id || isTv(card)) return;
+    const asked = Lampa.Storage.get(ASKED_KEY, {});
+    if (asked[id]) return;
+    const m = selectedMember();
+    if (!m) return;
+    if (viewerScores("movie", id).some((s) => Number(s.memberId || s.viewerId) === Number(m.id))) return;
+    if (askTimer) clearTimeout(askTimer);
+    askTimer = setTimeout(() => {
+      askTimer = null;
+      const P = Lampa.Player;
+      if (P && P.opened && P.opened()) return;
+      asked[id] = Date.now();
+      Lampa.Storage.set(ASKED_KEY, asked);
+      Lampa.Noty.show("\u0414\u043E\u0441\u043C\u043E\u0442\u0440\u0435\u043B\u0438 \xAB" + String(card.title || card.name || "") + "\xBB \u2014 \u043A\u0430\u043A \u0432\u0430\u043C?");
+      openMemberRate(card, m, 0, () => pullScores());
+    }, 2500);
+  }
+  var restoreTimer = null;
+  function restoreSoon() {
+    if (restoreTimer) clearTimeout(restoreTimer);
+    restoreTimer = setTimeout(() => {
+      restoreTimer = null;
+      restoreCached();
+    }, 2e3);
   }
   function initWatchroom() {
     pullProgress();
     try {
       const L = Lampa;
-      if (L.Timeline && L.Timeline.listener) {
-        L.Timeline.listener.follow("update", (e) => {
-          if (applying) return;
-          const road = e && e.data && e.data.road;
-          const play = currentPlay();
-          const fromRoad = bodyFromRoad(road, play);
-          if (fromRoad) {
-            schedulePush(fromRoad);
-            return;
+      const T = L.Timeline;
+      if (T && T.update) {
+        const original = T.update;
+        T.update = function(p) {
+          const prev = external;
+          external = !!(p && p.received);
+          try {
+            return original.apply(this, [p]);
+          } finally {
+            external = prev;
           }
-          if (play && play.timeline) schedulePush(play);
-        });
+        };
       }
       if (L.Player && L.Player.listener) {
-        ["pause", "stop", "ended", "destroy", "hide"].forEach((ev) => {
-          try {
-            L.Player.listener.follow(ev, () => flushNow());
-          } catch (e) {
-          }
+        L.Player.listener.follow("create", (e) => {
+          const data = e && e.data || {};
+          lastCard = cardOf(data);
+          lastVoice = voiceOf(data);
+          lastPlaylist = (data.playlist || []).map((x) => String(x.timeline && x.timeline.hash || ""));
+          lastStart = data.timeline && data.timeline.hash ? lastPlaylist.indexOf(String(data.timeline.hash)) : -1;
         });
+        L.Player.listener.follow("destroy", () => flushNow());
+      }
+      if (T && T.listener) {
+        T.listener.follow("update", (e) => {
+          if (!e || !e.data || !e.data.road) return;
+          if (external) {
+            restoreSoon();
+            return;
+          }
+          const hash = String(e.data.hash || "");
+          touched[hash] = true;
+          fillSkipped(hash);
+          const body = bodyFromUpdate(hash, e.data.road);
+          if (!body) return;
+          if (body.mediaType === "movie" && body.percent >= 90 && lastCard) askRating(lastCard);
+          if (body.mediaType === "tv" && body.percent >= 90) pushBody(body);
+          else schedulePush(body);
+        });
+        T.listener.follow("read", () => restoreSoon());
       }
     } catch (e) {
     }
     document.addEventListener("visibilitychange", () => {
       if (document.hidden) flushNow();
+      else pullProgress();
     });
     window.addEventListener("pagehide", () => flushNow());
-    window.addEventListener("beforeunload", () => flushNow());
     setInterval(() => {
       if (!document.hidden && readQueue().length) flushQueue();
     }, 15e3);
@@ -893,6 +1026,7 @@
       return;
     }
     seedResume(cmd);
+    if (method === "tv" && season && episode) seedOnlineChoice(id, season, episode);
     const movie = {
       id,
       source: "tmdb",
@@ -913,31 +1047,65 @@
     }
     if (positionSec) movie.time = positionSec;
     if (percent) movie.percent = percent;
+    const open = (card) => {
+      try {
+        Lampa.Activity.push({
+          url: "",
+          title: "MODS's \u2014 " + title,
+          component: "modss_online",
+          search: title,
+          search_one: title,
+          search_two: original !== title ? original : title,
+          movie: card,
+          page: 1,
+          // hint для наших хуков / будущих сборок; MODS обычно игнорит
+          season,
+          episode,
+          time: positionSec,
+          percent
+        });
+      } catch (e) {
+        Lampa.Noty.show("Watchroom: \u043D\u0435 \u0443\u0434\u0430\u043B\u043E\u0441\u044C \u043E\u0442\u043A\u0440\u044B\u0442\u044C MODS\u2019s");
+      }
+    };
+    let done = false;
+    const once = (card) => {
+      if (done) return;
+      done = true;
+      open(card);
+    };
+    const timer3 = setTimeout(() => once(movie), 4e3);
     try {
-      Lampa.Activity.push({
-        url: "",
-        title: "MODS's \u2014 " + title,
-        component: "modss_online",
-        search: title,
-        search_one: title,
-        search_two: original !== title ? original : title,
-        movie,
-        page: 1,
-        // hint для наших хуков / будущих сборок; MODS обычно игнорит
-        season,
-        episode,
-        time: positionSec,
-        percent
-      });
+      const Api = Lampa.Api;
+      if (Api && Api.full) {
+        Api.full(
+          { id, method, source: "tmdb", card: movie },
+          (data) => {
+            clearTimeout(timer3);
+            once(data && data.movie && data.movie.id ? __spreadValues(__spreadValues({}, data.movie), pick(movie, ["season", "episode", "time", "percent"])) : movie);
+          },
+          () => {
+            clearTimeout(timer3);
+            once(movie);
+          }
+        );
+      } else once(movie);
     } catch (e) {
-      Lampa.Noty.show("Watchroom: \u043D\u0435 \u0443\u0434\u0430\u043B\u043E\u0441\u044C \u043E\u0442\u043A\u0440\u044B\u0442\u044C MODS\u2019s");
-      return;
+      clearTimeout(timer3);
+      once(movie);
     }
     let note = "\u0421 \u0442\u0435\u043B\u0435\u0444\u043E\u043D\u0430 \u2192 MODS\u2019s: " + title;
     if (method === "tv" && episode) note += " \xB7 S" + season + "E" + episode;
     if (positionSec || percent) note += " \xB7 \u043F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C";
     Lampa.Noty.show(note);
   }
+  var pick = (o, keys) => {
+    const out = {};
+    keys.forEach((k) => {
+      if (o[k] !== void 0) out[k] = o[k];
+    });
+    return out;
+  };
   var timer2 = null;
   var busy = false;
   var lastCmdId = 0;
@@ -1189,7 +1357,7 @@
   var ICON = '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L14.9 8.6L22 9.3L16.6 14L18.2 21L12 17.3L5.8 21L7.4 14L2 9.3L9.1 8.6L12 2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>';
 
   // src/rate.ts
-  var STAR = '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l2.9 6.6 7.1.7-5.4 4.7 1.6 7-6.2-3.7L5.8 21l1.6-7L2 9.3l7.1-.7L12 2z"/></svg>';
+  var STAR2 = '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l2.9 6.6 7.1.7-5.4 4.7 1.6 7-6.2-3.7L5.8 21l1.6-7L2 9.3l7.1-.7L12 2z"/></svg>';
   function openRate(movie, rated, onChanged, opts) {
     injectStyles();
     const type = mediaType(movie);
@@ -1252,7 +1420,7 @@
     };
     const label = mode === "member" ? memberName ? memberName.toUpperCase() : "\u041F\u0420\u041E\u0424\u0418\u041B\u042C" : rated ? "\u0412\u0410\u0428\u0410 \u041E\u0426\u0415\u041D\u041A\u0410" : "\u041E\u0426\u0415\u041D\u0418\u0422\u0415";
     const root = $(
-      '<div class="tmdbacc-rate"><div class="tmdbacc-rate__big">' + STAR + '<span class="tmdbacc-rate__value">' + (current || "?") + '</span></div><div class="tmdbacc-rate__label">' + label + '</div><div class="tmdbacc-rate__title">' + title + '</div><div class="tmdbacc-rate__stars"></div></div>'
+      '<div class="tmdbacc-rate"><div class="tmdbacc-rate__big">' + STAR2 + '<span class="tmdbacc-rate__value">' + (current || "?") + '</span></div><div class="tmdbacc-rate__label">' + label + '</div><div class="tmdbacc-rate__title">' + title + '</div><div class="tmdbacc-rate__stars"></div></div>'
     );
     const valueEl = root.find(".tmdbacc-rate__value");
     const starsWrap = root.find(".tmdbacc-rate__stars");
@@ -1265,7 +1433,7 @@
       valueEl.text(n ? String(n) : "?");
     };
     for (let i = 1; i <= 10; i++) {
-      const el = $('<div class="selector tmdbacc-rate__star">' + STAR + "</div>");
+      const el = $('<div class="selector tmdbacc-rate__star">' + STAR2 + "</div>");
       el.on("hover:focus", () => highlight(i));
       el.on("hover:enter", () => submit(i));
       starEls.push(el);
@@ -1292,98 +1460,31 @@
     }
   }
 
-  // src/member-rate.ts
-  var STAR2 = '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l2.9 6.6 7.1.7-5.4 4.7 1.6 7-6.2-3.7L5.8 21l1.6-7L2 9.3l7.1-.7L12 2z"/></svg>';
-  function openMemberRate(movie, member, current, onChanged) {
-    injectStyles();
-    const type = mediaType(movie);
-    const title = String(movie.title || movie.name);
-    const close = () => {
-      Lampa.Modal.close();
-      Lampa.Controller.toggle("full_start");
-    };
-    const submit = (val) => {
-      close();
-      putMemberScore({
-        memberId: member.id,
-        mediaType: type,
-        tmdbId: movie.id,
-        value: val,
-        title,
-        posterPath: String(movie.poster_path || "")
-      }).then(() => {
-        Lampa.Noty.show(member.name + ": \u2605 " + val);
-        pullScores();
-        if (onChanged) onChanged();
-      }).catch(() => Lampa.Noty.show("\u041D\u0435 \u0443\u0434\u0430\u043B\u043E\u0441\u044C \u0441\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C \u043E\u0446\u0435\u043D\u043A\u0443"));
-    };
-    const remove = () => {
-      close();
-      putMemberScore({
-        memberId: member.id,
-        mediaType: type,
-        tmdbId: movie.id,
-        value: 0,
-        title,
-        posterPath: String(movie.poster_path || "")
-      }).then(() => {
-        Lampa.Noty.show(member.name + ": \u043E\u0446\u0435\u043D\u043A\u0430 \u0441\u043D\u044F\u0442\u0430");
-        pullScores();
-        if (onChanged) onChanged();
-      }).catch(() => Lampa.Noty.show("\u041D\u0435 \u0443\u0434\u0430\u043B\u043E\u0441\u044C \u0441\u043D\u044F\u0442\u044C \u043E\u0446\u0435\u043D\u043A\u0443"));
-    };
-    const root = $(
-      '<div class="tmdbacc-rate"><div class="tmdbacc-rate__big">' + STAR2 + '<span class="tmdbacc-rate__value">' + (current || "?") + '</span></div><div class="tmdbacc-rate__label">' + member.name.toUpperCase() + '</div><div class="tmdbacc-rate__title">' + title + '</div><div class="tmdbacc-rate__stars"></div></div>'
-    );
-    const valueEl = root.find(".tmdbacc-rate__value");
-    const starsWrap = root.find(".tmdbacc-rate__stars");
-    const starEls = [];
-    const highlight = (n) => {
-      starEls.forEach((el, idx) => {
-        if (idx < n) el.addClass("filled");
-        else el.removeClass("filled");
-      });
-      valueEl.text(n ? String(n) : "?");
-    };
-    for (let i = 1; i <= 10; i++) {
-      const el = $('<div class="selector tmdbacc-rate__star">' + STAR2 + "</div>");
-      el.on("hover:focus", () => highlight(i));
-      el.on("hover:enter", () => submit(i));
-      starEls.push(el);
-      starsWrap.append(el);
-    }
-    highlight(current);
-    if (current) {
-      const del = $('<div class="selector tmdbacc-rate__delete">\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u043E\u0446\u0435\u043D\u043A\u0443</div>');
-      del.on("hover:focus", () => highlight(current));
-      del.on("hover:enter", remove);
-      root.append(del);
-    }
-    Lampa.Modal.open({
-      title: "",
-      html: root,
-      size: "medium",
-      onBack: close
-    });
-    if (current > 0) {
-      setTimeout(() => {
-        Lampa.Controller.collectionFocus(starEls[current - 1][0], root);
-        highlight(current);
-      }, 100);
-    }
-  }
-
   // src/card-menu.ts
   var BOOKMARK2 = '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 3H7c-1.1 0-2 .9-2 2v16l7-3 7 3V5c0-1.1-.9-2-2-2z"/></svg>';
   var HEART2 = '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>';
   var LIST = '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 6h16M4 12h16M4 18h10" stroke-linecap="round"/></svg>';
   function openCardMenu(movie, onChanged) {
+    const type = mediaType(movie);
+    if (watchroomReady()) {
+      const st = { watchlist: false, favorite: false, rated: null, loading: true };
+      const refresh = show(movie, st, onChanged);
+      const h = watchroomHeaders();
+      fetch(watchroomBase() + "/api/title/" + type + "/" + movie.id, { headers: h || {} }).then((r) => r.ok ? r.json() : Promise.reject(r.status)).then((t) => {
+        st.watchlist = !!t.watchlist;
+        st.favorite = !!t.favorite;
+        st.rated = t.tmdbRating ? { value: t.tmdbRating } : null;
+      }).catch(() => Lampa.Noty.show("Watchroom: \u043D\u0435 \u0443\u0434\u0430\u043B\u043E\u0441\u044C \u0443\u0437\u043D\u0430\u0442\u044C, \u0447\u0442\u043E \u0443\u0436\u0435 \u0432 \u0441\u043F\u0438\u0441\u043A\u0430\u0445")).then(() => {
+        st.loading = false;
+        refresh();
+      });
+      return;
+    }
     const empty = { watchlist: false, favorite: false, rated: null };
     if (!logged()) {
       show(movie, empty, onChanged);
       return;
     }
-    const type = mediaType(movie);
     request("GET", `/${type}/${movie.id}/account_states`).then((state2) => {
       show(movie, {
         watchlist: !!state2.watchlist,
@@ -1410,11 +1511,11 @@
     const myScore = ours.find(
       (s) => s.memberId === mid || s.viewerId === mid || member && s.name === member.name
     );
-    const wTile = makeTile("watch", BOOKMARK2, "\u0421\u043C\u043E\u0442\u0440\u0435\u0442\u044C \u043F\u043E\u0437\u0436\u0435");
+    const wTile = makeTile("watch", BOOKMARK2, "\u041F\u043E\u0437\u0436\u0435");
     const fTile = makeTile("fav", HEART2, "\u0418\u0437\u0431\u0440\u0430\u043D\u043D\u043E\u0435");
-    const rTile = makeTile("rate", ICON, member ? member.name : "\u041E\u0446\u0435\u043D\u043A\u0430");
+    const rTile = makeTile("rate", ICON, "\u041E\u0446\u0435\u043D\u043A\u0430");
     const whoTile = $(
-      '<div class="selector tmdbacc-menu__wide tmdbacc-menu__who"><span>\u2605 \u043E\u0442 \u0438\u043C\u0435\u043D\u0438: <b>' + (member ? member.name : "\u2014") + "</b></span><small>\u0430\u043A\u043A\u0430\u0443\u043D\u0442 \u0441\u0435\u043C\u044C\u0438 Watchroom</small></div>"
+      '<div class="selector tmdbacc-menu__wide tmdbacc-menu__who"><span>\u041E\u0446\u0435\u043D\u043A\u0438 \u0441\u0442\u0430\u0432\u0438\u0442\u0435 \u043A\u0430\u043A <b>' + (member ? member.name : "\u2014") + "</b> \xB7 \u0441\u043C\u0435\u043D\u0438\u0442\u044C</span></div>"
     );
     const setTile = (tile, active, status) => {
       if (active) tile.addClass("tmdbacc-tile--active");
@@ -1422,8 +1523,13 @@
       tile.find(".tmdbacc-tile__status").text(status);
     };
     const renderStates = () => {
-      setTile(wTile, st.watchlist, st.watchlist ? "\u2713 \u0412 \u0441\u043F\u0438\u0441\u043A\u0435" : "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C");
-      setTile(fTile, st.favorite, st.favorite ? "\u2713 \u0412 \u0438\u0437\u0431\u0440\u0430\u043D\u043D\u043E\u043C" : "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C");
+      if (st.loading) {
+        setTile(wTile, false, "\u2026");
+        setTile(fTile, false, "\u2026");
+      } else {
+        setTile(wTile, st.watchlist, st.watchlist ? "\u2713 \u0412 \u0441\u043F\u0438\u0441\u043A\u0435" : "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C");
+        setTile(fTile, st.favorite, st.favorite ? "\u2713 \u0412 \u0438\u0437\u0431\u0440\u0430\u043D\u043D\u043E\u043C" : "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C");
+      }
       const personal = myScore ? myScore.value : 0;
       const tmdb = st.rated ? st.rated.value : 0;
       setTile(
@@ -1433,6 +1539,7 @@
       );
     };
     const toggle = (kind) => {
+      if (st.loading) return;
       const next = !st[kind];
       st[kind] = next;
       renderStates();
@@ -1497,8 +1604,7 @@
         const m = selectedMember();
         if (m) {
           openMemberRate(movie, m, myScore ? myScore.value : 0, () => {
-            pullScores();
-            if (onChanged) onChanged();
+            pullScores().then(() => onChanged && onChanged());
           });
         } else if (logged()) {
           openRate(movie, st.rated, onChanged);
@@ -1533,14 +1639,13 @@
     tiles.append(fTile);
     tiles.append(rTile);
     const root = $('<div class="tmdbacc-menu"></div>');
-    root.append(whoTile);
     root.append(tiles);
-    root.append(listBtn);
+    if (logged()) root.append(listBtn);
     const type = mediaType(movie);
     const cursor = cursorOf(type, movie.id);
     const place = formatCursor(cursor);
     if (place) {
-      root.append($('<div class="tmdbacc-menu__progress"><span>Watchroom</span><b>' + place + "</b></div>"));
+      root.append($('<div class="tmdbacc-menu__progress"><span>\u041E\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u043B\u0438\u0441\u044C</span><b>' + place + "</b></div>"));
     }
     if (ours.length) {
       const chips = ours.map((s) => '<span class="tmdbacc-menu__chip">' + s.name + " <i>\u2605" + s.value + "</i></span>").join("");
@@ -1548,6 +1653,7 @@
     } else {
       pullScores();
     }
+    root.append(whoTile);
     renderStates();
     Lampa.Modal.open({
       title,
@@ -1555,6 +1661,7 @@
       size: "medium",
       onBack: close
     });
+    return renderStates;
   }
   function addToList(listId, movie) {
     request("POST", `/list/${listId}/add_item`, {}, { media_id: movie.id }).then((json) => {
@@ -1733,7 +1840,7 @@
     return items.slice(0, MAX_ITEMS);
   }
   var failures = 0;
-  function push2() {
+  function push() {
     try {
       const body = JSON.stringify({ v: 1, at: Date.now(), items: collect() });
       fetch(URL, { method: "POST", mode: "no-cors", keepalive: true, body }).then(
@@ -1749,17 +1856,17 @@
     }
   }
   function initContinue() {
-    setTimeout(push2, 8e3);
+    setTimeout(push, 8e3);
     setInterval(() => {
-      if (!document.hidden && failures < 3) push2();
+      if (!document.hidden && failures < 3) push();
     }, PUSH_EVERY_MS);
     document.addEventListener("visibilitychange", () => {
-      if (document.hidden) push2();
+      if (document.hidden) push();
     });
-    window.addEventListener("pagehide", push2);
+    window.addEventListener("pagehide", push);
     try {
       const listener = lampa().Player && lampa().Player.listener;
-      if (listener) listener.follow("destroy", () => setTimeout(push2, 1500));
+      if (listener) listener.follow("destroy", () => setTimeout(push, 1500));
     } catch (e) {
     }
   }
@@ -1786,6 +1893,7 @@
   ];
   var WR_LINES = [
     { title: "\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C", kind: "continue", short: "\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C" },
+    { title: "\u0418\u0434\u0435\u0438 \u043D\u0430 \u0432\u0435\u0447\u0435\u0440", kind: "ideas", short: "\u0418\u0434\u0435\u0438" },
     { title: "\u0421\u043C\u043E\u0442\u0440\u0435\u0442\u044C \u043F\u043E\u0437\u0436\u0435", kind: "watchlist", short: "\u041F\u043E\u0437\u0436\u0435" },
     { title: "\u0418\u0437\u0431\u0440\u0430\u043D\u043D\u043E\u0435", kind: "favorite", short: "\u0418\u0437\u0431\u0440\u0430\u043D\u043D\u043E\u0435" },
     { title: "\u041E\u0446\u0435\u043D\u043A\u0438 \u0441\u0435\u043C\u044C\u0438", kind: "ours", short: "\u041E\u0446\u0435\u043D\u043A\u0438" },
@@ -1850,8 +1958,24 @@
     const h = watchroomHeaders();
     const url = watchroomBase();
     if (!h || !url) return Promise.reject(new Error("Watchroom \u043D\u0435 \u043F\u0440\u0438\u0432\u044F\u0437\u0430\u043D"));
-    return fetch(url + "/api/library?scope=household", { headers: h }).then((r) => r.ok ? r.json() : Promise.reject(r.status)).then((data) => {
-      libraryCache = data || {};
+    const ideas = Promise.race([
+      fetch(url + "/api/recommend?hideListed=1", { headers: h }).then((r) => r.ok ? r.json() : null).catch(() => null),
+      new Promise((ok) => setTimeout(() => ok(null), 4e3))
+    ]).then((rec) => {
+      if (!rec) return [];
+      const seen = /* @__PURE__ */ new Set();
+      return [...rec.top || [], ...rec.discover || []].filter((c) => {
+        const k = c.mediaType + ":" + c.id;
+        if (seen.has(k)) return false;
+        seen.add(k);
+        return true;
+      });
+    });
+    return Promise.all([
+      fetch(url + "/api/library?scope=household", { headers: h }).then((r) => r.ok ? r.json() : Promise.reject(r.status)),
+      ideas
+    ]).then(([data, ideaList]) => {
+      libraryCache = __spreadProps(__spreadValues({}, data || {}), { ideas: ideaList });
       libraryAt = Date.now();
       rememberMembers(libraryCache);
       return libraryCache;
@@ -1859,7 +1983,7 @@
   }
   function filterCardsByMember(items, memberId, kind, members) {
     if (!memberId) return items;
-    if (kind === "continue") return items;
+    if (kind === "continue" || kind === "ideas") return items;
     const mid = Number(memberId) || 0;
     const accountOf = (m) => Number(m.accountId || 0) || 0;
     return items.filter((c) => {
@@ -2087,6 +2211,11 @@
       if (lastCardFocus && lastCardFocus.offsetParent !== null) return lastCardFocus;
       return html.find(".tmdbacc-family__tab.active")[0] || html.find(".tmdbacc-family__tab.selector")[0] || false;
     }
+    function reveal(row, el) {
+      const right = el.offsetLeft + el.offsetWidth + 16;
+      if (right > row.scrollLeft + row.clientWidth) row.scrollLeft = right - row.clientWidth;
+      else if (el.offsetLeft - 16 < row.scrollLeft) row.scrollLeft = Math.max(0, el.offsetLeft - 16);
+    }
     function paintTabs() {
       sectionsRow.empty();
       const secs = availableSections();
@@ -2106,6 +2235,7 @@
         });
         btn.on("hover:focus", () => {
           focusKey = "sec:" + sec.kind;
+          reveal(sectionsRow[0], btn[0]);
         });
         sectionsRow.append(btn);
       });
@@ -2130,6 +2260,7 @@
           });
           btn.on("hover:focus", () => {
             focusKey = "who:" + w.id;
+            reveal(whoRow[0], btn[0]);
           });
           whoRow.append(btn);
         });
@@ -2412,8 +2543,8 @@
   }
   function initFinished() {
     try {
-      const timeline = Lampa.Timeline;
-      if (timeline && timeline.listener) timeline.listener.follow("update", (e) => onUpdate(e && e.data && e.data.road));
+      const timeline2 = Lampa.Timeline;
+      if (timeline2 && timeline2.listener) timeline2.listener.follow("update", (e) => onUpdate(e && e.data && e.data.road));
     } catch (e) {
     }
   }
