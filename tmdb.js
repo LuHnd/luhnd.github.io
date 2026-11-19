@@ -173,7 +173,7 @@
     if (injected) return;
     injected = true;
     $("body").append(
-      "<style>.tmdbacc-vote{position:absolute;left:0.3em;bottom:0.3em;background:rgba(0,0,0,0.5);color:#f5c518;font-size:1.3em;font-weight:700;padding:0.2em 0.5em;border-radius:1em;z-index:1}.tmdbacc-vote--multi{font-size:1.05em;letter-spacing:0.02em;max-width:70%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.tmdbacc-menu__who{background:none!important;padding:0.6em!important;opacity:0.7;font-size:0.95em}.tmdbacc-menu__who.focus{opacity:1;background:#fff!important;color:#000}.tmdbacc-menu__who b{color:inherit}.tmdbacc-badge{position:absolute;top:0.5em;left:0.5em;display:flex;z-index:2}.tmdbacc-badge__chip{background:rgba(0,0,0,0.9);border-radius:0.4em;padding:0.3em 0.5em;font-size:1.05em;font-weight:700;color:#fff;display:flex;align-items:center;margin-right:0.35em;box-shadow:0 0.1em 0.5em rgba(0,0,0,0.6)}.tmdbacc-badge__chip svg{width:1.1em;height:1.1em;fill:currentColor}.tmdbacc-badge__chip--fav{color:#ff6b81}.tmdbacc-badge__chip--watch{color:#7bed9f}.tmdbacc-menu{padding:0.3em 0 0.6em}.tmdbacc-menu__tiles{display:flex}.tmdbacc-tile{flex:1;margin:0 0.35em;background:rgba(255,255,255,0.06);border-radius:0.9em;padding:1.3em 0.6em;text-align:center;border:0.15em solid transparent}.tmdbacc-tile svg{width:2.4em;height:2.4em;fill:none;stroke:currentColor;stroke-width:1.7}.tmdbacc-tile__name{margin-top:0.7em;font-weight:600;font-size:1.05em}.tmdbacc-tile__status{margin-top:0.25em;font-size:0.85em;opacity:0.65}.tmdbacc-tile--active svg{fill:currentColor}.tmdbacc-tile--watch.tmdbacc-tile--active{color:#7bed9f}.tmdbacc-tile--fav.tmdbacc-tile--active{color:#ff6b81}.tmdbacc-tile--rate.tmdbacc-tile--active{color:#f5c518}.tmdbacc-tile.focus{background:#fff;color:#000;border-color:#fff}.tmdbacc-menu__wide{display:flex;align-items:center;justify-content:center;margin:0.8em 0.35em 0;background:rgba(255,255,255,0.06);border-radius:0.9em;padding:0.9em}.tmdbacc-menu__wide svg{width:1.4em;height:1.4em;fill:none;stroke:currentColor;stroke-width:1.7;margin-right:0.6em}.tmdbacc-menu__wide.focus{background:#fff;color:#000}.tmdbacc-menu__progress{margin:0.9em 0.35em 0;padding:0.85em 1em;border-radius:0.9em;background:rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center;gap:1em}.tmdbacc-menu__progress span{opacity:0.65;font-size:0.95em}.tmdbacc-menu__progress b{color:#f5c518;font-size:1.15em;font-weight:700}.tmdbacc-menu__viewers{margin:0.55em 0.35em 0;display:flex;flex-wrap:wrap;gap:0.45em}.tmdbacc-menu__chip{background:rgba(0,0,0,0.45);border-radius:2em;padding:0.45em 0.8em;font-size:1.05em;color:#fff}.tmdbacc-menu__chip i{color:#f5c518;font-style:normal;font-weight:700;margin-left:0.15em}.view--tmdbacc.tmdbacc--rated path{fill:#f5c518;stroke:#f5c518}.view--tmdbacc.tmdbacc--rated span{color:#f5c518;font-weight:700}.view--tmdbacc.tmdbacc--rated.focus span{color:inherit}.full-start-new__buttons .view--tmdbacc.tmdbacc--rated:not(.focus) span{display:inline}.tmdbacc-rate{text-align:center;padding:1.2em 0 2em}.tmdbacc-rate__big{position:relative;display:inline-block;width:7em;height:7em;filter:drop-shadow(0 0.3em 1em rgba(87,153,239,0.45))}.tmdbacc-rate__big svg{width:100%;height:100%;fill:#5799ef}.tmdbacc-rate__big span{position:absolute;top:54%;left:50%;transform:translate(-50%,-50%);font-size:2.3em;font-weight:800;color:#fff}.tmdbacc-rate__label{color:#f5c518;font-weight:700;letter-spacing:0.3em;font-size:1.05em;margin:0.8em 0 0.3em}.tmdbacc-rate__title{font-size:1.9em;font-weight:600;margin-bottom:1em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.tmdbacc-rate__stars{display:flex;justify-content:center;padding:0.5em 0}.tmdbacc-rate__star{width:3.8em;height:3.8em;padding:0.35em;margin:0 0.15em;border-radius:0.4em;transition:transform 0.12s}.tmdbacc-rate__star svg{width:100%;height:100%;fill:none;stroke:#8a8a8a;stroke-width:1.4}.tmdbacc-rate__star.filled svg{fill:#f5c518;stroke:#f5c518}.tmdbacc-rate__star.focus{transform:scale(1.4)}.tmdbacc-rate__star.focus svg{stroke:#fff;filter:drop-shadow(0 0 0.4em rgba(245,197,24,0.8))}.tmdbacc-rate__star.filled.focus svg{stroke:#f5c518}.tmdbacc-rate__delete{display:inline-block;margin-top:2em;padding:0.8em 2em;border-radius:0.5em;background:rgba(255,255,255,0.12);font-size:1.1em}.tmdbacc-rate__delete.focus{background:#fff;color:#000}.tmdbacc-family{padding:1.1em 1.6em 2em;height:100%;display:flex;flex-direction:column;box-sizing:border-box}.tmdbacc-family__head{flex-shrink:0;margin-bottom:1.05em}.tmdbacc-family__sections{position:relative;display:flex;flex-wrap:nowrap;gap:0.75em;margin-bottom:0.95em;overflow-x:auto;padding:0.15em 0.1em 0.35em;-webkit-overflow-scrolling:touch}.tmdbacc-family__tab{display:flex;align-items:center;justify-content:center;gap:0.7em;flex:0 0 auto;min-height:2.8em;min-width:6em;padding:0.75em 1.3em;border-radius:1em;font-size:1.35em;font-weight:700;letter-spacing:0.01em;color:rgba(255,255,255,0.86);background:rgba(255,255,255,0.09);border:0.16em solid transparent;box-sizing:border-box}.tmdbacc-family__tab.active{background:rgba(255,255,255,0.2);color:#fff;border-color:rgba(255,255,255,0.32)}.tmdbacc-family__tab.focus{background:#fff;color:#111;border-color:#fff;box-shadow:0 0.35em 1.5em rgba(0,0,0,0.45);transform:translateY(-0.05em)}.tmdbacc-family__tab-count{font-size:0.7em;font-weight:700;opacity:0.55;padding:0.2em 0.6em;border-radius:0.55em;background:rgba(0,0,0,0.3);min-width:1.6em;text-align:center}.tmdbacc-family__tab.focus .tmdbacc-family__tab-count{background:rgba(0,0,0,0.12);opacity:0.75;color:#111}.tmdbacc-family__who{position:relative;display:flex;flex-wrap:nowrap;gap:0.65em;padding:0.25em 0.1em 0.2em;overflow-x:auto;-webkit-overflow-scrolling:touch}.tmdbacc-family__who.hide{display:none}.tmdbacc-family__sections::-webkit-scrollbar,.tmdbacc-family__who::-webkit-scrollbar{display:none}.tmdbacc-family__who-btn{flex:0 0 auto;min-height:2.7em;min-width:5.5em;padding:0.8em 1.55em;border-radius:2em;font-size:1.3em;font-weight:650;color:rgba(255,255,255,0.82);background:rgba(255,255,255,0.08);border:0.16em solid transparent;box-sizing:border-box}.tmdbacc-family__who-btn.active{background:rgba(245,197,24,0.22);color:#f5c518;border-color:rgba(245,197,24,0.45)}.tmdbacc-family__who-btn.focus{background:#fff;color:#111;border-color:#fff;box-shadow:0 0.3em 1.15em rgba(0,0,0,0.4)}.tmdbacc-family__body{flex:1;min-height:0}.tmdbacc-family__grid{display:flex;flex-wrap:wrap;gap:1.2em 1em;padding:0.4em 0.2em 2em}.tmdbacc-family__grid .card{width:10.5em;margin:0}.tmdbacc-family__empty{opacity:0.6;padding:2em 0.5em;font-size:1.25em}.tmdbacc-family__by{position:absolute;left:0.35em;bottom:0.35em;z-index:2;background:rgba(0,0,0,0.72);color:#f5c518;font-size:0.85em;font-weight:700;padding:0.15em 0.45em;border-radius:0.35em;max-width:90%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}</style>"
+      "<style>.tmdbacc-vote{position:absolute;left:0.3em;bottom:0.3em;background:rgba(0,0,0,0.5);color:#f5c518;font-size:1.3em;font-weight:700;padding:0.2em 0.5em;border-radius:1em;z-index:1}.tmdbacc-vote--multi{font-size:1.05em;letter-spacing:0.02em;max-width:70%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.tmdbacc-menu__who{background:none!important;padding:0.6em!important;opacity:0.7;font-size:0.95em}.tmdbacc-menu__who.focus{opacity:1;background:#fff!important;color:#000}.tmdbacc-menu__who b{color:inherit}.tmdbacc-badge{position:absolute;top:0.5em;left:0.5em;display:flex;z-index:2}.tmdbacc-badge__chip{background:rgba(0,0,0,0.9);border-radius:0.4em;padding:0.3em 0.5em;font-size:1.05em;font-weight:700;color:#fff;display:flex;align-items:center;margin-right:0.35em;box-shadow:0 0.1em 0.5em rgba(0,0,0,0.6)}.tmdbacc-badge__chip svg{width:1.1em;height:1.1em;fill:currentColor}.tmdbacc-badge__chip--fav{color:#ff6b81}.tmdbacc-badge__chip--watch{color:#7bed9f}.tmdbacc-menu{padding:0.3em 0 0.6em}.tmdbacc-menu__tiles{display:flex}.tmdbacc-tile{flex:1;margin:0 0.35em;background:rgba(255,255,255,0.06);border-radius:0.9em;padding:1.3em 0.6em;text-align:center;border:0.15em solid transparent}.tmdbacc-tile svg{width:2.4em;height:2.4em;fill:none;stroke:currentColor;stroke-width:1.7}.tmdbacc-tile__name{margin-top:0.7em;font-weight:600;font-size:1.05em}.tmdbacc-tile__status{margin-top:0.25em;font-size:0.85em;opacity:0.65}.tmdbacc-tile--active svg{fill:currentColor}.tmdbacc-tile--watch.tmdbacc-tile--active{color:#7bed9f}.tmdbacc-tile--fav.tmdbacc-tile--active{color:#ff6b81}.tmdbacc-tile--rate.tmdbacc-tile--active{color:#f5c518}.tmdbacc-tile.focus{background:#fff;color:#000;border-color:#fff}.tmdbacc-menu__wide{display:flex;align-items:center;justify-content:center;margin:0.8em 0.35em 0;background:rgba(255,255,255,0.06);border-radius:0.9em;padding:0.9em}.tmdbacc-menu__wide svg{width:1.4em;height:1.4em;fill:none;stroke:currentColor;stroke-width:1.7;margin-right:0.6em}.tmdbacc-menu__wide.focus{background:#fff;color:#000}.tmdbacc-menu__progress{margin:0.9em 0.35em 0;padding:0.85em 1em;border-radius:0.9em;background:rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center;gap:1em}.tmdbacc-menu__progress span{opacity:0.65;font-size:0.95em}.tmdbacc-menu__progress b{color:#f5c518;font-size:1.15em;font-weight:700}.tmdbacc-menu__viewers{margin:0.55em 0.35em 0;display:flex;flex-wrap:wrap;gap:0.45em}.tmdbacc-menu__chip{background:rgba(0,0,0,0.45);border-radius:2em;padding:0.45em 0.8em;font-size:1.05em;color:#fff}.tmdbacc-menu__chip i{color:#f5c518;font-style:normal;font-weight:700;margin-left:0.15em}.view--tmdbacc.tmdbacc--rated path{fill:#f5c518;stroke:#f5c518}.view--tmdbacc.tmdbacc--rated span{color:#f5c518;font-weight:700}.view--tmdbacc.tmdbacc--rated.focus span{color:inherit}.full-start-new__buttons .view--tmdbacc.tmdbacc--rated:not(.focus) span{display:inline}.tmdbacc-rate{text-align:center;padding:1.2em 0 2em}.tmdbacc-rate__big{position:relative;display:inline-block;width:7em;height:7em;filter:drop-shadow(0 0.3em 1em rgba(87,153,239,0.45))}.tmdbacc-rate__big svg{width:100%;height:100%;fill:#5799ef}.tmdbacc-rate__big span{position:absolute;top:54%;left:50%;transform:translate(-50%,-50%);font-size:2.3em;font-weight:800;color:#fff}.tmdbacc-rate__label{color:#f5c518;font-weight:700;letter-spacing:0.3em;font-size:1.05em;margin:0.8em 0 0.3em}.tmdbacc-rate__title{font-size:1.9em;font-weight:600;margin-bottom:1em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.tmdbacc-rate__stars{display:flex;justify-content:center;padding:0.5em 0}.tmdbacc-rate__star{width:3.8em;height:3.8em;padding:0.35em;margin:0 0.15em;border-radius:0.4em;transition:transform 0.12s}.tmdbacc-rate__star svg{width:100%;height:100%;fill:none;stroke:#8a8a8a;stroke-width:1.4}.tmdbacc-rate__star.filled svg{fill:#f5c518;stroke:#f5c518}.tmdbacc-rate__star.focus{transform:scale(1.4)}.tmdbacc-rate__star.focus svg{stroke:#fff;filter:drop-shadow(0 0 0.4em rgba(245,197,24,0.8))}.tmdbacc-rate__star.filled.focus svg{stroke:#f5c518}.tmdbacc-rate__delete{display:inline-block;margin-top:2em;padding:0.8em 2em;border-radius:0.5em;background:rgba(255,255,255,0.12);font-size:1.1em}.tmdbacc-rate__delete.focus{background:#fff;color:#000}.tmdbacc-family{padding:1.1em 1.6em 2em;height:100%;display:flex;flex-direction:column;box-sizing:border-box}.tmdbacc-family__head{flex-shrink:0;margin-bottom:1.05em}.tmdbacc-family__sections{position:relative;display:flex;flex-wrap:nowrap;gap:0.75em;margin-bottom:0.95em;overflow-x:auto;padding:0.15em 0.1em 0.35em;-webkit-overflow-scrolling:touch}.tmdbacc-family__tab{display:flex;align-items:center;justify-content:center;gap:0.7em;flex:0 0 auto;min-height:2.8em;min-width:6em;padding:0.75em 1.3em;border-radius:1em;font-size:1.35em;font-weight:700;letter-spacing:0.01em;color:rgba(255,255,255,0.86);background:rgba(255,255,255,0.09);border:0.16em solid transparent;box-sizing:border-box}.tmdbacc-family__tab.active{background:rgba(255,255,255,0.2);color:#fff;border-color:rgba(255,255,255,0.32)}.tmdbacc-family__tab.focus{background:#fff;color:#111;border-color:#fff;box-shadow:0 0.35em 1.5em rgba(0,0,0,0.45);transform:translateY(-0.05em)}.tmdbacc-family__tab-count{font-size:0.7em;font-weight:700;opacity:0.55;padding:0.2em 0.6em;border-radius:0.55em;background:rgba(0,0,0,0.3);min-width:1.6em;text-align:center}.tmdbacc-family__tab.focus .tmdbacc-family__tab-count{background:rgba(0,0,0,0.12);opacity:0.75;color:#111}.tmdbacc-family__who{position:relative;display:flex;flex-wrap:nowrap;gap:0.65em;padding:0.25em 0.1em 0.2em;overflow-x:auto;-webkit-overflow-scrolling:touch}.tmdbacc-family__who.hide{display:none}.tmdbacc-family__sections::-webkit-scrollbar,.tmdbacc-family__who::-webkit-scrollbar{display:none}.tmdbacc-family__who-btn{flex:0 0 auto;min-height:2.7em;min-width:5.5em;padding:0.8em 1.55em;border-radius:2em;font-size:1.3em;font-weight:650;color:rgba(255,255,255,0.82);background:rgba(255,255,255,0.08);border:0.16em solid transparent;box-sizing:border-box}.tmdbacc-family__who-btn.active{background:rgba(245,197,24,0.22);color:#f5c518;border-color:rgba(245,197,24,0.45)}.tmdbacc-family__who-btn.focus{background:#fff;color:#111;border-color:#fff;box-shadow:0 0.3em 1.15em rgba(0,0,0,0.4)}.tmdbacc-family__body{flex:1;min-height:0}.tmdbacc-family__grid{display:flex;flex-wrap:wrap;gap:1.2em 1em;padding:0.4em 0.2em 2em}.tmdbacc-family__grid .card{width:10.5em;margin:0}.tmdbacc-family__empty{opacity:0.6;padding:2em 0.5em;font-size:1.25em}.tmdbacc-family__by{position:absolute;left:0.35em;bottom:0.35em;z-index:2;background:rgba(0,0,0,0.72);color:#f5c518;font-size:0.85em;font-weight:700;padding:0.15em 0.45em;border-radius:0.35em;max-width:90%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.tmdbacc-deck{position:relative;height:100%;min-height:calc(100vh - 6em);padding:1.5em 3em 0;box-sizing:border-box;display:flex;flex-direction:column}.tmdbacc-deck__stage{flex:1;display:flex;align-items:center;gap:3em;min-height:0}.tmdbacc-deck__poster{position:relative;flex:none;height:min(68vh,36em);aspect-ratio:2/3;border-radius:1.2em;overflow:hidden;background:rgba(255,255,255,0.06);box-shadow:0 1.5em 4em rgba(0,0,0,0.6);transition:transform .26s ease,opacity .26s ease}.tmdbacc-deck__poster img{width:100%;height:100%;object-fit:cover;display:block}.tmdbacc-deck__poster>span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:6em;font-weight:800;opacity:.4}.tmdbacc-deck__poster.focus{outline:0.25em solid #fff;outline-offset:0.3em}.tmdbacc-deck__poster.is-yes{transform:translateX(40%) rotate(8deg);opacity:0}.tmdbacc-deck__poster.is-no{transform:translateX(-40%) rotate(-8deg);opacity:0}.tmdbacc-deck__poster.is-pass{transform:scale(0.96)}.tmdbacc-deck__stamp{position:absolute;top:1em;padding:0.2em 0.5em;border:0.18em solid;border-radius:0.3em;font-style:normal;font-weight:900;font-size:2em;letter-spacing:0.08em;opacity:0;transition:opacity .15s}.tmdbacc-deck__stamp--yes{left:0.6em;color:#4cd964;transform:rotate(-12deg)}.tmdbacc-deck__stamp--no{right:0.6em;color:#ff453a;transform:rotate(12deg)}.is-yes .tmdbacc-deck__stamp--yes,.is-pass .tmdbacc-deck__stamp--yes,.is-no .tmdbacc-deck__stamp--no{opacity:1}.tmdbacc-deck__info{flex:1;min-width:0;max-width:38em}.tmdbacc-deck__who{display:inline-block;margin-bottom:1em;padding:0.35em 0.9em;border-radius:2em;font-weight:800;font-size:1.3em;color:#000;background:var(--who,#fff)}.tmdbacc-deck__want{display:flex;align-items:center;gap:0.4em;color:#ff5e7e;font-weight:700;font-size:1.3em;margin-bottom:0.6em}.tmdbacc-deck__want svg{width:1.1em;height:1.1em}.tmdbacc-deck__title{font-size:3.2em;font-weight:800;line-height:1.05;margin-bottom:0.3em;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.tmdbacc-deck__meta{font-size:1.4em;opacity:.8;margin-bottom:1em}.tmdbacc-deck__meta b{color:#4cd964;margin-right:0.6em}.tmdbacc-deck__why{font-size:1.4em;line-height:1.35;margin-bottom:1em}.tmdbacc-deck__taste{display:inline-block;font-size:1.15em;padding:0.45em 0.8em;border-radius:0.6em;background:rgba(255,106,0,0.16);color:#ffb37a;margin-bottom:1em}.tmdbacc-deck__next{font-size:1.1em;opacity:.5}.tmdbacc-deck__keys{display:flex;justify-content:center;gap:2.2em;padding:1.2em 0 1.6em;font-size:1.15em;opacity:.75}.tmdbacc-deck__keys span{display:flex;align-items:center;gap:0.5em}.tmdbacc-deck kbd{font-family:inherit;font-weight:800;min-width:1.6em;padding:0.15em 0.45em;border-radius:0.35em;background:rgba(255,255,255,0.14);text-align:center}.tmdbacc-deck__match{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2em 0}.tmdbacc-deck__match-title{font-size:4.5em;font-weight:900;color:#ff5e7e;margin-bottom:0.3em}.tmdbacc-deck__match-poster{height:min(45vh,24em);border-radius:1em;box-shadow:0 1.5em 4em rgba(0,0,0,0.6);margin-bottom:1.2em}.tmdbacc-deck__match-text{font-size:1.5em;margin-bottom:1.2em}.tmdbacc-deck__match-go{font-size:1.5em;font-weight:800;padding:0.6em 2.4em;border-radius:3em;background:rgba(255,255,255,0.12)}.tmdbacc-deck__match-go.focus{background:#ff6a00;color:#1a0b00}.tmdbacc-deck__match-hint{margin-top:1em;opacity:.6;font-size:1.1em}.tmdbacc-deck__empty{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-top:20vh}.tmdbacc-deck__empty-title{font-size:2.4em;font-weight:800;margin-bottom:0.4em}.tmdbacc-deck__empty-text{font-size:1.3em;opacity:.7}.tmdbacc-deck__focus{width:1px;height:1px;opacity:0}</style>"
     );
   }
 
@@ -1355,6 +1355,7 @@
 
   // src/icon.ts
   var ICON = '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L14.9 8.6L22 9.3L16.6 14L18.2 21L12 17.3L5.8 21L7.4 14L2 9.3L9.1 8.6L12 2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>';
+  var ICON_HEART = '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20.5s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.6a4.3 4.3 0 0 1 7.5 2.7c0 5.6-7.5 10.2-7.5 10.2z" fill="currentColor"/></svg>';
 
   // src/rate.ts
   var STAR2 = '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l2.9 6.6 7.1.7-5.4 4.7 1.6 7-6.2-3.7L5.8 21l1.6-7L2 9.3l7.1-.7L12 2z"/></svg>';
@@ -2105,9 +2106,9 @@
   }
   var pendingByUrl = {};
   function patchApiListForWr() {
-    const api = Lampa.Api;
-    const prev = api.list.bind(Lampa.Api);
-    api.list = function(params, oncomplite, onerror) {
+    const api2 = Lampa.Api;
+    const prev = api2.list.bind(Lampa.Api);
+    api2.list = function(params, oncomplite, onerror) {
       const url = String(params && params.url || "");
       if (url.indexOf(WR_PREFIX) !== 0) return prev(params, oncomplite, onerror);
       const kind = url.slice(WR_PREFIX.length);
@@ -2674,6 +2675,461 @@
     });
   }
 
+  // src/together.ts
+  var COMPONENT = "tmdbacc_together";
+  var TASTE_KEY = "tmdbacc_deck_taste";
+  var MODE_KEY = "tmdbacc_deck_mode";
+  var keyOf = (it) => it.mediaType + ":" + it.id;
+  var clamp = (x, a, b) => Math.max(a, Math.min(b, x));
+  var esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+  var firstName = (m) => m ? String(m.name).split(/\s+/)[0] : "";
+  function api(path, body) {
+    const h = watchroomHeaders();
+    const url = watchroomBase();
+    if (!h || !url) return Promise.reject(new Error("Watchroom \u043D\u0435 \u043F\u0440\u0438\u0432\u044F\u0437\u0430\u043D"));
+    return fetch(url + path, { method: body ? "POST" : "GET", headers: h, body: body ? JSON.stringify(body) : void 0 }).then(
+      (r) => r.ok ? r.json() : Promise.reject(new Error("HTTP " + r.status))
+    );
+  }
+  var GENRE = {
+    28: "\u0431\u043E\u0435\u0432\u0438\u043A\u043E\u0432",
+    12: "\u043F\u0440\u0438\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u0439",
+    16: "\u043C\u0443\u043B\u044C\u0442\u0444\u0438\u043B\u044C\u043C\u043E\u0432",
+    35: "\u043A\u043E\u043C\u0435\u0434\u0438\u0439",
+    80: "\u043A\u0440\u0438\u043C\u0438\u043D\u0430\u043B\u0430",
+    99: "\u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u0430\u043B\u043E\u043A",
+    18: "\u0434\u0440\u0430\u043C",
+    10751: "\u0441\u0435\u043C\u0435\u0439\u043D\u043E\u0433\u043E",
+    14: "\u0444\u044D\u043D\u0442\u0435\u0437\u0438",
+    36: "\u0438\u0441\u0442\u043E\u0440\u0438\u0438",
+    27: "\u0443\u0436\u0430\u0441\u043E\u0432",
+    9648: "\u0434\u0435\u0442\u0435\u043A\u0442\u0438\u0432\u043E\u0432",
+    10749: "\u043C\u0435\u043B\u043E\u0434\u0440\u0430\u043C",
+    878: "\u0444\u0430\u043D\u0442\u0430\u0441\u0442\u0438\u043A\u0438",
+    53: "\u0442\u0440\u0438\u043B\u043B\u0435\u0440\u043E\u0432",
+    10752: "\u0432\u043E\u0435\u043D\u043D\u043E\u0433\u043E",
+    37: "\u0432\u0435\u0441\u0442\u0435\u0440\u043D\u043E\u0432"
+  };
+  var BROAD = { 28: 0.7, 12: 0.7, 18: 0.75 };
+  function loadTaste() {
+    const saved = Lampa.Storage.get(TASTE_KEY, {}) || {};
+    const k = Math.pow(0.85, Math.max(0, (Date.now() - (saved.at || Date.now())) / 864e5));
+    const fade = (m) => {
+      const out = {};
+      Object.keys(m || {}).forEach((a) => {
+        const v = m[a] * k;
+        if (Math.abs(v) > 0.05) out[a] = v;
+      });
+      return out;
+    };
+    return { g: fade(saved.g), l: fade(saved.l), s: fade(saved.s) };
+  }
+  function TogetherComponent() {
+    injectStyles();
+    const self = this;
+    const html = $('<div class="tmdbacc-deck"></div>');
+    let taste = loadTaste();
+    let members = [];
+    let mode = String(Lampa.Storage.get(MODE_KEY, "pair") || "pair");
+    let rec = null;
+    const partial = [];
+    const votes = /* @__PURE__ */ new Map();
+    let extra = [];
+    const done = /* @__PURE__ */ new Set();
+    const asked = /* @__PURE__ */ new Set();
+    let history = [];
+    let n = 0;
+    let top = "";
+    let match = null;
+    let busy2 = false;
+    let refilling = false;
+    let alive = true;
+    const pair = () => mode === "pair" && members.length > 1;
+    const soloId = () => {
+      const id = Number(mode) || 0;
+      return members.some((m) => m.id === id) ? id : (selectedMember() || members[0] || { id: 0 }).id;
+    };
+    const voteOf = (it, m) => (votes.get(keyOf(it)) || /* @__PURE__ */ new Map()).get(m) || 0;
+    const voters = (it) => {
+      if (!pair()) return voteOf(it, soloId()) ? [] : [soloId()];
+      return members.map((m) => m.id).filter((id) => !voteOf(it, id));
+    };
+    const blocked = (it) => pair() ? members.some((m) => voteOf(it, m.id) < 0) : voteOf(it, soloId()) !== 0;
+    function save2() {
+      Lampa.Storage.set(TASTE_KEY, { g: taste.g, l: taste.l, s: taste.s, at: Date.now() });
+    }
+    const bump = (m, k, d) => {
+      m[k] = clamp((m[k] || 0) + d, -4, 4);
+    };
+    function learn(it, vote2, sign = 1) {
+      const d = vote2 > 0 ? 1 : vote2 < 0 ? -0.6 : 0;
+      if (!d) return;
+      const gs = it.genres || [];
+      gs.forEach((g) => bump(taste.g, String(g), sign * d / Math.sqrt(gs.length)));
+      if (it.lang) bump(taste.l, it.lang, sign * d * 0.5);
+      (it.seeds || []).forEach((s) => bump(taste.s, s, sign * d * 0.8));
+      if (vote2 > 0) bump(taste.s, keyOf(it), sign * 1.5);
+      save2();
+    }
+    function scoreOf(it, base) {
+      const gs = it.genres || [];
+      const tg = gs.length ? gs.reduce((a, g) => a + (taste.g[g] || 0), 0) / Math.sqrt(gs.length) : 0;
+      const tl = clamp(taste.l[it.lang || ""] || 0, -1.5, 1.5);
+      const ts = (it.seeds || []).reduce((a, s) => a + (taste.s[s] || 0), 0);
+      return base + 1.3 * Math.tanh(tg / 2) + 0.25 * tl + 0.7 * Math.tanh(ts / 1.5);
+    }
+    const stem = (it) => String(it.title || "").toLowerCase().replace(/[^a-zа-яё0-9 ]/gi, " ").trim().split(/\s+/)[0].slice(0, 7);
+    function repeatPenalty(it, recent) {
+      const g = (it.genres || [])[0];
+      const st = stem(it);
+      let p = 0;
+      recent.slice(-2).forEach((r) => {
+        if ((r.genres || [])[0] === g) p += 0.35;
+      });
+      if (st.length >= 4 && recent.some((r) => stem(r) === st)) p += 1.2;
+      const last2 = recent.slice(-2);
+      if ((it.likes || []).length && last2.some((r) => (r.likes || []).length)) p += 1.3;
+      if (it._at != null && last2.length === 2 && last2.every((r) => r._at != null)) p += 1.4;
+      return p;
+    }
+    function deck() {
+      const seen2 = /* @__PURE__ */ new Set();
+      const pool = [];
+      const add = (it) => {
+        if (!it || !it.id) return;
+        const k = keyOf(it);
+        if (seen2.has(k) || done.has(k) || blocked(it) || !voters(it).length) return;
+        seen2.add(k);
+        pool.push(it);
+      };
+      partial.forEach(add);
+      extra.forEach(add);
+      if (rec) {
+        (rec.top || []).forEach(add);
+        if (rec.forBoth) rec.forBoth.results.forEach(add);
+        (rec.because || []).forEach((b) => b.results.forEach(add));
+        if (rec.gems) rec.gems.results.forEach(add);
+        if (rec.fresh) rec.fresh.results.forEach(add);
+        (rec.discover || []).forEach(add);
+      }
+      const len = pool.length || 1;
+      const scored = pool.map((it, i) => {
+        let base = 3 * (1 - i / len);
+        if (it._at != null) base = 2.6 - 0.08 * (it._i || 0) - 0.12 * Math.max(0, n - it._at);
+        if ((it.likes || []).length) base += 1.2;
+        return { it, s: scoreOf(it, base) };
+      });
+      scored.sort((a, b) => b.s - a.s);
+      const loved = (it) => (it.genres || []).some((g) => (taste.g[g] || 0) > 0.4);
+      const shown = history.slice(-4).map((h) => h.it);
+      const out = [];
+      while (scored.length && out.length < 12) {
+        const recent = shown.concat(out).slice(-4);
+        let pick2 = 0;
+        if ((n + out.length) % 6 === 5) {
+          const j = scored.findIndex((x) => !loved(x.it) && !(x.it.likes || []).length);
+          if (j >= 0) pick2 = j;
+        } else {
+          let best = -Infinity;
+          for (let i = 0; i < Math.min(scored.length, 14); i++) {
+            const s = scored[i].s - repeatPenalty(scored[i].it, recent);
+            if (s > best) {
+              best = s;
+              pick2 = i;
+            }
+          }
+        }
+        out.push(scored.splice(pick2, 1)[0].it);
+      }
+      const pin = out.findIndex((it) => keyOf(it) === top);
+      if (pin > 0) out.unshift(out.splice(pin, 1)[0]);
+      else if (pin < 0 && top) {
+        const was = pool.find((it) => keyOf(it) === top);
+        if (was) out.unshift(was);
+      }
+      top = out.length ? keyOf(out[0]) : "";
+      return out;
+    }
+    function tasteLine() {
+      const ent = Object.keys(taste.g).filter((g) => GENRE[g]).map((g) => ({ g, w: taste.g[g] * (BROAD[g] || 1) }));
+      const up = ent.filter((e) => e.w >= 0.9).sort((a, b) => b.w - a.w).slice(0, 2).map((e) => GENRE[e.g]);
+      const down = ent.filter((e) => e.w <= -0.7).sort((a, b) => a.w - b.w).slice(0, 2).map((e) => GENRE[e.g]);
+      const parts = [];
+      if (up.length) parts.push("\u0431\u043E\u043B\u044C\u0448\u0435 " + up.join(" \u0438 "));
+      if (down.length) parts.push("\u043C\u0435\u043D\u044C\u0448\u0435 " + down.join(" \u0438 "));
+      return parts.join(" \xB7 ");
+    }
+    function loadSwipes() {
+      const ids = members.length ? members.map((m) => m.id) : [0];
+      return Promise.all(ids.map((id) => api("/api/swipes" + (id ? "?memberId=" + id : "")).catch(() => null))).then((list) => {
+        list.forEach((d, i) => {
+          if (!d) return;
+          const mid = ids[i];
+          (d.mine || []).forEach((v) => {
+            const k = v.mediaType + ":" + v.id;
+            if (!votes.has(k)) votes.set(k, /* @__PURE__ */ new Map());
+            votes.get(k).set(mid, Number(v.vote));
+          });
+          (d.othersLike || []).forEach((it) => {
+            if (!partial.some((x) => keyOf(x) === keyOf(it))) partial.push(it);
+            (it.likes || []).forEach((who) => {
+              const k = keyOf(it);
+              if (!votes.has(k)) votes.set(k, /* @__PURE__ */ new Map());
+              votes.get(k).set(who, 1);
+            });
+          });
+        });
+      });
+    }
+    function loadRec(shuffle) {
+      return api("/api/recommend?hideListed=1" + (shuffle ? "&shuffle=" + shuffle : "")).then((d) => {
+        rec = d;
+      });
+    }
+    function moreLike(it) {
+      const k = keyOf(it);
+      if (asked.has(k)) return;
+      asked.add(k);
+      api("/api/swipe/more?type=" + it.mediaType + "&id=" + it.id).then((d) => {
+        if (!alive || !history.some((h) => h.vote > 0 && keyOf(h.it) === k)) return;
+        const have = new Set(extra.map(keyOf));
+        const add = (d.results || []).filter((x) => !have.has(keyOf(x))).map((x, i) => __spreadProps(__spreadValues({}, x), { _at: n, _i: i }));
+        extra = add.concat(extra).slice(0, 80);
+      }).catch(() => {
+      });
+    }
+    function vote(v) {
+      if (busy2 || match) return;
+      const it = deck()[0];
+      if (!it) return;
+      const who = voters(it)[0];
+      if (!who) return;
+      busy2 = true;
+      const k = keyOf(it);
+      if (!votes.has(k)) votes.set(k, /* @__PURE__ */ new Map());
+      votes.get(k).set(who, v);
+      history.push({ it, member: who, vote: v });
+      n++;
+      learn(it, v);
+      if (v > 0) moreLike(it);
+      const allYes = v > 0 && !voters(it).length;
+      const last = v < 0 || !voters(it).length;
+      html.find(".tmdbacc-deck__poster").addClass(last ? v > 0 ? "is-yes" : "is-no" : "is-pass");
+      api("/api/swipe", {
+        memberId: who,
+        mediaType: it.mediaType,
+        tmdbId: it.id,
+        vote: v,
+        title: it.title,
+        posterPath: it.posterPath || "",
+        year: it.year || "",
+        genres: it.genres || []
+      }).then((d) => {
+        if (d && d.match && !match) {
+          match = it;
+          paint();
+        }
+      }).catch(() => Lampa.Noty.show("Watchroom: \u0433\u043E\u043B\u043E\u0441 \u043D\u0435 \u0441\u043E\u0445\u0440\u0430\u043D\u0438\u043B\u0441\u044F \u2014 \u043F\u0440\u043E\u0432\u0435\u0440\u044C\u0442\u0435 \u0441\u0435\u0442\u044C"));
+      setTimeout(() => {
+        busy2 = false;
+        if (!alive) return;
+        if (v < 0 || !voters(it).length) done.add(k);
+        if (allYes && pair()) match = it;
+        if (deck().length < 5 && !refilling) {
+          refilling = true;
+          loadRec(String(Date.now())).catch(() => {
+          }).then(() => {
+            refilling = false;
+            if (alive) paint();
+          });
+        }
+        paint();
+      }, 260);
+    }
+    function undo() {
+      const last = history.pop();
+      if (!last) return Lampa.Noty.show("\u0412\u043E\u0437\u0432\u0440\u0430\u0449\u0430\u0442\u044C \u043D\u0435\u0447\u0435\u0433\u043E");
+      const k = keyOf(last.it);
+      const mv = votes.get(k);
+      if (mv) mv.delete(last.member);
+      done.delete(k);
+      learn(last.it, last.vote, -1);
+      n = Math.max(0, n - 1);
+      if (last.vote > 0) extra = extra.filter((x) => (x.seeds || []).indexOf(k) < 0);
+      top = k;
+      match = null;
+      api("/api/swipe", { memberId: last.member, mediaType: last.it.mediaType, tmdbId: last.it.id, vote: 0 }).catch(() => {
+      });
+      paint();
+    }
+    function seen() {
+      const it = deck()[0];
+      if (!it) return;
+      done.add(keyOf(it));
+      api("/api/recommend/hide", { mediaType: it.mediaType, tmdbId: it.id }).catch(() => {
+      });
+      Lampa.Noty.show("\xAB" + it.title + "\xBB \u0431\u043E\u043B\u044C\u0448\u0435 \u043D\u0435 \u043F\u0440\u0435\u0434\u043B\u043E\u0436\u0438\u043C \u2014 \u043E\u0446\u0435\u043D\u0438\u0442\u044C \u043C\u043E\u0436\u043D\u043E \u0432 \u043A\u0430\u0440\u0442\u043E\u0447\u043A\u0435");
+      paint();
+    }
+    function openFull(it) {
+      Lampa.Activity.push({
+        url: "",
+        component: "full",
+        id: it.id,
+        method: it.mediaType,
+        card: { id: it.id, title: it.title, name: it.mediaType === "tv" ? it.title : void 0, poster_path: it.posterPath, source: "tmdb" },
+        source: "tmdb"
+      });
+    }
+    function menu() {
+      const items = [{ title: "\u0412\u0435\u0440\u043D\u0443\u0442\u044C \u043F\u0440\u043E\u0448\u043B\u0443\u044E", act: "undo" }];
+      if (members.length > 1) {
+        items.push({ title: (pair() ? "\u25CF " : "") + "\u0413\u043E\u043B\u043E\u0441\u0443\u0435\u043C \u0432\u0434\u0432\u043E\u0451\u043C", act: "mode", v: "pair" });
+        members.forEach((m) => items.push({ title: (!pair() && soloId() === m.id ? "\u25CF " : "") + "\u0422\u043E\u043B\u044C\u043A\u043E " + m.name, act: "mode", v: String(m.id) }));
+      }
+      items.push({ title: "\u041D\u0430\u0447\u0430\u0442\u044C \u043F\u043E\u0434\u0431\u043E\u0440 \u0437\u0430\u043D\u043E\u0432\u043E", act: "reset" });
+      Lampa.Select.show({
+        title: "\u0412\u043C\u0435\u0441\u0442\u0435",
+        items,
+        onSelect(item) {
+          if (item.act === "undo") undo();
+          if (item.act === "mode") {
+            mode = String(item.v);
+            Lampa.Storage.set(MODE_KEY, mode);
+            top = "";
+          }
+          if (item.act === "reset") {
+            taste = { g: {}, l: {}, s: {} };
+            save2();
+            extra = [];
+            top = "";
+            Lampa.Noty.show("\u041D\u0430\u0447\u0430\u043B\u0438 \u043F\u043E\u0434\u0431\u043E\u0440 \u0437\u0430\u043D\u043E\u0432\u043E");
+          }
+          Lampa.Controller.toggle("content");
+          paint();
+        },
+        onBack() {
+          Lampa.Controller.toggle("content");
+        }
+      });
+    }
+    const poster = (it, size) => it.posterPath ? "https://image.tmdb.org/t/p/" + size + it.posterPath : "";
+    const member = (id) => members.find((m) => m.id === id);
+    const colorOf = (id) => ["#5ac8fa", "#ff5e7e", "#ffd60a", "#7bed9f"][Math.max(0, members.findIndex((m) => m.id === id)) % 4];
+    function paint() {
+      var _a;
+      if (!alive) return;
+      if (match) return paintMatch(match);
+      const list = deck();
+      const it = list[0];
+      const line = tasteLine();
+      if (!it) {
+        html.html(
+          '<div class="tmdbacc-deck__empty"><div class="tmdbacc-deck__empty-title">' + (refilling || !rec ? "\u041F\u043E\u0434\u0431\u0438\u0440\u0430\u0435\u043C \u0438\u0434\u0435\u0438\u2026" : "\u041A\u043E\u043B\u043E\u0434\u0430 \u0437\u0430\u043A\u043E\u043D\u0447\u0438\u043B\u0430\u0441\u044C") + '</div><div class="tmdbacc-deck__empty-text">' + (refilling || !rec ? "" : "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 \u2191 \u2014 \xAB\u041D\u0430\u0447\u0430\u0442\u044C \u043F\u043E\u0434\u0431\u043E\u0440 \u0437\u0430\u043D\u043E\u0432\u043E\xBB \u0438\u043B\u0438 \u0437\u0430\u0439\u0434\u0438\u0442\u0435 \u043F\u043E\u0437\u0436\u0435") + '</div><div class="tmdbacc-deck__focus selector"></div></div>'
+        );
+        return focus();
+      }
+      const who = voters(it)[0];
+      const wanted = members.filter((m) => voteOf(it, m.id) > 0).map((m) => firstName(m));
+      const meta = [it.year, it.mediaType === "tv" ? "\u0421\u0435\u0440\u0438\u0430\u043B" : "\u0424\u0438\u043B\u044C\u043C", it.vote ? "\u2605 " + it.vote.toFixed(1) : ""].filter(Boolean).join(" \xB7 ");
+      const next = list[1];
+      Lampa.Background.change(poster(it, "w300"));
+      html.html(
+        '<div class="tmdbacc-deck__stage"><div class="tmdbacc-deck__poster selector">' + (poster(it, "w500") ? '<img src="' + poster(it, "w500") + '" alt="">' : "<span>" + esc(it.title.slice(0, 1)) + "</span>") + '<i class="tmdbacc-deck__stamp tmdbacc-deck__stamp--yes">\u0425\u041E\u0427\u0423</i><i class="tmdbacc-deck__stamp tmdbacc-deck__stamp--no">\u041D\u0415\u0422</i></div><div class="tmdbacc-deck__info">' + (pair() && who ? '<div class="tmdbacc-deck__who" style="--who:' + colorOf(who) + '">\u0413\u043E\u043B\u043E\u0441\u0443\u0435\u0442 ' + esc(((_a = member(who)) == null ? void 0 : _a.name) || "") + "</div>" : "") + (wanted.length ? '<div class="tmdbacc-deck__want">' + ICON_HEART + esc(wanted.join(" \u0438 ")) + " \u2014 \u0445\u043E\u0447\u0435\u0442</div>" : "") + '<div class="tmdbacc-deck__title">' + esc(it.title) + '</div><div class="tmdbacc-deck__meta">' + (it.match ? "<b>" + it.match + "%</b>" : "") + esc(meta) + "</div>" + (it.why ? '<div class="tmdbacc-deck__why">' + esc(it.why) + "</div>" : "") + (line ? '<div class="tmdbacc-deck__taste">\u041F\u043E\u0434\u0431\u0438\u0440\u0430\u044E: ' + esc(line) + "</div>" : "") + (next ? '<div class="tmdbacc-deck__next">\u0414\u0430\u043B\u044C\u0448\u0435: ' + esc(next.title) + "</div>" : "") + '</div></div><div class="tmdbacc-deck__keys"><span><kbd>\u2190</kbd>\u041D\u0435\u0442</span><span><kbd>\u2192</kbd>\u0425\u043E\u0447\u0443</span><span><kbd>OK</kbd>\u041F\u043E\u0434\u0440\u043E\u0431\u043D\u0435\u0435</span><span><kbd>\u2193</kbd>\u0423\u0436\u0435 \u0441\u043C\u043E\u0442\u0440\u0435\u043B\u0438</span><span><kbd>\u2191</kbd>\u041C\u0435\u043D\u044E</span></div>'
+      );
+      html.find(".tmdbacc-deck__poster").on("hover:enter", () => openFull(it));
+      focus();
+    }
+    function paintMatch(it) {
+      html.html(
+        '<div class="tmdbacc-deck__match"><div class="tmdbacc-deck__match-title">\u041C\u044D\u0442\u0447!</div>' + (poster(it, "w342") ? '<img class="tmdbacc-deck__match-poster" src="' + poster(it, "w342") + '" alt="">' : "") + '<div class="tmdbacc-deck__match-text">' + (members.length > 1 ? "\u0412\u044B \u043E\u0431\u0430 \u0445\u043E\u0442\u0438\u0442\u0435" : "\u0425\u043E\u0442\u0438\u0442\u0435") + " \xAB" + esc(it.title) + '\xBB. \u0423\u0436\u0435 \u0432 \xAB\u041F\u043E\u0437\u0436\u0435\xBB.</div><div class="tmdbacc-deck__match-go selector">\u0421\u043C\u043E\u0442\u0440\u0435\u0442\u044C</div><div class="tmdbacc-deck__match-hint"><kbd>\u2192</kbd> \u0432\u044B\u0431\u0438\u0440\u0430\u0442\u044C \u0434\u0430\u043B\u044C\u0448\u0435</div></div>'
+      );
+      html.find(".tmdbacc-deck__match-go").on("hover:enter", () => {
+        match = null;
+        openFull(it);
+      });
+      focus();
+    }
+    function focus() {
+      Lampa.Controller.collectionSet(html);
+      Lampa.Controller.collectionFocus(html.find(".selector")[0] || false, html);
+    }
+    this.create = function() {
+      self.activity.loader(true);
+      pullMembers();
+      members = membersCached();
+      loadSwipes().then(() => loadRec()).catch((err) => Lampa.Noty.show("Watchroom: \u043D\u0435 \u0443\u0434\u0430\u043B\u043E\u0441\u044C \u0437\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044C \u0438\u0434\u0435\u0438 (" + String(err) + ")")).then(() => {
+        self.activity.loader(false);
+        paint();
+        self.activity.toggle();
+      });
+      return html;
+    };
+    this.start = function() {
+      Lampa.Controller.add("content", {
+        toggle: () => focus(),
+        left: () => {
+          if (match) return;
+          vote(-1);
+        },
+        right: () => {
+          if (match) {
+            match = null;
+            return paint();
+          }
+          vote(1);
+        },
+        down: () => {
+          if (!match) seen();
+        },
+        up: () => menu(),
+        back: () => {
+          if (match) {
+            match = null;
+            return paint();
+          }
+          Lampa.Activity.backward();
+        }
+      });
+      Lampa.Controller.toggle("content");
+    };
+    this.pause = function() {
+    };
+    this.stop = function() {
+    };
+    this.render = function() {
+      return html;
+    };
+    this.destroy = function() {
+      alive = false;
+      html.remove();
+    };
+  }
+  function TogetherFactory() {
+    TogetherComponent.call(this);
+  }
+  function openTogether() {
+    Lampa.Activity.push({ url: "", title: "\u0412\u043C\u0435\u0441\u0442\u0435", component: COMPONENT, page: 1 });
+  }
+  function ensureMenu() {
+    if (!watchroomPaired()) return;
+    const list = $(".menu .menu__list").eq(0);
+    if (!list.length || list.find('[data-tmdbacc="together"]').length) return;
+    const item = $(
+      '<li class="menu__item selector" data-tmdbacc="together"><div class="menu__ico">' + ICON_HEART + '</div><div class="menu__text">\u0412\u043C\u0435\u0441\u0442\u0435</div></li>'
+    );
+    item.on("hover:enter", () => openTogether());
+    const ours = list.find('[data-tmdbacc="menu"]');
+    if (ours.length) ours.after(item);
+    else list.append(item);
+  }
+  function initTogether() {
+    Lampa.Component.add(COMPONENT, TogetherFactory);
+    ensureMenu();
+    setTimeout(ensureMenu, 1600);
+    setTimeout(ensureMenu, 4200);
+  }
+
   // src/index.ts
   function startPlugin() {
     window.tmdbacc_ready = true;
@@ -2686,6 +3142,7 @@
     initFinished();
     initWatchroom();
     initCast();
+    initTogether();
     syncAll();
   }
   if (!window.tmdbacc_ready) {
