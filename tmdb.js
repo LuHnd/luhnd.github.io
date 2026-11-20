@@ -6,7 +6,7 @@
   var __getOwnPropSymbols = Object.getOwnPropertySymbols;
   var __hasOwnProp = Object.prototype.hasOwnProperty;
   var __propIsEnum = Object.prototype.propertyIsEnumerable;
-  var __defNormalProp = (obj, key2, value) => key2 in obj ? __defProp(obj, key2, { enumerable: true, configurable: true, writable: true, value }) : obj[key2] = value;
+  var __defNormalProp = (obj, key3, value) => key3 in obj ? __defProp(obj, key3, { enumerable: true, configurable: true, writable: true, value }) : obj[key3] = value;
   var __spreadValues = (a, b) => {
     for (var prop in b || (b = {}))
       if (__hasOwnProp.call(b, prop))
@@ -173,7 +173,7 @@
     if (injected) return;
     injected = true;
     $("body").append(
-      "<style>.tmdbacc-vote{position:absolute;left:0.3em;bottom:0.3em;background:rgba(0,0,0,0.5);color:#f5c518;font-size:1.3em;font-weight:700;padding:0.2em 0.5em;border-radius:1em;z-index:1}.tmdbacc-vote--multi{font-size:1.05em;letter-spacing:0.02em;max-width:70%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.tmdbacc-menu__who{background:none!important;padding:0.6em!important;opacity:0.7;font-size:0.95em}.tmdbacc-menu__who.focus{opacity:1;background:#fff!important;color:#000}.tmdbacc-menu__who b{color:inherit}.tmdbacc-badge{position:absolute;top:0.5em;left:0.5em;display:flex;z-index:2}.tmdbacc-badge__chip{background:rgba(0,0,0,0.9);border-radius:0.4em;padding:0.3em 0.5em;font-size:1.05em;font-weight:700;color:#fff;display:flex;align-items:center;margin-right:0.35em;box-shadow:0 0.1em 0.5em rgba(0,0,0,0.6)}.tmdbacc-badge__chip svg{width:1.1em;height:1.1em;fill:currentColor}.tmdbacc-badge__chip--fav{color:#ff6b81}.tmdbacc-badge__chip--watch{color:#7bed9f}.tmdbacc-menu{padding:0.3em 0 0.6em}.tmdbacc-menu__tiles{display:flex}.tmdbacc-tile{flex:1;margin:0 0.35em;background:rgba(255,255,255,0.06);border-radius:0.9em;padding:1.3em 0.6em;text-align:center;border:0.15em solid transparent}.tmdbacc-tile svg{width:2.4em;height:2.4em;fill:none;stroke:currentColor;stroke-width:1.7}.tmdbacc-tile__name{margin-top:0.7em;font-weight:600;font-size:1.05em}.tmdbacc-tile__status{margin-top:0.25em;font-size:0.85em;opacity:0.65}.tmdbacc-tile--active svg{fill:currentColor}.tmdbacc-tile--watch.tmdbacc-tile--active{color:#7bed9f}.tmdbacc-tile--fav.tmdbacc-tile--active{color:#ff6b81}.tmdbacc-tile--rate.tmdbacc-tile--active{color:#f5c518}.tmdbacc-tile.focus{background:#fff;color:#000;border-color:#fff}.tmdbacc-menu__wide{display:flex;align-items:center;justify-content:center;margin:0.8em 0.35em 0;background:rgba(255,255,255,0.06);border-radius:0.9em;padding:0.9em}.tmdbacc-menu__wide svg{width:1.4em;height:1.4em;fill:none;stroke:currentColor;stroke-width:1.7;margin-right:0.6em}.tmdbacc-menu__wide.focus{background:#fff;color:#000}.tmdbacc-menu__progress{margin:0.9em 0.35em 0;padding:0.85em 1em;border-radius:0.9em;background:rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center;gap:1em}.tmdbacc-menu__progress span{opacity:0.65;font-size:0.95em}.tmdbacc-menu__progress b{color:#f5c518;font-size:1.15em;font-weight:700}.tmdbacc-menu__viewers{margin:0.55em 0.35em 0;display:flex;flex-wrap:wrap;gap:0.45em}.tmdbacc-menu__chip{background:rgba(0,0,0,0.45);border-radius:2em;padding:0.45em 0.8em;font-size:1.05em;color:#fff}.tmdbacc-menu__chip i{color:#f5c518;font-style:normal;font-weight:700;margin-left:0.15em}.view--tmdbacc.tmdbacc--rated path{fill:#f5c518;stroke:#f5c518}.view--tmdbacc.tmdbacc--rated span{color:#f5c518;font-weight:700}.view--tmdbacc.tmdbacc--rated.focus span{color:inherit}.full-start-new__buttons .view--tmdbacc.tmdbacc--rated:not(.focus) span{display:inline}.tmdbacc-rate{text-align:center;padding:1.2em 0 2em}.tmdbacc-rate__big{position:relative;display:inline-block;width:7em;height:7em;filter:drop-shadow(0 0.3em 1em rgba(87,153,239,0.45))}.tmdbacc-rate__big svg{width:100%;height:100%;fill:#5799ef}.tmdbacc-rate__big span{position:absolute;top:54%;left:50%;transform:translate(-50%,-50%);font-size:2.3em;font-weight:800;color:#fff}.tmdbacc-rate__label{color:#f5c518;font-weight:700;letter-spacing:0.3em;font-size:1.05em;margin:0.8em 0 0.3em}.tmdbacc-rate__title{font-size:1.9em;font-weight:600;margin-bottom:1em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.tmdbacc-rate__stars{display:flex;justify-content:center;padding:0.5em 0}.tmdbacc-rate__star{width:3.8em;height:3.8em;padding:0.35em;margin:0 0.15em;border-radius:0.4em;transition:transform 0.12s}.tmdbacc-rate__star svg{width:100%;height:100%;fill:none;stroke:#8a8a8a;stroke-width:1.4}.tmdbacc-rate__star.filled svg{fill:#f5c518;stroke:#f5c518}.tmdbacc-rate__star.focus{transform:scale(1.4)}.tmdbacc-rate__star.focus svg{stroke:#fff;filter:drop-shadow(0 0 0.4em rgba(245,197,24,0.8))}.tmdbacc-rate__star.filled.focus svg{stroke:#f5c518}.tmdbacc-rate__delete{display:inline-block;margin-top:2em;padding:0.8em 2em;border-radius:0.5em;background:rgba(255,255,255,0.12);font-size:1.1em}.tmdbacc-rate__delete.focus{background:#fff;color:#000}.tmdbacc-family{padding:1.1em 1.6em 2em;height:100%;display:flex;flex-direction:column;box-sizing:border-box}.tmdbacc-family__head{flex-shrink:0;margin-bottom:1.05em}.tmdbacc-family__sections{position:relative;display:flex;flex-wrap:nowrap;gap:0.75em;margin-bottom:0.95em;overflow-x:auto;padding:0.15em 0.1em 0.35em;-webkit-overflow-scrolling:touch}.tmdbacc-family__tab{display:flex;align-items:center;justify-content:center;gap:0.7em;flex:0 0 auto;min-height:2.8em;min-width:6em;padding:0.75em 1.3em;border-radius:1em;font-size:1.35em;font-weight:700;letter-spacing:0.01em;color:rgba(255,255,255,0.86);background:rgba(255,255,255,0.09);border:0.16em solid transparent;box-sizing:border-box}.tmdbacc-family__tab.active{background:rgba(255,255,255,0.2);color:#fff;border-color:rgba(255,255,255,0.32)}.tmdbacc-family__tab.focus{background:#fff;color:#111;border-color:#fff;box-shadow:0 0.35em 1.5em rgba(0,0,0,0.45);transform:translateY(-0.05em)}.tmdbacc-family__tab-count{font-size:0.7em;font-weight:700;opacity:0.55;padding:0.2em 0.6em;border-radius:0.55em;background:rgba(0,0,0,0.3);min-width:1.6em;text-align:center}.tmdbacc-family__tab.focus .tmdbacc-family__tab-count{background:rgba(0,0,0,0.12);opacity:0.75;color:#111}.tmdbacc-family__who{position:relative;display:flex;flex-wrap:nowrap;gap:0.65em;padding:0.25em 0.1em 0.2em;overflow-x:auto;-webkit-overflow-scrolling:touch}.tmdbacc-family__who.hide{display:none}.tmdbacc-family__sections::-webkit-scrollbar,.tmdbacc-family__who::-webkit-scrollbar{display:none}.tmdbacc-family__who-btn{flex:0 0 auto;min-height:2.7em;min-width:5.5em;padding:0.8em 1.55em;border-radius:2em;font-size:1.3em;font-weight:650;color:rgba(255,255,255,0.82);background:rgba(255,255,255,0.08);border:0.16em solid transparent;box-sizing:border-box}.tmdbacc-family__who-btn.active{background:rgba(245,197,24,0.22);color:#f5c518;border-color:rgba(245,197,24,0.45)}.tmdbacc-family__who-btn.focus{background:#fff;color:#111;border-color:#fff;box-shadow:0 0.3em 1.15em rgba(0,0,0,0.4)}.tmdbacc-family__body{flex:1;min-height:0}.tmdbacc-family__grid{display:flex;flex-wrap:wrap;gap:1.2em 1em;padding:0.4em 0.2em 2em}.tmdbacc-family__grid .card{width:10.5em;margin:0}.tmdbacc-family__empty{opacity:0.6;padding:2em 0.5em;font-size:1.25em}.tmdbacc-family__by{position:absolute;left:0.35em;bottom:0.35em;z-index:2;background:rgba(0,0,0,0.72);color:#f5c518;font-size:0.85em;font-weight:700;padding:0.15em 0.45em;border-radius:0.35em;max-width:90%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.tmdbacc-deck{position:relative;height:100%;min-height:calc(100vh - 6em);padding:1.5em 3em 0;box-sizing:border-box;display:flex;flex-direction:column}.tmdbacc-deck__stage{flex:1;display:flex;align-items:center;gap:3em;min-height:0}.tmdbacc-deck__poster{position:relative;flex:none;height:min(68vh,36em);aspect-ratio:2/3;border-radius:1.2em;overflow:hidden;background:rgba(255,255,255,0.06);box-shadow:0 1.5em 4em rgba(0,0,0,0.6);transition:transform .26s ease,opacity .26s ease}.tmdbacc-deck__poster img{width:100%;height:100%;object-fit:cover;display:block}.tmdbacc-deck__poster>span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:6em;font-weight:800;opacity:.4}.tmdbacc-deck__poster.focus{outline:0.25em solid #fff;outline-offset:0.3em}.tmdbacc-deck__poster.is-yes{transform:translateX(40%) rotate(8deg);opacity:0}.tmdbacc-deck__poster.is-no{transform:translateX(-40%) rotate(-8deg);opacity:0}.tmdbacc-deck__poster.is-pass{transform:scale(0.96)}.tmdbacc-deck__stamp{position:absolute;top:1em;padding:0.2em 0.5em;border:0.18em solid;border-radius:0.3em;font-style:normal;font-weight:900;font-size:2em;letter-spacing:0.08em;opacity:0;transition:opacity .15s}.tmdbacc-deck__stamp--yes{left:0.6em;color:#4cd964;transform:rotate(-12deg)}.tmdbacc-deck__stamp--no{right:0.6em;color:#ff453a;transform:rotate(12deg)}.is-yes .tmdbacc-deck__stamp--yes,.is-pass .tmdbacc-deck__stamp--yes,.is-no .tmdbacc-deck__stamp--no{opacity:1}.tmdbacc-deck__info{flex:1;min-width:0;max-width:38em}.tmdbacc-deck__who{display:inline-block;margin-bottom:1em;padding:0.35em 0.9em;border-radius:2em;font-weight:800;font-size:1.3em;color:#000;background:var(--who,#fff)}.tmdbacc-deck__want{display:flex;align-items:center;gap:0.4em;color:#ff5e7e;font-weight:700;font-size:1.3em;margin-bottom:0.6em}.tmdbacc-deck__want svg{width:1.1em;height:1.1em}.tmdbacc-deck__title{font-size:3.2em;font-weight:800;line-height:1.05;margin-bottom:0.3em;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.tmdbacc-deck__meta{font-size:1.4em;opacity:.8;margin-bottom:1em}.tmdbacc-deck__meta b{color:#4cd964;margin-right:0.6em}.tmdbacc-deck__why{font-size:1.4em;line-height:1.35;margin-bottom:1em}.tmdbacc-deck__taste{display:inline-block;font-size:1.15em;padding:0.45em 0.8em;border-radius:0.6em;background:rgba(255,106,0,0.16);color:#ffb37a;margin-bottom:1em}.tmdbacc-deck__next{font-size:1.1em;opacity:.5}.tmdbacc-deck__keys{display:flex;justify-content:center;gap:2.2em;padding:1.2em 0 1.6em;font-size:1.15em;opacity:.75}.tmdbacc-deck__keys span{display:flex;align-items:center;gap:0.5em}.tmdbacc-deck kbd{font-family:inherit;font-weight:800;min-width:1.6em;padding:0.15em 0.45em;border-radius:0.35em;background:rgba(255,255,255,0.14);text-align:center}.tmdbacc-deck__match{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2em 0}.tmdbacc-deck__match-title{font-size:4.5em;font-weight:900;color:#ff5e7e;margin-bottom:0.3em}.tmdbacc-deck__match-poster{height:min(45vh,24em);border-radius:1em;box-shadow:0 1.5em 4em rgba(0,0,0,0.6);margin-bottom:1.2em}.tmdbacc-deck__match-text{font-size:1.5em;margin-bottom:1.2em}.tmdbacc-deck__match-go{font-size:1.5em;font-weight:800;padding:0.6em 2.4em;border-radius:3em;background:rgba(255,255,255,0.12)}.tmdbacc-deck__match-go.focus{background:#ff6a00;color:#1a0b00}.tmdbacc-deck__match-hint{margin-top:1em;opacity:.6;font-size:1.1em}.tmdbacc-deck__empty{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-top:20vh}.tmdbacc-deck__empty-title{font-size:2.4em;font-weight:800;margin-bottom:0.4em}.tmdbacc-deck__empty-text{font-size:1.3em;opacity:.7}.tmdbacc-pick{padding:2em 3em 1em;display:flex;flex-direction:column;min-height:calc(100vh - 6em);box-sizing:border-box}.tmdbacc-pick__title{font-size:2.6em;font-weight:800;line-height:1.1;margin-bottom:0.3em}.tmdbacc-pick__sub{font-size:1.25em;opacity:.7;margin-bottom:1.4em}.tmdbacc-pick__row{display:flex;gap:1.6em;overflow:hidden;padding:0.8em 0.6em 1.2em;margin:0 -0.6em;scroll-behavior:smooth}.tmdbacc-pick__tile{flex:none;width:13em;border-radius:1em;transition:transform .15s}.tmdbacc-pick__tile.focus{transform:scale(1.06)}.tmdbacc-pick__poster{position:relative;aspect-ratio:2/3;border-radius:0.9em;overflow:hidden;background:rgba(255,255,255,0.06);box-shadow:0 0.8em 2.4em rgba(0,0,0,0.5)}.tmdbacc-pick__tile.focus .tmdbacc-pick__poster{outline:0.22em solid #fff;outline-offset:0.25em}.tmdbacc-pick__poster img{width:100%;height:100%;object-fit:cover;display:block}.tmdbacc-pick__poster>span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:4em;font-weight:800;opacity:.4}.tmdbacc-pick__best{position:absolute;left:0.6em;top:0.6em;font-style:normal;font-weight:800;font-size:0.95em;padding:0.3em 0.6em;border-radius:2em;background:#ff6a00;color:#1a0b00}.tmdbacc-pick__name{font-size:1.3em;font-weight:700;margin-top:0.7em;line-height:1.2;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.tmdbacc-pick__meta{font-size:1.05em;opacity:.8;margin-top:0.3em}.tmdbacc-pick__meta b{color:#4cd964;margin-right:0.5em}.tmdbacc-pick__started{display:inline-block;font-size:0.95em;margin-top:0.4em;padding:0.2em 0.55em;border-radius:0.4em;background:rgba(90,200,250,0.18);color:#9fdcff}.tmdbacc-pick__more{align-self:flex-start;margin-top:1.2em;font-size:1.3em;font-weight:700;padding:0.6em 1.6em;border-radius:3em;background:rgba(255,255,255,0.1)}.tmdbacc-pick__more.focus{background:#fff;color:#000}.tmdbacc-deck__focus{width:1px;height:1px;opacity:0}</style>"
+      "<style>.tmdbacc-vote{position:absolute;left:0.3em;bottom:0.3em;background:rgba(0,0,0,0.5);color:#f5c518;font-size:1.3em;font-weight:700;padding:0.2em 0.5em;border-radius:1em;z-index:1}.tmdbacc-vote--multi{font-size:1.05em;letter-spacing:0.02em;max-width:70%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.tmdbacc-menu__who{background:none!important;padding:0.6em!important;opacity:0.7;font-size:0.95em}.tmdbacc-menu__who.focus{opacity:1;background:#fff!important;color:#000}.tmdbacc-menu__who b{color:inherit}.tmdbacc-badge{position:absolute;top:0.5em;left:0.5em;display:flex;z-index:2}.tmdbacc-badge__chip{background:rgba(0,0,0,0.9);border-radius:0.4em;padding:0.3em 0.5em;font-size:1.05em;font-weight:700;color:#fff;display:flex;align-items:center;margin-right:0.35em;box-shadow:0 0.1em 0.5em rgba(0,0,0,0.6)}.tmdbacc-badge__chip svg{width:1.1em;height:1.1em;fill:currentColor}.tmdbacc-badge__chip--fav{color:#ff6b81}.tmdbacc-badge__chip--watch{color:#7bed9f}.tmdbacc-menu{padding:0.3em 0 0.6em}.tmdbacc-menu__tiles{display:flex}.tmdbacc-tile{flex:1;margin:0 0.35em;background:rgba(255,255,255,0.06);border-radius:0.9em;padding:1.3em 0.6em;text-align:center;border:0.15em solid transparent}.tmdbacc-tile svg{width:2.4em;height:2.4em;fill:none;stroke:currentColor;stroke-width:1.7}.tmdbacc-tile__name{margin-top:0.7em;font-weight:600;font-size:1.05em}.tmdbacc-tile__status{margin-top:0.25em;font-size:0.85em;opacity:0.65}.tmdbacc-tile--active svg{fill:currentColor}.tmdbacc-tile--watch.tmdbacc-tile--active{color:#7bed9f}.tmdbacc-tile--fav.tmdbacc-tile--active{color:#ff6b81}.tmdbacc-tile--rate.tmdbacc-tile--active{color:#f5c518}.tmdbacc-tile.focus{background:#fff;color:#000;border-color:#fff}.tmdbacc-menu__wide{display:flex;align-items:center;justify-content:center;margin:0.8em 0.35em 0;background:rgba(255,255,255,0.06);border-radius:0.9em;padding:0.9em}.tmdbacc-menu__wide svg{width:1.4em;height:1.4em;fill:none;stroke:currentColor;stroke-width:1.7;margin-right:0.6em}.tmdbacc-menu__wide.focus{background:#fff;color:#000}.tmdbacc-menu__progress{margin:0.9em 0.35em 0;padding:0.85em 1em;border-radius:0.9em;background:rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center;gap:1em}.tmdbacc-menu__progress span{opacity:0.65;font-size:0.95em}.tmdbacc-menu__progress b{color:#f5c518;font-size:1.15em;font-weight:700}.tmdbacc-menu__viewers{margin:0.55em 0.35em 0;display:flex;flex-wrap:wrap;gap:0.45em}.tmdbacc-menu__chip{background:rgba(0,0,0,0.45);border-radius:2em;padding:0.45em 0.8em;font-size:1.05em;color:#fff}.tmdbacc-menu__chip i{color:#f5c518;font-style:normal;font-weight:700;margin-left:0.15em}.view--tmdbacc.tmdbacc--rated path{fill:#f5c518;stroke:#f5c518}.view--tmdbacc.tmdbacc--rated span{color:#f5c518;font-weight:700}.view--tmdbacc.tmdbacc--rated.focus span{color:inherit}.full-start-new__buttons .view--tmdbacc.tmdbacc--rated:not(.focus) span{display:inline}.tmdbacc-rate{text-align:center;padding:1.2em 0 2em}.tmdbacc-rate__big{position:relative;display:inline-block;width:7em;height:7em;filter:drop-shadow(0 0.3em 1em rgba(87,153,239,0.45))}.tmdbacc-rate__big svg{width:100%;height:100%;fill:#5799ef}.tmdbacc-rate__big span{position:absolute;top:54%;left:50%;transform:translate(-50%,-50%);font-size:2.3em;font-weight:800;color:#fff}.tmdbacc-rate__label{color:#f5c518;font-weight:700;letter-spacing:0.3em;font-size:1.05em;margin:0.8em 0 0.3em}.tmdbacc-rate__title{font-size:1.9em;font-weight:600;margin-bottom:1em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.tmdbacc-rate__note{font-size:1.15em;opacity:.75;margin:-0.6em 0 0.9em}.tmdbacc-rate__stars{display:flex;justify-content:center;padding:0.5em 0}.tmdbacc-rate__star{width:3.8em;height:3.8em;padding:0.35em;margin:0 0.15em;border-radius:0.4em;transition:transform 0.12s}.tmdbacc-rate__star svg{width:100%;height:100%;fill:none;stroke:#8a8a8a;stroke-width:1.4}.tmdbacc-rate__star.filled svg{fill:#f5c518;stroke:#f5c518}.tmdbacc-rate__star.focus{transform:scale(1.4)}.tmdbacc-rate__star.focus svg{stroke:#fff;filter:drop-shadow(0 0 0.4em rgba(245,197,24,0.8))}.tmdbacc-rate__star.filled.focus svg{stroke:#f5c518}.tmdbacc-rate__delete{display:inline-block;margin-top:2em;padding:0.8em 2em;border-radius:0.5em;background:rgba(255,255,255,0.12);font-size:1.1em}.tmdbacc-rate__delete.focus{background:#fff;color:#000}.tmdbacc-family{padding:1.1em 1.6em 2em;height:100%;display:flex;flex-direction:column;box-sizing:border-box}.tmdbacc-family__head{flex-shrink:0;margin-bottom:1.05em}.tmdbacc-family__sections{position:relative;display:flex;flex-wrap:nowrap;gap:0.75em;margin-bottom:0.95em;overflow-x:auto;padding:0.15em 0.1em 0.35em;-webkit-overflow-scrolling:touch}.tmdbacc-family__tab{display:flex;align-items:center;justify-content:center;gap:0.7em;flex:0 0 auto;min-height:2.8em;min-width:6em;padding:0.75em 1.3em;border-radius:1em;font-size:1.35em;font-weight:700;letter-spacing:0.01em;color:rgba(255,255,255,0.86);background:rgba(255,255,255,0.09);border:0.16em solid transparent;box-sizing:border-box}.tmdbacc-family__tab.active{background:rgba(255,255,255,0.2);color:#fff;border-color:rgba(255,255,255,0.32)}.tmdbacc-family__tab.focus{background:#fff;color:#111;border-color:#fff;box-shadow:0 0.35em 1.5em rgba(0,0,0,0.45);transform:translateY(-0.05em)}.tmdbacc-family__tab-count{font-size:0.7em;font-weight:700;opacity:0.55;padding:0.2em 0.6em;border-radius:0.55em;background:rgba(0,0,0,0.3);min-width:1.6em;text-align:center}.tmdbacc-family__tab.focus .tmdbacc-family__tab-count{background:rgba(0,0,0,0.12);opacity:0.75;color:#111}.tmdbacc-family__who{position:relative;display:flex;flex-wrap:nowrap;gap:0.65em;padding:0.25em 0.1em 0.2em;overflow-x:auto;-webkit-overflow-scrolling:touch}.tmdbacc-family__who.hide{display:none}.tmdbacc-family__sections::-webkit-scrollbar,.tmdbacc-family__who::-webkit-scrollbar{display:none}.tmdbacc-family__who-btn{flex:0 0 auto;min-height:2.7em;min-width:5.5em;padding:0.8em 1.55em;border-radius:2em;font-size:1.3em;font-weight:650;color:rgba(255,255,255,0.82);background:rgba(255,255,255,0.08);border:0.16em solid transparent;box-sizing:border-box}.tmdbacc-family__who-btn.active{background:rgba(245,197,24,0.22);color:#f5c518;border-color:rgba(245,197,24,0.45)}.tmdbacc-family__who-btn.focus{background:#fff;color:#111;border-color:#fff;box-shadow:0 0.3em 1.15em rgba(0,0,0,0.4)}.tmdbacc-family__body{flex:1;min-height:0}.tmdbacc-family__grid{display:flex;flex-wrap:wrap;gap:1.2em 1em;padding:0.4em 0.2em 2em}.tmdbacc-family__grid .card{width:10.5em;margin:0}.tmdbacc-family__empty{opacity:0.6;padding:2em 0.5em;font-size:1.25em}.tmdbacc-family__by{position:absolute;left:0.35em;bottom:0.35em;z-index:2;background:rgba(0,0,0,0.72);color:#f5c518;font-size:0.85em;font-weight:700;padding:0.15em 0.45em;border-radius:0.35em;max-width:90%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.tmdbacc-deck{position:relative;height:100%;min-height:calc(100vh - 6em);padding:1.5em 3em 0;box-sizing:border-box;display:flex;flex-direction:column}.tmdbacc-deck__stage{flex:1;display:flex;align-items:center;gap:3em;min-height:0}.tmdbacc-deck__poster{position:relative;flex:none;height:min(68vh,36em);aspect-ratio:2/3;border-radius:1.2em;overflow:hidden;background:rgba(255,255,255,0.06);box-shadow:0 1.5em 4em rgba(0,0,0,0.6);transition:transform .26s ease,opacity .26s ease}.tmdbacc-deck__poster img{width:100%;height:100%;object-fit:cover;display:block}.tmdbacc-deck__poster>span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:6em;font-weight:800;opacity:.4}.tmdbacc-deck__poster.focus{outline:0.25em solid #fff;outline-offset:0.3em}.tmdbacc-deck__poster.is-yes{transform:translateX(40%) rotate(8deg);opacity:0}.tmdbacc-deck__poster.is-no{transform:translateX(-40%) rotate(-8deg);opacity:0}.tmdbacc-deck__poster.is-pass{transform:scale(0.96)}.tmdbacc-deck__stamp{position:absolute;top:1em;padding:0.2em 0.5em;border:0.18em solid;border-radius:0.3em;font-style:normal;font-weight:900;font-size:2em;letter-spacing:0.08em;opacity:0;transition:opacity .15s}.tmdbacc-deck__stamp--yes{left:0.6em;color:#4cd964;transform:rotate(-12deg)}.tmdbacc-deck__stamp--no{right:0.6em;color:#ff453a;transform:rotate(12deg)}.is-yes .tmdbacc-deck__stamp--yes,.is-pass .tmdbacc-deck__stamp--yes,.is-no .tmdbacc-deck__stamp--no{opacity:1}.tmdbacc-deck__info{flex:1;min-width:0;max-width:38em}.tmdbacc-deck__who{display:inline-block;margin-bottom:1em;padding:0.35em 0.9em;border-radius:2em;font-weight:800;font-size:1.3em;color:#000;background:var(--who,#fff)}.tmdbacc-deck__want{display:flex;align-items:center;gap:0.4em;color:#ff5e7e;font-weight:700;font-size:1.3em;margin-bottom:0.6em}.tmdbacc-deck__want svg{width:1.1em;height:1.1em}.tmdbacc-deck__title{font-size:3.2em;font-weight:800;line-height:1.05;margin-bottom:0.3em;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.tmdbacc-deck__meta{font-size:1.4em;opacity:.8;margin-bottom:1em}.tmdbacc-deck__meta b{color:#4cd964;margin-right:0.6em}.tmdbacc-deck__why{font-size:1.4em;line-height:1.35;margin-bottom:1em}.tmdbacc-deck__taste{display:inline-block;font-size:1.15em;padding:0.45em 0.8em;border-radius:0.6em;background:rgba(255,106,0,0.16);color:#ffb37a;margin-bottom:1em}.tmdbacc-deck__next{font-size:1.1em;opacity:.5}.tmdbacc-deck__keys{display:flex;justify-content:center;gap:2.2em;padding:1.2em 0 1.6em;font-size:1.15em;opacity:.75}.tmdbacc-deck__keys span{display:flex;align-items:center;gap:0.5em}.tmdbacc-deck kbd{font-family:inherit;font-weight:800;min-width:1.6em;padding:0.15em 0.45em;border-radius:0.35em;background:rgba(255,255,255,0.14);text-align:center}.tmdbacc-deck__match{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2em 0}.tmdbacc-deck__match-title{font-size:4.5em;font-weight:900;color:#ff5e7e;margin-bottom:0.3em}.tmdbacc-deck__match-poster{height:min(45vh,24em);border-radius:1em;box-shadow:0 1.5em 4em rgba(0,0,0,0.6);margin-bottom:1.2em}.tmdbacc-deck__match-text{font-size:1.5em;margin-bottom:1.2em}.tmdbacc-deck__match-go{font-size:1.5em;font-weight:800;padding:0.6em 2.4em;border-radius:3em;background:rgba(255,255,255,0.12)}.tmdbacc-deck__match-go.focus{background:#ff6a00;color:#1a0b00}.tmdbacc-deck__match-hint{margin-top:1em;opacity:.6;font-size:1.1em}.tmdbacc-deck__empty{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-top:20vh}.tmdbacc-deck__empty-title{font-size:2.4em;font-weight:800;margin-bottom:0.4em}.tmdbacc-deck__empty-text{font-size:1.3em;opacity:.7}.tmdbacc-pick{padding:2em 3em 1em;display:flex;flex-direction:column;min-height:calc(100vh - 6em);box-sizing:border-box}.tmdbacc-pick__title{font-size:2.6em;font-weight:800;line-height:1.1;margin-bottom:0.3em}.tmdbacc-pick__sub{font-size:1.25em;opacity:.7;margin-bottom:1.4em}.tmdbacc-pick__row{display:flex;gap:1.6em;overflow:hidden;padding:0.8em 0.6em 1.2em;margin:0 -0.6em;scroll-behavior:smooth}.tmdbacc-pick__tile{flex:none;width:13em;border-radius:1em;transition:transform .15s}.tmdbacc-pick__tile.focus{transform:scale(1.06)}.tmdbacc-pick__poster{position:relative;aspect-ratio:2/3;border-radius:0.9em;overflow:hidden;background:rgba(255,255,255,0.06);box-shadow:0 0.8em 2.4em rgba(0,0,0,0.5)}.tmdbacc-pick__tile.focus .tmdbacc-pick__poster{outline:0.22em solid #fff;outline-offset:0.25em}.tmdbacc-pick__poster img{width:100%;height:100%;object-fit:cover;display:block}.tmdbacc-pick__poster>span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:4em;font-weight:800;opacity:.4}.tmdbacc-pick__best{position:absolute;left:0.6em;top:0.6em;font-style:normal;font-weight:800;font-size:0.95em;padding:0.3em 0.6em;border-radius:2em;background:#ff6a00;color:#1a0b00}.tmdbacc-pick__name{font-size:1.3em;font-weight:700;margin-top:0.7em;line-height:1.2;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.tmdbacc-pick__meta{font-size:1.05em;opacity:.8;margin-top:0.3em}.tmdbacc-pick__meta b{color:#4cd964;margin-right:0.5em}.tmdbacc-pick__started{display:inline-block;font-size:0.95em;margin-top:0.4em;padding:0.2em 0.55em;border-radius:0.4em;background:rgba(90,200,250,0.18);color:#9fdcff}.tmdbacc-pick__more{align-self:flex-start;margin-top:1.2em;font-size:1.3em;font-weight:700;padding:0.6em 1.6em;border-radius:3em;background:rgba(255,255,255,0.1)}.tmdbacc-pick__more.focus{background:#fff;color:#000}.tmdbacc-deck__focus{width:1px;height:1px;opacity:0}</style>"
     );
   }
 
@@ -364,16 +364,17 @@
 
   // src/member-rate.ts
   var STAR = '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l2.9 6.6 7.1.7-5.4 4.7 1.6 7-6.2-3.7L5.8 21l1.6-7L2 9.3l7.1-.7L12 2z"/></svg>';
-  function openMemberRate(movie, member, current, onChanged) {
+  function openMemberRate(movie, member, current, onChanged, opts) {
     var _a;
     injectStyles();
     const type = mediaType(movie);
     const title = String(movie.title || movie.name);
     const C = Lampa.Controller;
-    const back = C.enabled && ((_a = C.enabled()) == null ? void 0 : _a.name) || "full_start";
+    const back = opts && opts.back || C.enabled && ((_a = C.enabled()) == null ? void 0 : _a.name) || "full_start";
     const close = () => {
       Lampa.Modal.close();
-      Lampa.Controller.toggle(back);
+      if (opts && opts.next) setTimeout(opts.next, 250);
+      else Lampa.Controller.toggle(back);
     };
     const submit = (val) => {
       close();
@@ -406,7 +407,7 @@
       }).catch(() => Lampa.Noty.show("\u041D\u0435 \u0443\u0434\u0430\u043B\u043E\u0441\u044C \u0441\u043D\u044F\u0442\u044C \u043E\u0446\u0435\u043D\u043A\u0443"));
     };
     const root = $(
-      '<div class="tmdbacc-rate"><div class="tmdbacc-rate__big">' + STAR + '<span class="tmdbacc-rate__value">' + (current || "?") + '</span></div><div class="tmdbacc-rate__label">' + member.name.toUpperCase() + '</div><div class="tmdbacc-rate__title">' + title + '</div><div class="tmdbacc-rate__stars"></div></div>'
+      '<div class="tmdbacc-rate"><div class="tmdbacc-rate__big">' + STAR + '<span class="tmdbacc-rate__value">' + (current || "?") + '</span></div><div class="tmdbacc-rate__label">' + member.name.toUpperCase() + '</div><div class="tmdbacc-rate__title">' + title + "</div>" + (opts && opts.note ? '<div class="tmdbacc-rate__note">' + opts.note + "</div>" : "") + '<div class="tmdbacc-rate__stars"></div></div>'
     );
     const valueEl = root.find(".tmdbacc-rate__value");
     const starsWrap = root.find(".tmdbacc-rate__stars");
@@ -559,9 +560,9 @@
         const at = Number(item.updatedAt) || 0;
         if (!at || at > (Number(marks[mk]) || 0)) {
           const last = readLast();
-          const key2 = lampaHash(original);
-          const cur = last[key2];
-          last[key2] = { season: item.season, episode: item.episode, voice_name: item.voice || cur && cur.voice_name || "" };
+          const key3 = lampaHash(original);
+          const cur = last[key3];
+          last[key3] = { season: item.season, episode: item.episode, voice_name: item.voice || cur && cur.voice_name || "" };
           Lampa.Storage.set("online_watched_last", last);
           seedOnlineChoice(item.tmdbId, item.season, item.episode);
           marks[mk] = at || Date.now();
@@ -620,24 +621,24 @@
     Lampa.Storage.set(QUEUE_KEY, items.slice(-40));
   }
   function enqueueBody(body) {
-    const key2 = body.mediaType + "_" + body.tmdbId;
+    const key3 = body.mediaType + "_" + body.tmdbId;
     const next = readQueue().filter(
       (x) => !(x.mediaType === body.mediaType && x.tmdbId === body.tmdbId && x.season === body.season && x.episode === body.episode)
     );
     next.push(body);
     writeQueue(next);
     const cursors = Lampa.Storage.get(CURSOR_KEY, {});
-    cursors[key2] = __spreadProps(__spreadValues({}, body), {
+    cursors[key3] = __spreadProps(__spreadValues({}, body), {
       updatedAt: Date.now()
     });
     Lampa.Storage.set(CURSOR_KEY, cursors);
   }
   function rememberOk(body, data) {
     if (!data || !data.updatedAt) return;
-    const key2 = body.mediaType + "_" + body.tmdbId;
+    const key3 = body.mediaType + "_" + body.tmdbId;
     const cursors = Lampa.Storage.get(CURSOR_KEY, {});
-    cursors[key2] = __spreadProps(__spreadValues({}, body), {
-      episodes: cursors[key2] && cursors[key2].episodes || [],
+    cursors[key3] = __spreadProps(__spreadValues({}, body), {
+      episodes: cursors[key3] && cursors[key3].episodes || [],
       finished: typeof data.finished === "boolean" ? data.finished : body.finished,
       updatedAt: data.updatedAt
     });
@@ -803,24 +804,54 @@
   }
   var ASKED_KEY = "tmdbacc_rate_asked";
   var askTimer = null;
-  function askRating(card) {
+  function askAll(card, key3, note, prefill) {
     const id = Number(card.id) || 0;
-    if (!id || isTv(card)) return;
+    if (!id) return;
     const asked = Lampa.Storage.get(ASKED_KEY, {});
-    if (asked[id]) return;
-    const m = selectedMember();
-    if (!m) return;
-    if (viewerScores("movie", id).some((s) => Number(s.memberId || s.viewerId) === Number(m.id))) return;
+    if (asked[key3]) return;
+    const type = isTv(card) ? "tv" : "movie";
+    const scores = viewerScores(type, id);
+    const scoreOf = (m) => {
+      const s = scores.find((x) => Number(x.memberId || x.viewerId) === Number(m.id));
+      return s ? Number(s.value) || 0 : 0;
+    };
+    const me = selectedMember();
+    const all = membersCached();
+    const order = (me ? [me].concat(all.filter((m) => m.id !== me.id)) : all).filter((m) => prefill || !scoreOf(m));
+    if (!order.length) return;
     if (askTimer) clearTimeout(askTimer);
     askTimer = setTimeout(() => {
+      var _a;
       askTimer = null;
       const P = Lampa.Player;
       if (P && P.opened && P.opened()) return;
-      asked[id] = Date.now();
+      asked[key3] = Date.now();
       Lampa.Storage.set(ASKED_KEY, asked);
-      Lampa.Noty.show("\u0414\u043E\u0441\u043C\u043E\u0442\u0440\u0435\u043B\u0438 \xAB" + String(card.title || card.name || "") + "\xBB \u2014 \u043A\u0430\u043A \u0432\u0430\u043C?");
-      openMemberRate(card, m, 0, () => pullScores());
+      Lampa.Noty.show(note);
+      const C = Lampa.Controller;
+      const back = C.enabled && ((_a = C.enabled()) == null ? void 0 : _a.name) || "content";
+      const step = (i) => {
+        const m = order[i];
+        const many = order.length > 1;
+        openMemberRate(card, m, prefill ? scoreOf(m) : 0, () => pullScores(), {
+          note: [prefill ? note : "", many ? i + 1 + " \u0438\u0437 " + order.length + " \xB7 \xAB\u043D\u0430\u0437\u0430\u0434\xBB \u2014 \u043F\u0440\u043E\u043F\u0443\u0441\u0442\u0438\u0442\u044C" : ""].filter(Boolean).join(" \xB7 "),
+          next: i + 1 < order.length ? () => step(i + 1) : void 0,
+          back
+        });
+      };
+      step(0);
     }, 2500);
+  }
+  function askRating(card) {
+    if (isTv(card)) return;
+    askAll(card, String(card.id), "\u0414\u043E\u0441\u043C\u043E\u0442\u0440\u0435\u043B\u0438 \xAB" + String(card.title || card.name || "") + "\xBB \u2014 \u043A\u0430\u043A \u0432\u0430\u043C?", false);
+  }
+  function askSeason(card, season, episode) {
+    if (!isTv(card) || !season || !episode) return;
+    const seasons = card.seasons || [];
+    const s = seasons.find((x) => Number(x.season_number) === season);
+    if (!s || Number(s.episode_count) !== episode) return;
+    askAll(card, "tv:" + card.id + ":" + season, "\u041A\u0430\u043A \u0432\u0430\u043C \xAB" + String(card.name || card.title || "") + "\xBB \u043F\u043E\u0441\u043B\u0435 " + season + " \u0441\u0435\u0437\u043E\u043D\u0430?", true);
   }
   var restoreTimer = null;
   function restoreSoon() {
@@ -870,6 +901,7 @@
           const body = bodyFromUpdate(hash, e.data.road);
           if (!body) return;
           if (body.mediaType === "movie" && body.percent >= 90 && lastCard) askRating(lastCard);
+          if (body.mediaType === "tv" && body.percent >= 90 && lastCard) askSeason(lastCard, body.season, body.episode);
           if (body.mediaType === "tv" && body.percent >= 90) pushBody(body);
           else schedulePush(body);
         });
@@ -948,8 +980,8 @@
   function deviceKey() {
     return String(Lampa.Storage.get(DEVICE_KEY, "") || "").trim();
   }
-  function saveDeviceKey(key2) {
-    if (key2) Lampa.Storage.set(DEVICE_KEY, key2);
+  function saveDeviceKey(key3) {
+    if (key3) Lampa.Storage.set(DEVICE_KEY, key3);
   }
   function claimPairCode(code) {
     const url = watchroomBase();
@@ -2675,6 +2707,121 @@
     });
   }
 
+  // src/vendor/deck-core.js
+  var key2 = (it) => it.mediaType + ":" + it.id;
+  var clamp = (x, a, b) => Math.max(a, Math.min(b, x));
+  function fadeTaste(saved, now = Date.now()) {
+    const src = saved || {};
+    const k = Math.pow(0.85, Math.max(0, (now - (src.at || now)) / 864e5));
+    const fade = (m) => {
+      const out = {};
+      for (const a of Object.keys(m || {})) {
+        const v = m[a] * k;
+        if (Math.abs(v) > 0.05) out[a] = v;
+      }
+      return out;
+    };
+    return { g: fade(src.g), l: fade(src.l), s: fade(src.s), at: src.at || 0 };
+  }
+  var bump = (m, k, d) => {
+    m[k] = clamp((m[k] || 0) + d, -4, 4);
+  };
+  function learn(t, it, vote, sign = 1) {
+    const d = vote === 1 ? 1 : vote === -1 ? -0.6 : 0;
+    if (!d) return t;
+    const gs = it.genres || [];
+    for (const g of gs) bump(t.g, g, sign * d / Math.sqrt(gs.length));
+    if (it.lang) bump(t.l, it.lang, sign * d * 0.5);
+    for (const s of it.seeds || []) bump(t.s, s, sign * d * 0.8);
+    if (vote === 1) bump(t.s, key2(it), sign * 1.5);
+    t.at = Date.now();
+    return t;
+  }
+  function tasteBoost(t, it) {
+    const gs = it.genres || [];
+    const tg = gs.length ? gs.reduce((a, g) => a + (t.g[g] || 0), 0) / Math.sqrt(gs.length) : 0;
+    const tl = clamp(t.l[it.lang] || 0, -1.5, 1.5);
+    const ts = (it.seeds || []).reduce((a, s) => a + (t.s[s] || 0), 0);
+    return 1.3 * Math.tanh(tg / 2) + 0.25 * tl + 0.7 * Math.tanh(ts / 1.5);
+  }
+  function liveMatch(t, it) {
+    const base = it.match || 82;
+    return Math.round(clamp(74 + 0.6 * (base - 80) + 14 * Math.tanh(tasteBoost(t, it) / 1.2), 50, 99));
+  }
+  var stem = (it) => String(it.title || "").toLowerCase().replace(/[^a-zа-яё0-9 ]/gi, " ").trim().split(/\s+/)[0].slice(0, 7);
+  function repeatPenalty(it, recent) {
+    const g = (it.genres || [])[0];
+    const st = stem(it);
+    let p = 0;
+    for (const r of recent.slice(-2)) if ((r.genres || [])[0] === g) p += 0.35;
+    if (st.length >= 4 && recent.some((r) => stem(r) === st)) p += 1.2;
+    const last2 = recent.slice(-2);
+    if (it.wantedBy && last2.some((r) => r.wantedBy)) p += 2;
+    if (it._at != null && last2.length === 2 && last2.every((r) => r._at != null)) p += 1.4;
+    return p;
+  }
+  function rank(items, t, n = 0, shown = [], limit = 40) {
+    const len = items.length || 1;
+    const scored = items.map((it, i) => {
+      let base = 3 * (1 - i / len);
+      if (it._at != null) base = 2.6 - 0.08 * (it._i || 0) - 0.12 * Math.max(0, n - it._at);
+      if (it.wantedBy) base += 1.2;
+      return { it, s: base + tasteBoost(t, it) };
+    });
+    scored.sort((a, b) => b.s - a.s);
+    const loved = (it) => (it.genres || []).some((g) => (t.g[g] || 0) > 0.4);
+    const out = [];
+    while (scored.length && out.length < limit) {
+      const recent = [...shown.slice(-4), ...out].slice(-4);
+      let pick2 = 0;
+      if ((n + out.length) % 6 === 5) {
+        const j = scored.findIndex((x) => !loved(x.it) && !x.it.wantedBy);
+        if (j >= 0) pick2 = j;
+      } else {
+        let best = -Infinity;
+        for (let i = 0; i < Math.min(scored.length, 14); i++) {
+          const s = scored[i].s - repeatPenalty(scored[i].it, recent);
+          if (s > best) {
+            best = s;
+            pick2 = i;
+          }
+        }
+      }
+      out.push(scored.splice(pick2, 1)[0].it);
+    }
+    return out;
+  }
+  var GENRE = {
+    28: "\u0431\u043E\u0435\u0432\u0438\u043A\u043E\u0432",
+    12: "\u043F\u0440\u0438\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u0439",
+    16: "\u043C\u0443\u043B\u044C\u0442\u0444\u0438\u043B\u044C\u043C\u043E\u0432",
+    35: "\u043A\u043E\u043C\u0435\u0434\u0438\u0439",
+    80: "\u043A\u0440\u0438\u043C\u0438\u043D\u0430\u043B\u0430",
+    99: "\u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u0430\u043B\u043E\u043A",
+    18: "\u0434\u0440\u0430\u043C",
+    10751: "\u0441\u0435\u043C\u0435\u0439\u043D\u043E\u0433\u043E",
+    14: "\u0444\u044D\u043D\u0442\u0435\u0437\u0438",
+    36: "\u0438\u0441\u0442\u043E\u0440\u0438\u0438",
+    27: "\u0443\u0436\u0430\u0441\u043E\u0432",
+    10402: "\u043C\u0443\u0437\u044B\u043A\u0430\u043B\u044C\u043D\u043E\u0433\u043E",
+    9648: "\u0434\u0435\u0442\u0435\u043A\u0442\u0438\u0432\u043E\u0432",
+    10749: "\u043C\u0435\u043B\u043E\u0434\u0440\u0430\u043C",
+    878: "\u0444\u0430\u043D\u0442\u0430\u0441\u0442\u0438\u043A\u0438",
+    53: "\u0442\u0440\u0438\u043B\u043B\u0435\u0440\u043E\u0432",
+    10752: "\u0432\u043E\u0435\u043D\u043D\u043E\u0433\u043E",
+    37: "\u0432\u0435\u0441\u0442\u0435\u0440\u043D\u043E\u0432"
+  };
+  var BROAD = { 28: 0.7, 12: 0.7, 18: 0.75 };
+  function tasteLine(t) {
+    const ent = Object.keys(t.g).filter((g) => GENRE[g]).map((g) => [g, t.g[g] * (BROAD[g] || 1)]);
+    const up = ent.filter((e) => e[1] >= 0.9).sort((a, b) => b[1] - a[1]).slice(0, 2).map((e) => GENRE[e[0]]);
+    const down = ent.filter((e) => e[1] <= -0.7).sort((a, b) => a[1] - b[1]).slice(0, 2).map((e) => GENRE[e[0]]);
+    const parts = [];
+    if (up.length) parts.push("\u0431\u043E\u043B\u044C\u0448\u0435 " + up.join(" \u0438 "));
+    if (down.length) parts.push("\u043C\u0435\u043D\u044C\u0448\u0435 " + down.join(" \u0438 "));
+    return parts.join(" \xB7 ");
+  }
+
   // src/together.ts
   var COMPONENT = "tmdbacc_together";
   var TASTE_KEY = "tmdbacc_deck_taste";
@@ -2687,7 +2834,6 @@
     { v: 155, title: "\u0414\u043E 2,5 \u0447\u0430\u0441\u0430", short: "\u0434\u043E 2,5 \u0447" }
   ];
   var keyOf = (it) => it.mediaType + ":" + it.id;
-  var clamp = (x, a, b) => Math.max(a, Math.min(b, x));
   var esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
   var plural = (n, one, few, many) => {
     const a = n % 10;
@@ -2711,39 +2857,7 @@
       (r) => r.ok ? r.json() : Promise.reject(new Error("HTTP " + r.status))
     );
   }
-  var GENRE = {
-    28: "\u0431\u043E\u0435\u0432\u0438\u043A\u043E\u0432",
-    12: "\u043F\u0440\u0438\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u0439",
-    16: "\u043C\u0443\u043B\u044C\u0442\u0444\u0438\u043B\u044C\u043C\u043E\u0432",
-    35: "\u043A\u043E\u043C\u0435\u0434\u0438\u0439",
-    80: "\u043A\u0440\u0438\u043C\u0438\u043D\u0430\u043B\u0430",
-    99: "\u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u0430\u043B\u043E\u043A",
-    18: "\u0434\u0440\u0430\u043C",
-    10751: "\u0441\u0435\u043C\u0435\u0439\u043D\u043E\u0433\u043E",
-    14: "\u0444\u044D\u043D\u0442\u0435\u0437\u0438",
-    36: "\u0438\u0441\u0442\u043E\u0440\u0438\u0438",
-    27: "\u0443\u0436\u0430\u0441\u043E\u0432",
-    9648: "\u0434\u0435\u0442\u0435\u043A\u0442\u0438\u0432\u043E\u0432",
-    10749: "\u043C\u0435\u043B\u043E\u0434\u0440\u0430\u043C",
-    878: "\u0444\u0430\u043D\u0442\u0430\u0441\u0442\u0438\u043A\u0438",
-    53: "\u0442\u0440\u0438\u043B\u043B\u0435\u0440\u043E\u0432",
-    10752: "\u0432\u043E\u0435\u043D\u043D\u043E\u0433\u043E",
-    37: "\u0432\u0435\u0441\u0442\u0435\u0440\u043D\u043E\u0432"
-  };
-  var BROAD = { 28: 0.7, 12: 0.7, 18: 0.75 };
-  function fadeTaste(saved) {
-    const src = saved || {};
-    const k = Math.pow(0.85, Math.max(0, (Date.now() - (src.at || Date.now())) / 864e5));
-    const fade = (m) => {
-      const out = {};
-      Object.keys(m || {}).forEach((a) => {
-        const v = m[a] * k;
-        if (Math.abs(v) > 0.05) out[a] = v;
-      });
-      return out;
-    };
-    return { g: fade(src.g), l: fade(src.l), s: fade(src.s), at: Number(src.at) || 0 };
-  }
+  var fadeTaste2 = (saved) => fadeTaste(saved);
   function TogetherComponent() {
     injectStyles();
     const self = this;
@@ -2782,7 +2896,7 @@
       return members.map((m) => m.id).filter((id) => !voteOf(it, id));
     };
     const blocked = (it) => pair() ? members.some((m) => voteOf(it, m.id) < 0) : voteOf(it, soloId()) !== 0;
-    const tasteOf = (id) => tastes[id] = tastes[id] || fadeTaste(localTastes[id]);
+    const tasteOf = (id) => tastes[id] = tastes[id] || fadeTaste2(localTastes[id]);
     const active = () => pair() ? members.map((m) => m.id) : [soloId()];
     function combined() {
       const out = { g: {}, l: {}, s: {}, at: 0 };
@@ -2813,51 +2927,20 @@
       return api("/api/taste?members=" + ids.join(",")).then((d) => {
         ids.forEach((id) => {
           const remote = d && d.tastes && d.tastes[id];
-          if (remote && Number(remote.at) > tasteOf(id).at) tastes[id] = fadeTaste(remote);
+          if (remote && Number(remote.at) > tasteOf(id).at) tastes[id] = fadeTaste2(remote);
         });
         refreshTaste();
       }).catch(() => {
         refreshTaste();
       });
     }
-    const bump = (m, k, d) => {
-      m[k] = clamp((m[k] || 0) + d, -4, 4);
-    };
-    function learn(it, vote2, who, sign = 1) {
-      const d = vote2 > 0 ? 1 : vote2 < 0 ? -0.6 : 0;
-      if (!d || !who) return;
-      const t = tasteOf(who);
-      const gs = it.genres || [];
-      gs.forEach((g) => bump(t.g, String(g), sign * d / Math.sqrt(gs.length)));
-      if (it.lang) bump(t.l, it.lang, sign * d * 0.5);
-      (it.seeds || []).forEach((s) => bump(t.s, s, sign * d * 0.8));
-      if (vote2 > 0) bump(t.s, keyOf(it), sign * 1.5);
-      t.at = Date.now();
+    function learn2(it, vote2, who, sign = 1) {
+      if (!vote2 || !who) return;
+      learn(tasteOf(who), it, vote2 > 0 ? 1 : -1, sign);
       save2(who);
       refreshTaste();
     }
-    const liveMatch = (it) => Math.round(clamp(74 + 0.6 * ((it.match || 82) - 80) + 14 * Math.tanh(scoreOf(it, 0) / 1.2), 50, 99));
-    function scoreOf(it, base) {
-      const gs = it.genres || [];
-      const tg = gs.length ? gs.reduce((a, g) => a + (taste.g[g] || 0), 0) / Math.sqrt(gs.length) : 0;
-      const tl = clamp(taste.l[it.lang || ""] || 0, -1.5, 1.5);
-      const ts = (it.seeds || []).reduce((a, s) => a + (taste.s[s] || 0), 0);
-      return base + 1.3 * Math.tanh(tg / 2) + 0.25 * tl + 0.7 * Math.tanh(ts / 1.5);
-    }
-    const stem = (it) => String(it.title || "").toLowerCase().replace(/[^a-zа-яё0-9 ]/gi, " ").trim().split(/\s+/)[0].slice(0, 7);
-    function repeatPenalty(it, recent) {
-      const g = (it.genres || [])[0];
-      const st = stem(it);
-      let p = 0;
-      recent.slice(-2).forEach((r) => {
-        if ((r.genres || [])[0] === g) p += 0.35;
-      });
-      if (st.length >= 4 && recent.some((r) => stem(r) === st)) p += 1.2;
-      const last2 = recent.slice(-2);
-      if ((it.likes || []).length && last2.some((r) => (r.likes || []).length)) p += 2;
-      if (it._at != null && last2.length === 2 && last2.every((r) => r._at != null)) p += 1.4;
-      return p;
-    }
+    const liveMatch2 = (it) => liveMatch(taste, it);
     function deck() {
       const seen2 = /* @__PURE__ */ new Set();
       const pool = [];
@@ -2878,35 +2961,13 @@
         if (rec.fresh) rec.fresh.results.forEach(add);
         (rec.discover || []).forEach(add);
       }
-      const len = pool.length || 1;
-      const scored = pool.map((it, i) => {
-        let base = 3 * (1 - i / len);
-        if (it._at != null) base = 2.6 - 0.08 * (it._i || 0) - 0.12 * Math.max(0, n - it._at);
-        if ((it.likes || []).length) base += 1.2;
-        return { it, s: scoreOf(it, base) };
-      });
-      scored.sort((a, b) => b.s - a.s);
-      const loved = (it) => (it.genres || []).some((g) => (taste.g[g] || 0) > 0.4);
-      const shown = history.slice(-4).map((h) => h.it);
-      const out = [];
-      while (scored.length && out.length < 12) {
-        const recent = shown.concat(out).slice(-4);
-        let pick2 = 0;
-        if ((n + out.length) % 6 === 5) {
-          const j = scored.findIndex((x) => !loved(x.it) && !(x.it.likes || []).length);
-          if (j >= 0) pick2 = j;
-        } else {
-          let best = -Infinity;
-          for (let i = 0; i < Math.min(scored.length, 14); i++) {
-            const s = scored[i].s - repeatPenalty(scored[i].it, recent);
-            if (s > best) {
-              best = s;
-              pick2 = i;
-            }
-          }
-        }
-        out.push(scored.splice(pick2, 1)[0].it);
-      }
+      const out = rank(
+        pool.map((it) => (it.likes || []).length ? __spreadProps(__spreadValues({}, it), { wantedBy: it.likes }) : it),
+        taste,
+        n,
+        history.map((h) => h.it),
+        12
+      );
       const pin = out.findIndex((it) => keyOf(it) === top);
       if (pin > 0) out.unshift(out.splice(pin, 1)[0]);
       else if (pin < 0 && top) {
@@ -2916,15 +2977,7 @@
       top = out.length ? keyOf(out[0]) : "";
       return out;
     }
-    function tasteLine() {
-      const ent = Object.keys(taste.g).filter((g) => GENRE[g]).map((g) => ({ g, w: taste.g[g] * (BROAD[g] || 1) }));
-      const up = ent.filter((e) => e.w >= 0.9).sort((a, b) => b.w - a.w).slice(0, 2).map((e) => GENRE[e.g]);
-      const down = ent.filter((e) => e.w <= -0.7).sort((a, b) => a.w - b.w).slice(0, 2).map((e) => GENRE[e.g]);
-      const parts = [];
-      if (up.length) parts.push("\u0431\u043E\u043B\u044C\u0448\u0435 " + up.join(" \u0438 "));
-      if (down.length) parts.push("\u043C\u0435\u043D\u044C\u0448\u0435 " + down.join(" \u0438 "));
-      return parts.join(" \xB7 ");
-    }
+    const tasteLine2 = () => tasteLine(taste);
     const setVote = (k, who, v) => {
       if (!votes.has(k)) votes.set(k, /* @__PURE__ */ new Map());
       votes.get(k).set(who, v);
@@ -3011,7 +3064,7 @@
       votes.get(k).set(who, v);
       history.push({ it, member: who, vote: v });
       n++;
-      learn(it, v, who);
+      learn2(it, v, who);
       if (v > 0) moreLike(it);
       const allYes = v > 0 && !voters(it).length;
       const last = v < 0 || !voters(it).length;
@@ -3056,7 +3109,7 @@
       const mv = votes.get(k);
       if (mv) mv.delete(last.member);
       done.delete(k);
-      learn(last.it, last.vote, last.member, -1);
+      learn2(last.it, last.vote, last.member, -1);
       n = Math.max(0, n - 1);
       if (last.vote > 0) extra = extra.filter((x) => (x.seeds || []).indexOf(k) < 0);
       top = k;
@@ -3143,7 +3196,7 @@
       if (view === "pick") return paintPick();
       const list = deck();
       const it = list[0];
-      const line = tasteLine();
+      const line = tasteLine2();
       if (!it) {
         html.html(
           '<div class="tmdbacc-deck__empty"><div class="tmdbacc-deck__empty-title">' + (refilling || !rec ? "\u041F\u043E\u0434\u0431\u0438\u0440\u0430\u0435\u043C \u0438\u0434\u0435\u0438\u2026" : "\u041A\u043E\u043B\u043E\u0434\u0430 \u0437\u0430\u043A\u043E\u043D\u0447\u0438\u043B\u0430\u0441\u044C") + '</div><div class="tmdbacc-deck__empty-text">' + (refilling || !rec ? "" : "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 \u2191 \u2014 \xAB\u041D\u0430\u0447\u0430\u0442\u044C \u043F\u043E\u0434\u0431\u043E\u0440 \u0437\u0430\u043D\u043E\u0432\u043E\xBB \u0438\u043B\u0438 \u0437\u0430\u0439\u0434\u0438\u0442\u0435 \u043F\u043E\u0437\u0436\u0435") + '</div><div class="tmdbacc-deck__focus selector"></div></div>'
@@ -3156,7 +3209,7 @@
       const next = list[1];
       Lampa.Background.change(poster(it, "w300"));
       html.html(
-        '<div class="tmdbacc-deck__stage"><div class="tmdbacc-deck__poster selector">' + (poster(it, "w500") ? '<img src="' + poster(it, "w500") + '" alt="">' : "<span>" + esc(it.title.slice(0, 1)) + "</span>") + '<i class="tmdbacc-deck__stamp tmdbacc-deck__stamp--yes">\u0425\u041E\u0427\u0423</i><i class="tmdbacc-deck__stamp tmdbacc-deck__stamp--no">\u041D\u0415\u0422</i></div><div class="tmdbacc-deck__info">' + (pair() && who ? '<div class="tmdbacc-deck__who" style="--who:' + colorOf(who) + '">\u0413\u043E\u043B\u043E\u0441\u0443\u0435\u0442 ' + esc(((_a = member(who)) == null ? void 0 : _a.name) || "") + "</div>" : "") + (wanted.length ? '<div class="tmdbacc-deck__want">' + ICON_HEART + esc(wanted.join(" \u0438 ")) + " \u2014 \u0445\u043E\u0447\u0435\u0442</div>" : "") + '<div class="tmdbacc-deck__title">' + esc(it.title) + '</div><div class="tmdbacc-deck__meta"><b>' + liveMatch(it) + "%</b>" + esc(meta) + "</div>" + (it.why ? '<div class="tmdbacc-deck__why">' + esc(it.why) + "</div>" : "") + (line || maxMin ? '<div class="tmdbacc-deck__taste">' + [maxMin ? "\u0412\u0435\u0447\u0435\u0440 " + timeShort() : "", line ? "\u043F\u043E\u0434\u0431\u0438\u0440\u0430\u044E: " + line : ""].filter(Boolean).map(esc).join(" \xB7 ") + "</div>" : "") + (next ? '<div class="tmdbacc-deck__next">\u0414\u0430\u043B\u044C\u0448\u0435: ' + esc(next.title) + "</div>" : "") + '</div></div><div class="tmdbacc-deck__keys"><span><kbd>\u2190</kbd>\u041D\u0435\u0442</span><span><kbd>\u2192</kbd>\u0425\u043E\u0447\u0443</span><span><kbd>OK</kbd>\u041F\u043E\u0434\u0440\u043E\u0431\u043D\u0435\u0435</span><span><kbd>\u2193</kbd>\u0423\u0436\u0435 \u0441\u043C\u043E\u0442\u0440\u0435\u043B\u0438</span><span><kbd>\u2191</kbd>\u041C\u0435\u043D\u044E</span></div>'
+        '<div class="tmdbacc-deck__stage"><div class="tmdbacc-deck__poster selector">' + (poster(it, "w500") ? '<img src="' + poster(it, "w500") + '" alt="">' : "<span>" + esc(it.title.slice(0, 1)) + "</span>") + '<i class="tmdbacc-deck__stamp tmdbacc-deck__stamp--yes">\u0425\u041E\u0427\u0423</i><i class="tmdbacc-deck__stamp tmdbacc-deck__stamp--no">\u041D\u0415\u0422</i></div><div class="tmdbacc-deck__info">' + (pair() && who ? '<div class="tmdbacc-deck__who" style="--who:' + colorOf(who) + '">\u0413\u043E\u043B\u043E\u0441\u0443\u0435\u0442 ' + esc(((_a = member(who)) == null ? void 0 : _a.name) || "") + "</div>" : "") + (wanted.length ? '<div class="tmdbacc-deck__want">' + ICON_HEART + esc(wanted.join(" \u0438 ")) + " \u2014 \u0445\u043E\u0447\u0435\u0442</div>" : "") + '<div class="tmdbacc-deck__title">' + esc(it.title) + '</div><div class="tmdbacc-deck__meta"><b>' + liveMatch2(it) + "%</b>" + esc(meta) + "</div>" + (it.why ? '<div class="tmdbacc-deck__why">' + esc(it.why) + "</div>" : "") + (line || maxMin ? '<div class="tmdbacc-deck__taste">' + [maxMin ? "\u0412\u0435\u0447\u0435\u0440 " + timeShort() : "", line ? "\u043F\u043E\u0434\u0431\u0438\u0440\u0430\u044E: " + line : ""].filter(Boolean).map(esc).join(" \xB7 ") + "</div>" : "") + (next ? '<div class="tmdbacc-deck__next">\u0414\u0430\u043B\u044C\u0448\u0435: ' + esc(next.title) + "</div>" : "") + '</div></div><div class="tmdbacc-deck__keys"><span><kbd>\u2190</kbd>\u041D\u0435\u0442</span><span><kbd>\u2192</kbd>\u0425\u043E\u0447\u0443</span><span><kbd>OK</kbd>\u041F\u043E\u0434\u0440\u043E\u0431\u043D\u0435\u0435</span><span><kbd>\u2193</kbd>\u0423\u0436\u0435 \u0441\u043C\u043E\u0442\u0440\u0435\u043B\u0438</span><span><kbd>\u2191</kbd>\u041C\u0435\u043D\u044E</span></div>'
       );
       html.find(".tmdbacc-deck__poster").on("hover:enter", () => openFull(it));
       focus();
@@ -3172,7 +3225,7 @@
       focus();
     }
     function paintPick() {
-      const rankOf = (it) => (it.started ? 100 : 0) + liveMatch(it) + (it.vote || 0) / 100;
+      const rankOf = (it) => (it.started ? 100 : 0) + liveMatch2(it) + (it.vote || 0) / 100;
       const list = toWatch.filter(fitsTime).sort((a, b) => rankOf(b) - rankOf(a));
       if (!list.length) {
         if (toWatch.length) Lampa.Noty.show("\u041D\u0438 \u043E\u0434\u0438\u043D \u043C\u044D\u0442\u0447 \u043D\u0435 \u0432\u043B\u0435\u0437\u0430\u0435\u0442 \u0432 \xAB" + timeShort() + "\xBB \u2014 \u0432\u044B\u0431\u0438\u0440\u0430\u0435\u043C \u043D\u043E\u0432\u043E\u0435");
@@ -3183,7 +3236,7 @@
       const tile = (it, i) => {
         const st = it.started;
         const startedText = st ? it.mediaType === "tv" && st.episode ? "\u041D\u0430\u0447\u0430\u043B\u0438 \xB7 S" + (st.season || 1) + "E" + st.episode : "\u041D\u0430\u0447\u0430\u043B\u0438 \xB7 " + st.percent + "%" : "";
-        return '<div class="tmdbacc-pick__tile selector" data-key="' + keyOf(it) + '"><div class="tmdbacc-pick__poster">' + (poster(it, "w342") ? '<img src="' + poster(it, "w342") + '" alt="">' : "<span>" + esc(it.title.slice(0, 1)) + "</span>") + (i === 0 ? '<i class="tmdbacc-pick__best">' + (it.started ? "\u0414\u043E\u0441\u043C\u043E\u0442\u0440\u0435\u0442\u044C" : "\u041B\u0443\u0447\u0448\u0435 \u0432\u0441\u0435\u0433\u043E \u0441\u0435\u0439\u0447\u0430\u0441") + "</i>" : "") + '</div><div class="tmdbacc-pick__name">' + esc(it.title) + '</div><div class="tmdbacc-pick__meta"><b>' + liveMatch(it) + "%</b>" + esc(runtimeText(it) || (it.mediaType === "tv" ? "\u0421\u0435\u0440\u0438\u0430\u043B" : "\u0424\u0438\u043B\u044C\u043C")) + "</div>" + (startedText ? '<div class="tmdbacc-pick__started">' + esc(startedText) + "</div>" : "") + "</div>";
+        return '<div class="tmdbacc-pick__tile selector" data-key="' + keyOf(it) + '"><div class="tmdbacc-pick__poster">' + (poster(it, "w342") ? '<img src="' + poster(it, "w342") + '" alt="">' : "<span>" + esc(it.title.slice(0, 1)) + "</span>") + (i === 0 ? '<i class="tmdbacc-pick__best">' + (it.started ? "\u0414\u043E\u0441\u043C\u043E\u0442\u0440\u0435\u0442\u044C" : "\u041B\u0443\u0447\u0448\u0435 \u0432\u0441\u0435\u0433\u043E \u0441\u0435\u0439\u0447\u0430\u0441") + "</i>" : "") + '</div><div class="tmdbacc-pick__name">' + esc(it.title) + '</div><div class="tmdbacc-pick__meta"><b>' + liveMatch2(it) + "%</b>" + esc(runtimeText(it) || (it.mediaType === "tv" ? "\u0421\u0435\u0440\u0438\u0430\u043B" : "\u0424\u0438\u043B\u044C\u043C")) + "</div>" + (startedText ? '<div class="tmdbacc-pick__started">' + esc(startedText) + "</div>" : "") + "</div>";
       };
       html.html(
         '<div class="tmdbacc-pick"><div class="tmdbacc-pick__title">\u0423 \u0432\u0430\u0441 ' + list.length + " " + plural(list.length, "\u043C\u044D\u0442\u0447", "\u043C\u044D\u0442\u0447\u0430", "\u043C\u044D\u0442\u0447\u0435\u0439") + ' \u2014 \u0447\u0442\u043E \u0432\u043A\u043B\u044E\u0447\u0430\u0435\u043C?</div><div class="tmdbacc-pick__sub">\u042D\u0442\u043E \u0432\u044B \u043E\u0431\u0430 \u0445\u043E\u0442\u0435\u043B\u0438 \u043F\u043E\u0441\u043C\u043E\u0442\u0440\u0435\u0442\u044C' + (maxMin ? " \u2014 \u0438 \u044D\u0442\u043E \u0432\u043B\u0435\u0437\u0430\u0435\u0442 \u0432 \u0432\u0435\u0447\u0435\u0440 " + timeShort() : "") + '. OK \u2014 \u043E\u0442\u043A\u0440\u044B\u0442\u044C, \u2193 \u2014 \u0432\u044B\u0431\u0440\u0430\u0442\u044C \u0447\u0442\u043E-\u0442\u043E \u043D\u043E\u0432\u043E\u0435, \u2191 \u2014 \u0432\u0440\u0435\u043C\u044F \u0438 \u0434\u0440\u0443\u0433\u043E\u0435.</div><div class="tmdbacc-pick__row">' + list.map(tile).join("") + '</div><div class="tmdbacc-pick__more selector" data-key="more">\u0412\u044B\u0431\u0440\u0430\u0442\u044C \u043D\u043E\u0432\u043E\u0435 \u2014 \u0441\u0432\u0430\u0439\u043F\u044B</div></div>'
