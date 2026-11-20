@@ -2679,6 +2679,13 @@
   var COMPONENT = "tmdbacc_together";
   var TASTE_KEY = "tmdbacc_deck_taste";
   var MODE_KEY = "tmdbacc_deck_mode";
+  var TIME_KEY = "tmdbacc_deck_time";
+  var TIMES = [
+    { v: 0, title: "\u0412\u0440\u0435\u043C\u044F \u043B\u044E\u0431\u043E\u0435", short: "" },
+    { v: 95, title: "\u0414\u043E 1,5 \u0447\u0430\u0441\u0430", short: "\u0434\u043E 1,5 \u0447" },
+    { v: 125, title: "\u0414\u043E 2 \u0447\u0430\u0441\u043E\u0432", short: "\u0434\u043E 2 \u0447" },
+    { v: 155, title: "\u0414\u043E 2,5 \u0447\u0430\u0441\u0430", short: "\u0434\u043E 2,5 \u0447" }
+  ];
   var keyOf = (it) => it.mediaType + ":" + it.id;
   var clamp = (x, a, b) => Math.max(a, Math.min(b, x));
   var esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
@@ -2758,6 +2765,9 @@
     let busy2 = false;
     let refilling = false;
     let alive = true;
+    let maxMin = Number(Lampa.Storage.get(TIME_KEY, 0)) || 0;
+    const fitsTime = (it) => !maxMin || !it.runtime || it.runtime <= maxMin;
+    const timeShort = () => (TIMES.find((t) => t.v === maxMin) || TIMES[0]).short;
     let toWatch = [];
     let view = "deck";
     let focusKey = "";
@@ -2854,7 +2864,7 @@
       const add = (it) => {
         if (!it || !it.id) return;
         const k = keyOf(it);
-        if (seen2.has(k) || done.has(k) || blocked(it) || !voters(it).length) return;
+        if (seen2.has(k) || done.has(k) || blocked(it) || !voters(it).length || !fitsTime(it)) return;
         seen2.add(k);
         pool.push(it);
       };
@@ -2940,7 +2950,7 @@
       });
     }
     function loadRec(shuffle) {
-      return api("/api/recommend?hideListed=1" + (shuffle ? "&shuffle=" + shuffle : "")).then((d) => {
+      return api("/api/recommend?hideListed=1" + (shuffle ? "&shuffle=" + shuffle : "") + (maxMin ? "&maxMin=" + maxMin : "")).then((d) => {
         rec = d;
       });
     }
@@ -2948,7 +2958,7 @@
       const k = keyOf(it);
       if (asked.has(k)) return;
       asked.add(k);
-      api("/api/swipe/more?type=" + it.mediaType + "&id=" + it.id).then((d) => {
+      api("/api/swipe/more?type=" + it.mediaType + "&id=" + it.id + (maxMin ? "&maxMin=" + maxMin : "")).then((d) => {
         if (!alive || !history.some((h) => h.vote > 0 && keyOf(h.it) === k)) return;
         const have = new Set(extra.map(keyOf));
         const add = (d.results || []).filter((x) => !have.has(keyOf(x))).map((x, i) => __spreadProps(__spreadValues({}, x), { _at: n, _i: i }));
@@ -3081,6 +3091,7 @@
         members.forEach((m) => items.push({ title: (!pair() && soloId() === m.id ? "\u25CF " : "") + "\u0422\u043E\u043B\u044C\u043A\u043E " + m.name, act: "mode", v: String(m.id) }));
       }
       if (toWatch.length) items.unshift({ title: "\u041D\u0430\u0448\u0438 \u043C\u044D\u0442\u0447\u0438 \u2014 \u0447\u0442\u043E \u0432\u043A\u043B\u044E\u0447\u0430\u0435\u043C (" + toWatch.length + ")", act: "pick" });
+      TIMES.forEach((t) => items.push({ title: (t.v === maxMin ? "\u25CF " : "") + t.title, act: "time", v: String(t.v) }));
       items.push({ title: "\u041D\u0430\u0447\u0430\u0442\u044C \u043F\u043E\u0434\u0431\u043E\u0440 \u0437\u0430\u043D\u043E\u0432\u043E", act: "reset" });
       Lampa.Select.show({
         title: "\u0412\u043C\u0435\u0441\u0442\u0435",
@@ -3088,6 +3099,17 @@
         onSelect(item) {
           if (item.act === "undo") undo();
           if (item.act === "pick") view = "pick";
+          if (item.act === "time") {
+            maxMin = Number(item.v) || 0;
+            Lampa.Storage.set(TIME_KEY, maxMin);
+            top = "";
+            refilling = true;
+            loadRec().catch(() => {
+            }).then(() => {
+              refilling = false;
+              if (alive) paint();
+            });
+          }
           if (item.act === "mode") {
             mode = String(item.v);
             Lampa.Storage.set(MODE_KEY, mode);
@@ -3130,11 +3152,11 @@
       }
       const who = voters(it)[0];
       const wanted = members.filter((m) => voteOf(it, m.id) > 0).map((m) => firstName(m));
-      const meta = [it.year, it.mediaType === "tv" ? "\u0421\u0435\u0440\u0438\u0430\u043B" : "\u0424\u0438\u043B\u044C\u043C", it.vote ? "\u2605 " + it.vote.toFixed(1) : ""].filter(Boolean).join(" \xB7 ");
+      const meta = [it.year, it.mediaType === "tv" ? "\u0421\u0435\u0440\u0438\u0430\u043B" : "\u0424\u0438\u043B\u044C\u043C", runtimeText(it), it.vote ? "\u2605 " + it.vote.toFixed(1) : ""].filter(Boolean).join(" \xB7 ");
       const next = list[1];
       Lampa.Background.change(poster(it, "w300"));
       html.html(
-        '<div class="tmdbacc-deck__stage"><div class="tmdbacc-deck__poster selector">' + (poster(it, "w500") ? '<img src="' + poster(it, "w500") + '" alt="">' : "<span>" + esc(it.title.slice(0, 1)) + "</span>") + '<i class="tmdbacc-deck__stamp tmdbacc-deck__stamp--yes">\u0425\u041E\u0427\u0423</i><i class="tmdbacc-deck__stamp tmdbacc-deck__stamp--no">\u041D\u0415\u0422</i></div><div class="tmdbacc-deck__info">' + (pair() && who ? '<div class="tmdbacc-deck__who" style="--who:' + colorOf(who) + '">\u0413\u043E\u043B\u043E\u0441\u0443\u0435\u0442 ' + esc(((_a = member(who)) == null ? void 0 : _a.name) || "") + "</div>" : "") + (wanted.length ? '<div class="tmdbacc-deck__want">' + ICON_HEART + esc(wanted.join(" \u0438 ")) + " \u2014 \u0445\u043E\u0447\u0435\u0442</div>" : "") + '<div class="tmdbacc-deck__title">' + esc(it.title) + '</div><div class="tmdbacc-deck__meta"><b>' + liveMatch(it) + "%</b>" + esc(meta) + "</div>" + (it.why ? '<div class="tmdbacc-deck__why">' + esc(it.why) + "</div>" : "") + (line ? '<div class="tmdbacc-deck__taste">\u041F\u043E\u0434\u0431\u0438\u0440\u0430\u044E: ' + esc(line) + "</div>" : "") + (next ? '<div class="tmdbacc-deck__next">\u0414\u0430\u043B\u044C\u0448\u0435: ' + esc(next.title) + "</div>" : "") + '</div></div><div class="tmdbacc-deck__keys"><span><kbd>\u2190</kbd>\u041D\u0435\u0442</span><span><kbd>\u2192</kbd>\u0425\u043E\u0447\u0443</span><span><kbd>OK</kbd>\u041F\u043E\u0434\u0440\u043E\u0431\u043D\u0435\u0435</span><span><kbd>\u2193</kbd>\u0423\u0436\u0435 \u0441\u043C\u043E\u0442\u0440\u0435\u043B\u0438</span><span><kbd>\u2191</kbd>\u041C\u0435\u043D\u044E</span></div>'
+        '<div class="tmdbacc-deck__stage"><div class="tmdbacc-deck__poster selector">' + (poster(it, "w500") ? '<img src="' + poster(it, "w500") + '" alt="">' : "<span>" + esc(it.title.slice(0, 1)) + "</span>") + '<i class="tmdbacc-deck__stamp tmdbacc-deck__stamp--yes">\u0425\u041E\u0427\u0423</i><i class="tmdbacc-deck__stamp tmdbacc-deck__stamp--no">\u041D\u0415\u0422</i></div><div class="tmdbacc-deck__info">' + (pair() && who ? '<div class="tmdbacc-deck__who" style="--who:' + colorOf(who) + '">\u0413\u043E\u043B\u043E\u0441\u0443\u0435\u0442 ' + esc(((_a = member(who)) == null ? void 0 : _a.name) || "") + "</div>" : "") + (wanted.length ? '<div class="tmdbacc-deck__want">' + ICON_HEART + esc(wanted.join(" \u0438 ")) + " \u2014 \u0445\u043E\u0447\u0435\u0442</div>" : "") + '<div class="tmdbacc-deck__title">' + esc(it.title) + '</div><div class="tmdbacc-deck__meta"><b>' + liveMatch(it) + "%</b>" + esc(meta) + "</div>" + (it.why ? '<div class="tmdbacc-deck__why">' + esc(it.why) + "</div>" : "") + (line || maxMin ? '<div class="tmdbacc-deck__taste">' + [maxMin ? "\u0412\u0435\u0447\u0435\u0440 " + timeShort() : "", line ? "\u043F\u043E\u0434\u0431\u0438\u0440\u0430\u044E: " + line : ""].filter(Boolean).map(esc).join(" \xB7 ") + "</div>" : "") + (next ? '<div class="tmdbacc-deck__next">\u0414\u0430\u043B\u044C\u0448\u0435: ' + esc(next.title) + "</div>" : "") + '</div></div><div class="tmdbacc-deck__keys"><span><kbd>\u2190</kbd>\u041D\u0435\u0442</span><span><kbd>\u2192</kbd>\u0425\u043E\u0447\u0443</span><span><kbd>OK</kbd>\u041F\u043E\u0434\u0440\u043E\u0431\u043D\u0435\u0435</span><span><kbd>\u2193</kbd>\u0423\u0436\u0435 \u0441\u043C\u043E\u0442\u0440\u0435\u043B\u0438</span><span><kbd>\u2191</kbd>\u041C\u0435\u043D\u044E</span></div>'
       );
       html.find(".tmdbacc-deck__poster").on("hover:enter", () => openFull(it));
       focus();
@@ -3151,8 +3173,9 @@
     }
     function paintPick() {
       const rankOf = (it) => (it.started ? 100 : 0) + liveMatch(it) + (it.vote || 0) / 100;
-      const list = toWatch.slice().sort((a, b) => rankOf(b) - rankOf(a));
+      const list = toWatch.filter(fitsTime).sort((a, b) => rankOf(b) - rankOf(a));
       if (!list.length) {
+        if (toWatch.length) Lampa.Noty.show("\u041D\u0438 \u043E\u0434\u0438\u043D \u043C\u044D\u0442\u0447 \u043D\u0435 \u0432\u043B\u0435\u0437\u0430\u0435\u0442 \u0432 \xAB" + timeShort() + "\xBB \u2014 \u0432\u044B\u0431\u0438\u0440\u0430\u0435\u043C \u043D\u043E\u0432\u043E\u0435");
         view = "deck";
         return paint();
       }
@@ -3163,7 +3186,7 @@
         return '<div class="tmdbacc-pick__tile selector" data-key="' + keyOf(it) + '"><div class="tmdbacc-pick__poster">' + (poster(it, "w342") ? '<img src="' + poster(it, "w342") + '" alt="">' : "<span>" + esc(it.title.slice(0, 1)) + "</span>") + (i === 0 ? '<i class="tmdbacc-pick__best">' + (it.started ? "\u0414\u043E\u0441\u043C\u043E\u0442\u0440\u0435\u0442\u044C" : "\u041B\u0443\u0447\u0448\u0435 \u0432\u0441\u0435\u0433\u043E \u0441\u0435\u0439\u0447\u0430\u0441") + "</i>" : "") + '</div><div class="tmdbacc-pick__name">' + esc(it.title) + '</div><div class="tmdbacc-pick__meta"><b>' + liveMatch(it) + "%</b>" + esc(runtimeText(it) || (it.mediaType === "tv" ? "\u0421\u0435\u0440\u0438\u0430\u043B" : "\u0424\u0438\u043B\u044C\u043C")) + "</div>" + (startedText ? '<div class="tmdbacc-pick__started">' + esc(startedText) + "</div>" : "") + "</div>";
       };
       html.html(
-        '<div class="tmdbacc-pick"><div class="tmdbacc-pick__title">\u0423 \u0432\u0430\u0441 ' + list.length + " " + plural(list.length, "\u043C\u044D\u0442\u0447", "\u043C\u044D\u0442\u0447\u0430", "\u043C\u044D\u0442\u0447\u0435\u0439") + ' \u2014 \u0447\u0442\u043E \u0432\u043A\u043B\u044E\u0447\u0430\u0435\u043C?</div><div class="tmdbacc-pick__sub">\u042D\u0442\u043E \u0432\u044B \u043E\u0431\u0430 \u0445\u043E\u0442\u0435\u043B\u0438 \u043F\u043E\u0441\u043C\u043E\u0442\u0440\u0435\u0442\u044C. OK \u2014 \u043E\u0442\u043A\u0440\u044B\u0442\u044C, \u2193 \u2014 \u0432\u044B\u0431\u0440\u0430\u0442\u044C \u0447\u0442\u043E-\u0442\u043E \u043D\u043E\u0432\u043E\u0435.</div><div class="tmdbacc-pick__row">' + list.map(tile).join("") + '</div><div class="tmdbacc-pick__more selector" data-key="more">\u0412\u044B\u0431\u0440\u0430\u0442\u044C \u043D\u043E\u0432\u043E\u0435 \u2014 \u0441\u0432\u0430\u0439\u043F\u044B</div></div>'
+        '<div class="tmdbacc-pick"><div class="tmdbacc-pick__title">\u0423 \u0432\u0430\u0441 ' + list.length + " " + plural(list.length, "\u043C\u044D\u0442\u0447", "\u043C\u044D\u0442\u0447\u0430", "\u043C\u044D\u0442\u0447\u0435\u0439") + ' \u2014 \u0447\u0442\u043E \u0432\u043A\u043B\u044E\u0447\u0430\u0435\u043C?</div><div class="tmdbacc-pick__sub">\u042D\u0442\u043E \u0432\u044B \u043E\u0431\u0430 \u0445\u043E\u0442\u0435\u043B\u0438 \u043F\u043E\u0441\u043C\u043E\u0442\u0440\u0435\u0442\u044C' + (maxMin ? " \u2014 \u0438 \u044D\u0442\u043E \u0432\u043B\u0435\u0437\u0430\u0435\u0442 \u0432 \u0432\u0435\u0447\u0435\u0440 " + timeShort() : "") + '. OK \u2014 \u043E\u0442\u043A\u0440\u044B\u0442\u044C, \u2193 \u2014 \u0432\u044B\u0431\u0440\u0430\u0442\u044C \u0447\u0442\u043E-\u0442\u043E \u043D\u043E\u0432\u043E\u0435, \u2191 \u2014 \u0432\u0440\u0435\u043C\u044F \u0438 \u0434\u0440\u0443\u0433\u043E\u0435.</div><div class="tmdbacc-pick__row">' + list.map(tile).join("") + '</div><div class="tmdbacc-pick__more selector" data-key="more">\u0412\u044B\u0431\u0440\u0430\u0442\u044C \u043D\u043E\u0432\u043E\u0435 \u2014 \u0441\u0432\u0430\u0439\u043F\u044B</div></div>'
       );
       const row = html.find(".tmdbacc-pick__row")[0];
       html.find(".tmdbacc-pick__tile").each(function() {
