@@ -370,7 +370,8 @@
     const type = mediaType(movie);
     const title = String(movie.title || movie.name);
     const C = Lampa.Controller;
-    const back = opts && opts.back || C.enabled && ((_a = C.enabled()) == null ? void 0 : _a.name) || "full_start";
+    const cur = C.enabled && ((_a = C.enabled()) == null ? void 0 : _a.name) || "";
+    const back = opts && opts.back || (cur && cur !== "modal" && cur !== "select" ? cur : "full_start");
     const close = () => {
       Lampa.Modal.close();
       if (opts && opts.next) setTimeout(opts.next, 250);
@@ -829,7 +830,8 @@
       Lampa.Storage.set(ASKED_KEY, asked);
       Lampa.Noty.show(note);
       const C = Lampa.Controller;
-      const back = C.enabled && ((_a = C.enabled()) == null ? void 0 : _a.name) || "content";
+      const cur = C.enabled && ((_a = C.enabled()) == null ? void 0 : _a.name) || "";
+      const back = cur && cur !== "modal" && cur !== "select" ? cur : "content";
       const step = (i) => {
         const m = order[i];
         const many = order.length > 1;
